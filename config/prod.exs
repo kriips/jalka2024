@@ -10,9 +10,9 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :jalka2024, Jalka2024Web.Endpoint,
-  url: [host: "jalka2022.fly.dev", port: 80],
+  url: [host: "jalka2024.fly.dev", port: 80],
   check_origin: [
-    "//jalka2022.fly.dev",
+    "//jalka2024.fly.dev",
     "//jalka.eys.ee"
   ],
   force_ssl: [rewrite_on: [:x_forwarded_host, :x_forwarded_port, :x_forwarded_proto]]

@@ -60,7 +60,7 @@ case Config.config_env() do
       live_view: [signing_salt: signing_salt],
       server: true,
       check_origin: [
-        "//jalka2022.fly.dev",
+        "//jalka2024.fly.dev",
         "//jalka.eys.ee"
       ]
 
