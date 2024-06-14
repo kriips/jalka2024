@@ -54,4 +54,23 @@ defmodule Jalka2024.Seed do
       )
     end
   end
+
+  def seed2 do
+    prefix = case Application.get_env(:jalka2024, :environment) do
+      :prod -> "/app/lib/jalka2024-0.1.0"
+      _ -> Mix.Project.app_path()
+    end
+    if Code.ensure_compiled(Jalka2024.Accounts.AllowedUser) &&
+         Jalka2024.Accounts.AllowedUser |> Jalka2024.Repo.aggregate(:count, :id) <= 977 do
+      Logger.info("Adding secondary seed data...")
+      Enum.each(
+        Jason.decode!(File.read!('#{prefix}/priv/repo/data/allowed_users2.json')),
+        fn attrs ->
+          %Jalka2024.Accounts.AllowedUser{}
+          |> Jalka2024.Accounts.AllowedUser.changeset(attrs)
+          |> Jalka2024.Repo.insert!()
+        end
+      )
+    end
+  end
 end
