@@ -1,5 +1,5 @@
 defmodule Jalka2024.Seed do
-
+  require Logger
   def seed do
     prefix = case Application.get_env(:jalka2024, :environment) do
       :prod -> "/app/lib/jalka2024-0.1.0"
