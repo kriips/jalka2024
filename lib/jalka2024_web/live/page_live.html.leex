@@ -46,9 +46,7 @@
     <hr />
     <div class="row">
       <div class="column">
-#        <%= live_redirect to: Routes.user_prediction_navigate_path(@socket, :navigate) do %>
           <button disabled class="button-large button-outline button-main">Ennusta</button>
-#        <% end %>
       </div>
       <div class="column column-offset-5">
         <%= live_redirect to: Routes.leaderboard_leaderboard_path(@socket, :view) do %>
