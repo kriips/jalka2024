@@ -1,15 +1,15 @@
-# fly.toml app configuration file generated for jalka2024 on 2024-05-20T18:50:23+03:00
+# fly.toml app configuration file generated for jalka2026 on 2024-05-20T18:50:23+03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'jalka2024'
+app = 'jalka2026'
 primary_region = 'arn'
 kill_signal = 'SIGTERM'
 kill_timeout = '5s'
 
 [experimental]
-  auto_rollback = true
+  auto_rollback = false
 
 [build]
 
@@ -17,7 +17,7 @@ kill_timeout = '5s'
   release_command = '/app/bin/migrate'
 
 [env]
-  PHX_HOST = 'jalka2024.fly.dev'
+  PHX_HOST = 'jalka2026.fly.dev'
   PORT = '8080'
 
 [http_service]
@@ -55,6 +55,7 @@ kill_timeout = '5s'
     interval = '15s'
     timeout = '2s'
     grace_period = '30s'
+    restart_limit = 0
 
 [[vm]]
   memory = '1gb'

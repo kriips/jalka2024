@@ -8,7 +8,7 @@
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-#     config :jalka2024, Jalka2024Web.Endpoint, server: true
+#     config :jalka2026, Jalka2026Web.Endpoint, server: true
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.

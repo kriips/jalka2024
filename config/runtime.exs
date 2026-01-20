@@ -7,7 +7,7 @@ end
 
 maybe_ipv6 = if System.get_env("ECTO_IPV6"), do: [:inet6], else: []
 
-db_config = Application.get_env(:jalka2024, Jalka2024.Repo)
+db_config = Application.get_env(:jalka2026, Jalka2026.Repo)
 database_url =
   case Config.config_env() do
     :test ->
@@ -20,7 +20,7 @@ database_url =
         """
   end
 
-config :jalka2024, Jalka2024.Repo,
+config :jalka2026, Jalka2026.Repo,
   # ssl: true,
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
@@ -50,7 +50,7 @@ case Config.config_env() do
         environment variable PORT is missing.
         """
 
-    config :jalka2024, Jalka2024Web.Endpoint,
+    config :jalka2026, Jalka2026Web.Endpoint,
       url: [host: "#{app_name}.fly.dev", port: 80],
       http: [
         ip: {0, 0, 0, 0, 0, 0, 0, 0},
@@ -60,7 +60,7 @@ case Config.config_env() do
       live_view: [signing_salt: signing_salt],
       server: true,
       check_origin: [
-        "//jalka2024.fly.dev",
+        "//jalka2026.fly.dev",
         "//jalka.eys.ee"
       ]
 
@@ -78,7 +78,7 @@ case Config.config_env() do
       ]
 
   :dev ->
-    config :jalka2024, Jalka2024Web.Endpoint, server: true
+    config :jalka2026, Jalka2026Web.Endpoint, server: true
   :test ->
-    config :jalka2024, Jalka2024Web.Endpoint, server: false
+    config :jalka2026, Jalka2026Web.Endpoint, server: false
 end

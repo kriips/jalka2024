@@ -1,7 +1,7 @@
-defmodule Jalka2024.Repo.Migrations.RunSeeds do
+defmodule Jalka2026.Repo.Migrations.RunSeeds do
   use Ecto.Migration
 
   def change do
-    Jalka2024.Seed.seed2()
+    Jalka2026.Seed.seed2()
   end
 end

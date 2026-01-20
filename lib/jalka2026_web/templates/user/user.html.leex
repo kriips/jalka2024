@@ -1,0 +1,56 @@
+<main role="main" class="container">
+    <h1>
+        <%= @user.name %>
+    </h1>
+    <h2>Alagrupid</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Võistkonnad</th>
+                <th>Tulemus</th>
+                <th>Õige tulemus</th>
+                <th>Õige skoor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%= for {%{away_score: away_score, home_score: home_score, match: match}, correct_result, correct_score} <- @predictions do %>
+            <tr>
+                <td><%= match.home_team.name %> - <%= match.away_team.name %></td>
+                <td><%= home_score %> - <%= away_score %></td>
+                <td>
+                    <%= if correct_result do %>
+                        <svg viewBox="0 0 260 260" class="checkbox" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                            <path d="M 30,180 90,240 240,30" style="stroke:#0168d9; stroke-width:2rem; fill:none"/>
+                        </svg>
+                    <% end %>
+                </td>
+                <td>
+                    <%= if correct_score do %>
+                    <svg viewBox="0 0 260 260" class="checkbox" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                        <path d="M 30,180 90,240 240,30" style="stroke:#0168d9; stroke-width:2rem; fill:none"/>
+                    </svg>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <h2>Playoffid</h2>
+    <h3>32 parimat</h3>
+    <%= raw(Enum.join(@playoff_predictions[32], ", ")) %>
+    <hr>
+    <h3>Kaheksandikfinalistid</h3>
+    <%= raw(Enum.join(@playoff_predictions[16], ", ")) %>
+    <hr>
+    <h3>Veerandfinalistid</h3>
+    <%= raw(Enum.join(@playoff_predictions[8], ", ")) %>
+    <hr>
+    <h3>Poolfinalistid</h3>
+    <%= raw(Enum.join(@playoff_predictions[4], ", ")) %>
+    <hr>
+    <h3>Finalistid</h3>
+    <%= raw(Enum.join(@playoff_predictions[2], ", ")) %>
+    <hr>
+    <h3>Võitja</h3>
+    <%= raw(Enum.join(@playoff_predictions[1], ", ")) %>
+</main>

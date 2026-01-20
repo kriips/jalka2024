@@ -1,4 +1,4 @@
-defmodule Jalka2024.Repo.Migrations.CreateAllowedUsers do
+defmodule Jalka2026.Repo.Migrations.CreateAllowedUsers do
   use Ecto.Migration
 
   def change do

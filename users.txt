@@ -1,0 +1,990 @@
+1. Aadamsoo, Martin
+2. Aadli, Jüri
+3. Aadoson, Andres
+4. Aan, Mark-Erik
+5. Aaren, Kristjan
+6. Aaresild, Hannes
+7. Aarma, Kiur
+8. Aasa, Hans
+9. Aasmäe, Toomas
+10. Aavik, Andres
+11. Abiline, Paul
+12. Abiline, Karl
+13. Adams, Henri
+14. Adermann, Tõnn
+15. Adrikorn, Toomas
+16. Ahola, Teemu
+17. Ahusalu, Ainar
+18. Aints, Alar
+19. Akker, Jaak
+20. Alamaa, Karl Oskar
+21. Alamaa, Eero
+22. Alas, Annar
+23. Alatalu, Siim
+24. Albo, Jaan
+25. Aljas, Eerik Ilmar
+26. Allas, Robin
+27. Allik, Mihkel
+28. Allik, Indrek
+29. Allpere, Aadu Jaak
+30. Alt, Oliver Robin
+31. Altoja, Arno Adolf
+32. Andresen, Andres
+33. Andressoo, Jaan-Olle
+34. Angerpikk, Jaan
+35. Anniko, Paul Peter
+36. Ansper, Taavi
+37. Anton, Karl
+38. Areda, Tarmo
+39. Aring, Siim
+40. Aron, Rasmus
+41. Arpo, Martin
+42. Arrak, Marko
+43. Arro, Tõnis
+44. Arro, Rait
+45. Arro, Kaspar
+46. Arro, Andrus
+47. Arro, Andres
+48. Arro, Alo
+49. Arula, Tom
+50. Ashford, Robert
+51. Asi, Antti
+52. Asmer, Tanel
+53. Aug, Kaspar
+54. Auman, Algis
+55. Aus, Robin
+56. Aus, Kaarel
+57. Becker, Ilo Kalev
+58. Benno, Agur
+59. Berendsen, Veiko
+60. Bergmann, Tõnis
+61. Bergström, Ott
+62. Boukhelkhal, El Hadj Lakhdar
+63. Burget, Meelis
+64. Bärenklau, Ingvar
+65. Derišev, Stanislav
+66. Eensaar, Rain
+67. Eerme, Peep
+68. Ehvert, Vello
+69. Einre, Henrik
+70. Elling, Tõnis
+71. Elling, Indrek
+72. Erendi, Aleksander
+73. Ers, Andrus
+74. Erss, Mart-Peeter
+75. Esko, Karl Erik
+76. Esop, Verner Walter
+77. Estonius, Mats
+78. Estonius, Leo
+79. Estonius, Allan
+80. Ets, Agu
+81. Feldmann, Magnus
+82. Feodorov, Kristjan
+83. Fischer, Mark Aleksander
+84. Garder, Norman
+85. Garder, Edvard
+86. Gering, Mihkel
+87. Gering, Margus
+88. Gostsõllo, Henri
+89. Grahv, Ahto
+90. Gross, Toomas
+91. Gutmann, Karl
+92. Haav, Ingmar
+93. Habal, Igor
+94. Halilov, Indrek
+95. Haljasorg, Heiki
+96. Hansen, Vootele
+97. Haug, Markus
+98. Hay, Alexander
+99. Heinap, Jonatan
+100. Heinsaar, Erki
+101. Heinsalu, Joosep
+102. Heinsalu, Alo
+103. Heiter, Joonas
+104. Helberg, Jüri
+105. Helenurm, Jorma
+106. Hellaste, Oliver
+107. Hendrikson, Rain
+108. Hiietamm, Märt
+109. Hiio, Toomas
+110. Hiio, Mart
+111. Hilpus, Arti
+112. Hindov, Raul
+113. Hirsch, Jaan
+114. Hirv, Indrek
+115. Holm, Kristofer
+116. Holmberg, Erki
+117. Hunt, Ragnar
+118. Hunt, Arlis
+119. Hurt, Taivo
+120. Häidberg, Martin
+121. Hüvanen, Elias
+122. Hüvonen, Reimond
+123. Ibrus, Indrek
+124. Illing, Sven
+125. Ilp, Ragnar
+126. Ilp, Oliver
+127. Ilus, Mihkel
+128. Ilus, Himot-Märt
+129. Ilves, Toomas Hendrik
+130. Ilves, Luukas Kristjan
+131. Ilves, Henry
+132. Ilves, Arno
+133. Innos, Rainer
+134. Innos, Jürgen
+135. Jaagu, Ingo Tiit
+136. Jaakson, Lauri
+137. Jakobson, Jaan
+138. Jakobson, Enno
+139. Jalakas, Ott
+140. Jalonen, Anti
+141. Janson, Daniel
+142. Jaska, Ingmar
+143. Johanson, Hans Walter
+144. Johansson, Stegert
+145. Joll, Mihkel
+146. Juhani, Jaanus
+147. Juhanson, Üllar
+148. Juhanson, Joosep Sander
+149. Juhanson, Aleks
+150. Juhkam, Andres
+151. Juhkamsoo, Lauri
+152. Jukola, Taavet Joonas
+153. Juske, Jaak
+154. Juurik, Kaljo
+155. Juurik, Joosep
+156. Jõeleht, René
+157. Jõesoo, Indrek
+158. Jõgeva, Jürgen
+159. Jõgis, Andres
+160. Jänes, Mart
+161. Järv, Andres
+162. Järve, Martin
+163. Järvela, Ott
+164. Järvelaid, Mikk
+165. Järvesaar, Ruben
+166. Järvpõld, Neeme
+167. Jäärats, Raiko
+168. Jürgens, Mattias
+169. Jürgenson, Henry
+170. Jürisson, Tarmo
+171. Jürisson, Jüri
+172. Jürisson, Feliks
+173. Kaal, Ott
+174. Kaaman, Taavi
+175. Kaar, Mattias
+176. Kaasik, Peeter
+177. Kaasik, Claude
+178. Kadakas, Villu
+179. Kadakas, Valdur
+180. Kahar, Oskar
+181. Kahar, Andres
+182. Kaigu, Ivar
+183. Kail, Rainer Edward
+184. Kajandi, Madis
+185. Kala, Veikko
+186. Kalamees, Alar
+187. Kald, Indrek
+188. Kaldoja, Allan
+189. Kaldre, Juhan
+190. Kaldur, Peeter
+191. Kaljo, Thorwald-Eirik
+192. Kaljurand, Kuldar
+193. Kalk, Kari
+194. Kallak, Jaak
+195. Kallas, Raol
+196. Kallas, Kaarel
+197. Kallas, Jaan Kaarel
+198. Kallemaa, Kaupo
+199. Kallip, Sander
+200. Kalmus, Gert
+201. Kalvet, Tarmo
+202. Kalvik, Tõnu Mardi
+203. Kanarbik, Kevin
+204. Kangur, Mihkel
+205. Kangur, Harry
+206. Kannik, Indrek
+207. Kannike, Sulev
+208. Kannike, Erik Markus
+209. Kaptein, Andre
+210. Kard, Mikk
+211. Kariis, Toomas
+212. Karindi, Agu
+213. Karis, Alar
+214. Kark, Martin
+215. Karlson, Olari
+216. Karmo, Märt
+217. Karpov, Ermo
+218. Karro, Ilmar
+219. Kartau, Aare
+220. Kase, Andres Aleksander
+221. Kask, Oskar
+222. Kask, Margus Ain
+223. Kask, Karl
+224. Kaskla, Ken
+225. Kasonen, Mehis
+226. Kass, Ando Martin
+227. Kasterpalu, Margus
+228. Kaugema, Tambet
+229. Kees, Andres
+230. Kelomees, Herman
+231. Kelt, Oskar
+232. Kerb, Argo
+233. Kerge, Riho
+234. Kerge, Rainer
+235. Kerge, Joonas
+236. Kerner, Harry
+237. Kerse, Roger
+238. Kerstna, Tanel
+239. Kesa, Mark Andre
+240. Keskpaik, Lauri
+241. Kesküla, Roland
+242. Kibena, Märt
+243. Kibur, Lembit
+244. Kidron, Tom Tristan
+245. Kidron, Hendo
+246. Kielberg, Kristjan
+247. Kiho, Toomas
+248. Kiho, Jaan
+249. Kiik, Martin Joseph
+250. Kiili, Markus
+251. Kikas, Rainis
+252. Kilg, Tarmo
+253. Kilm, Toomas
+254. Kirs, Kevin
+255. Kirsiaed, Ivo
+256. Kirss, Peeter
+257. Kirt, Kaspar
+258. Kirt, Karl Martin
+259. Kisand, Martin-Leo
+260. Kiudsoo, Mauri
+261. Kivil, Karl
+262. Kivimägi, Kenet
+263. Kivirähk, Andrus
+264. Kivisild, Mart
+265. Kivisoo, Priit
+266. Klaar, Andres
+267. Klaas, Welix
+268. Kodar, Mark-Eerik
+269. Kodar, Anti
+270. Koemets, Paap
+271. Koern, Andres
+272. Kogerman, Priit
+273. Koik, Ott
+274. Koit, Karl-Kristjan
+275. Koit, Andre
+276. Kokk, Marten
+277. Kolga, Margus
+278. Kolk, Uku Paavo
+279. Kolk, Peeter
+280. Kolla, Karl Olaf
+281. Kollo, Marko
+282. Kontkar, Kaidu
+283. Kontus, Mati Arnold
+284. Kook, Urmet
+285. Kook, Andres
+286. Kool, Peeter
+287. Kool, Andree
+288. Koolman, Toomas
+289. Koppel, Olari
+290. Koppelmaa, Karl
+291. Kork, Mauno
+292. Korrovits, Paul
+293. Kose, Märt
+294. Kose, Marten
+295. Kosk, Üllar
+296. Kraus, Martin
+297. Krause, Hannes
+298. Kreem, Juhan
+299. Kristjan, Hans
+300. Kroon, Paavo
+301. Krooni, Martin
+302. Krosmann, Paavo
+303. Kross, Eerik-Niiles
+304. Krull, Sten-Erik
+305. Krund, Marko
+306. Kruus, Kristjan
+307. Kruusamägi, Ivo
+308. Kuhi, Kristjan
+309. Kukemilk, Toomas
+310. Kukk, Indrek
+311. Kuldkepp, Remo
+312. Kullamäe, Erich-Johann
+313. Kullerkupp, Taavi
+314. Kumm, Karl-Mark
+315. Kurrik, Silver
+316. Kurs, Kalmar
+317. Kurvits, Vahur
+318. Kurvits, Henn
+319. Kurvits, Alar
+320. Kutsar, Gustav
+321. Kutti, Tanel
+322. Kuuba, Robert
+323. Kuum, Kaur Erik
+324. Kuura, Marko
+325. Kuusik, Argo
+326. Kuusk, Kaimo
+327. Kuusk, Hendrik
+328. Kõdar, Johannes
+329. Kõiva, Peeter
+330. Kõljalg, Urmas
+331. Kõljalg, Kristjan
+332. Kõresaar, Matti
+333. Kõrgmaa, Priit
+334. Kägi, Rein
+335. Käsper, Henri
+336. Käärid, Martin
+337. Köömnemägi, Raoul
+338. Kööp, Greg
+339. Künamägi, Janar
+340. Küng, Enn
+341. Künnapuu, Rando
+342. Kütaru, Karli
+343. Kütaru, Gert-Heiko
+344. Kütisaar, Sander
+345. Laar, Mihkel
+346. Laar, Mart
+347. Laarmaa, Anto
+348. Laasi, Viljar
+349. Laats, Toomas
+350. Laatsit, Mart
+351. Laev, Kaarel
+352. Lain, Meelis
+353. Laineveer, Indrek
+354. Laja, Heiki
+355. Laks, Mihkel
+356. Laks, Mihkel
+357. Laks, Jaan
+358. Lamp, Tõnn
+359. Laub, Gerd
+360. Laur, Veljo
+361. Laur, Mati
+362. Lauri, Jan-Eric
+363. Lausma, Karl Robert
+364. Laussen, Ivar
+365. Leego, Steven
+366. Leego, Erkki
+367. Leemet, Taavi
+368. Leemet, Artur
+369. Leetmaa, Mart
+370. Leevik, Marko
+371. Lehe, Kert
+372. Lehispuu, Cleven
+373. Leinola, Hannes
+374. Leis, Martin
+375. Lembra, Sander
+376. Lemendik, Richard
+377. Lemetti, Ott Hendrik
+378. Lemetti, Margo
+379. Lemmik, Juhani
+380. Lepasepp, Priit
+381. Lepasepp, Kaupo
+382. Lepik, Urmas
+383. Lepik, Matti
+384. Lepik, Lauri
+385. Lepik, Jaan
+386. Lepik, Indrek
+387. Lepik von Wirén, Illimar
+388. Lepisk, Arno
+389. Lesk, Gerri
+390. Liiva, Mario
+391. Liivet, Lauri
+392. Lill, Hellar
+393. Lill, Heiki
+394. Lillmets, Karl
+395. Lindepuu, Marko
+396. Lindvere, Kuldar
+397. Lindvere, Andres
+398. Linn, Einar
+399. Lohk, Jaak
+400. Loite, Kristjan
+401. Lokk, Andres
+402. Loona, Matthias
+403. Lopman, Villy
+404. Lott, Alexander
+405. Luell, Olavi Jüri
+406. Luik, Jüri
+407. Lukas, Tõnis
+408. Lumiste, Taavo
+409. Luts, Joosep
+410. Lõhmus, Villu
+411. Lõhmus, Lauri
+412. Lõhmus, Laur
+413. Lõo, Indrek
+414. Lõokene, Rain Rasmus
+415. Lõugas, Hans
+416. Lõõnik, Toomas
+417. Lätte, Mart
+418. Lättemäe, Raoul
+419. Maalt, Kristjan
+420. Maamets, Peeter
+421. Maandi, Andrus
+422. Maasik, Rein
+423. Maasik, Otto
+424. Maasik, Arne
+425. Maasikas, Matti
+426. Madal, Madis
+427. Made, Raimond
+428. Madjak, Lauri
+429. Maidla, Urmas
+430. Manitski, Jaan
+431. Mark, Sven
+432. Markson, Tarvi
+433. Markson, Madis
+434. Masso, Mihkel
+435. Matiisen, Rait
+436. Matkevicius, Mihkel
+437. Matt, Margus
+438. Matt, Jaan
+439. Meiusi, Tõnu
+440. Melsas, Martin-Rasmus
+441. Merilai, Markus
+442. Merilo, Mark Taavo
+443. Merimaa, Indrek
+444. Mertsin, Arnold Leonhard
+445. Mihhels, Indrek
+446. Mihkelson, Hans jun.
+447. Mihkla, Peeter
+448. Miidla, Mihkel
+449. Miljan, Martti-Jaan
+450. Miller, Mihkel
+451. Minka, Rein
+452. Minka, Indrek
+453. Mirka, Hans
+454. Molok, Tanel
+455. Moore, Cedrik William Werner
+456. Muda, Rein
+457. Muda, Georg
+458. Muld, Andres
+459. Murre, Tanel
+460. Murula, Rein
+461. Murula, Joonas Jürgen
+462. Murusalu, Mart
+463. Must, Mihkel
+464. Must, Karl
+465. Must, Erik Oliver
+466. Mustonen, Aleksander
+467. Mutso, Rein
+468. Mutso, Jann
+469. Mõistlik, Mart M.
+470. Mõistus, Martin
+471. Mäe, Kristo
+472. Mäe, Indrek
+473. Mäesalu, Ain
+474. Mägi, Ruut
+475. Mägi, Martin
+476. Mägi, Mart
+477. Mägi, Mart
+478. Mägi, Markus
+479. Mägi, Joosep
+480. Mälksoo, Lauri
+481. Mänd, Endrik
+482. Männaste, Toomas
+483. Märjamaa, Kent
+484. Määrmann, Toomas
+485. Müller, Margo
+486. Müntel, Mait
+487. Müür, Jaanus
+488. Müürsepp, Sven
+489. Müürsepp, Mait
+490. Nahkur, Madis
+491. Neemoja, Erik
+492. Nellis, Siim
+493. Neuhaus, Henrik
+494. Ney, Paul
+495. Ney, Oliver
+496. Niglas, Aivar
+497. Niilus, Reedik
+498. Niinemets, Andreas
+499. Nippak, Ivar Alan
+500. Nippak, Erik Alar
+501. Noorkõiv, Peep
+502. Norheim, Nils Erik Toomas
+503. Normet, Filip
+504. Nukki, Ats
+505. Nurk, Ragnar
+506. Nurk, Gunnar
+507. Nurm, Riho
+508. Nurmoja, Toomas
+509. Nõmm, Mart
+510. Nõmm, Juho
+511. Nõmm, Aart
+512. Nõmmik, Tõnis
+513. Nöps, Juhan
+514. Nyman, Rein
+515. Nyman, Mart
+516. Nyman, Hendrik Märt
+517. Odamus, Marko
+518. Okasmaa, Juhan
+519. Olli, Kalle
+520. Olo, Markko
+521. Olumets, Erko
+522. Oopkaup, Ott Eric
+523. Ostrat, Indrek
+524. Osula, Andres
+525. Otsa, Edward
+526. Otsla, Briaen
+527. Paadam, Karl Juhan
+528. Padu, Madis
+529. Pae, Kaspar
+530. Paenurk, Rainer
+531. Pagi, Imre
+532. Pahtma, Leino
+533. Paide, Tanel
+534. Paide, Olavi
+535. Paide, Jarl Patrick
+536. Paju, Peeter Aleksander
+537. Pajumäe, Maario
+538. Pajur, Indrek
+539. Palgi, Tõnis
+540. Paljak, Peeter
+541. Pallop, Tarmo A.
+542. Pallop, Erik
+543. Palumaa, Silver
+544. Palumaa, Peep
+545. Paluteder, Lennart Andreas
+546. Pankratov, Andrei
+547. Pannel, Vello Robert
+548. Pannel, Jaan Erik
+549. Parelo, Aleksander
+550. Pari, Erwin Mihkel
+551. Parming, Veiko Paul
+552. Part, Silver
+553. Parvei, Karl Martin
+554. Pauklin, Paavo
+555. Paurson, Rando
+556. Pedajas, Kiur
+557. Pedak, Matis
+558. Peek, Hendrik
+559. Penjam, Märten Joosep
+560. Penno, Ivo
+561. Penno, Hendrik
+562. Penno, Christian
+563. Pere, Pärtel-Peeter
+564. Perendi, Andres
+565. Perkmann, Henri
+566. Perli, Silver
+567. Perli, Antti
+568. Persidski, Franek
+569. Perve, Rhett
+570. Pesur, Veiko
+571. Peterkop, Taimar
+572. Peterson, Andreas
+573. Petersoo, Tõnu Elmar
+574. Petron, Olavi
+575. Pettai, Raul
+576. Pettai, Kairo
+577. Pihlak, Kalev
+578. Pihlak, Jaak
+579. Pihlak, Gregor
+580. Piik, René
+581. Piir, Gustav Peeter
+582. Piirimäe, Pärtel
+583. Piirimäe, Kaarel
+584. Piirsalu, Sten
+585. Pikani, Jaanus
+586. Pikani, Hans Kristjan
+587. Pikksalu, Tiit
+588. Pilar, Klaus-Erik
+589. Pilm, Jüri
+590. Pilvik, Roger
+591. Pisa, Mihkel
+592. Plaado, Mikk
+593. Plaat, Jaanus
+594. Plaks, Rainer Aaron
+595. Plaser, Martin
+596. Ploom, Illimar
+597. Ploompuu, Taavi
+598. Ploompuu, Mats
+599. Pogga, Kaarel
+600. Pokk, Pedro
+601. Poll, Karl
+602. Poolamets, Anti
+603. Poolsaar, Peeter Eric
+604. Posti, Ivo Andreas
+605. Povel, Oliver
+606. Praks, Hugo
+607. Praks, Eemil
+608. Prank, Raivo
+609. Prank, Hubert Uku
+610. Prank, Herbert Hugo
+611. Prank, Ervin Otto
+612. Pranstibel, Joonas
+613. Priks, Ardi
+614. Prink, Madis
+615. Pruuli, Tiit
+616. Puide, Peeter
+617. Pullerits, Sander
+618. Punab, Margus
+619. Punga, Oskar
+620. Puolokainen, Tarmo
+621. Purre, Rain
+622. Puusaar, Karl
+623. Puust, Raido
+624. Põldmäe, Aksel
+625. Pärdi, Mikk
+626. Pärli, Hendrik
+627. Pärn, Risto
+628. Pärn, Kaarel
+629. Pärn, Jüri
+630. Pärn, Heino
+631. Pärna, Kaur
+632. Pütsep, Peeter Ervin
+633. Püvi, Olari
+634. Püvi, Andri
+635. Raag, Ilmar
+636. Raaper, Madis
+637. Raba, Kristjan
+638. Rahno, Aivar
+639. Raidma, Juhan Karl
+640. Raidmets, Märten
+641. Raig, Erik
+642. Raja, Vambola
+643. Raja, Kristjan
+644. Raju, Fred
+645. Rammul, Christopher
+646. Rampe, Mart
+647. Rand, Mihkel
+648. Rand, Jaak
+649. Randes, Thomas
+650. Randes, Raivo
+651. Randmeri, Rainer
+652. Ratas, Peep
+653. Ratassepp, Madis
+654. Raud, Taivo
+655. Raud, Jonathan
+656. Raud, Johan
+657. Raudsik, Peeter
+658. Raudsik, Joosep
+659. Raudvee, Torm Erik
+660. Raukas, Mart
+661. Rebane, Peep Peter
+662. Rebane, Mikk
+663. Rebas, Karel
+664. Rebas, Johan
+665. Rebas, Hain
+666. Rebas, Aho
+667. Reesalu, Jaak Peeter
+668. Reiman, Gunnar
+669. Reimand, Madis
+670. Reimand, Koit
+671. Reimand, Harri
+672. Reinola, Mattis
+673. Reisner, Hugo Mart
+674. Reisner, Helmuth Martin
+675. Remmel, Karl-Kristjan
+676. Renel, Joonatan
+677. Reštšinski, Peeter
+678. Riga, Jaak
+679. Riigor, Indrek
+680. Riiner, Jaanus
+681. Riisalo, Tiit
+682. Riisenberg, Jaan
+683. Riomar, Vello
+684. Riomar, Tõnu Ivar
+685. Rist, Oliver
+686. Rivis, Reimo
+687. Roger, Martin
+688. Rohtla, Indrek
+689. Rooden, Mikk
+690. Roomets, Harald Paul
+691. Roos, Richard Jaan
+692. Roos, Martin Robert
+693. Roos, Jaan
+694. Roosik, Erko-Andreas
+695. Roosma, Toomas
+696. Roosma, Peeter
+697. Roosma, Mihkel
+698. Roosma, Madis
+699. Roots, Villem
+700. Roots, Marko
+701. Roots, Eric
+702. Rosen, Jürgen
+703. Rumm, Hannes
+704. Rummo, Mart
+705. Ruttas, Harri
+706. Ruus, Jüri Mihkel
+707. Ruusa, Jaan
+708. Rõigas, Meelis
+709. Rähn, Tiit
+710. Ründva, Rasmus
+711. Saar, Reigo
+712. Saar, Peet
+713. Saar, Mart
+714. Saar, Mark
+715. Saar, Henri
+716. Saarmets, Hannes
+717. Saarni, Ivo
+718. Sade, Imre
+719. Sakkov, Sven
+720. Sakkov, Ekke
+721. Saks, Rainer
+722. Saks, Joosep
+723. Salamäe, Tomas
+724. Saliste, Hendrik
+725. Salumäe, Erik Joonas
+726. Salumäe, Erik
+727. Salundi, Karl-Erich
+728. Salupere, Andrus
+729. Saluveer, Ott
+730. Sammelselg, Veiko
+731. Samolberg, Rainer Verner
+732. Sarapik, Mikk
+733. Sarv, Priit
+734. Sarv, Ott
+735. Sarv, Laur
+736. Sarv, Hannes
+737. Saueauk, Meelis
+738. Savimaa, Raul
+739. Schults, Rauno
+740. Seeman, Siim
+741. Seilenthal, Sander Mart
+742. Seilenthal, Jüri
+743. Seim, Taavi
+744. Seim, Jaan
+745. Seisler, Olaf
+746. Seljamaa, Jass
+747. Seljamaa, Jarmo
+748. Sepp, Oliver
+749. Sepp, Henri
+750. Sergo, Jan
+751. Siilats, Keith
+752. Siiman, Olavi
+753. Siimsen, Aarne
+754. Sikk, Siim
+755. Sillamaa, Siim
+756. Silm, Silver
+757. Silm, Kristjan
+758. Simm, Janno
+759. Simmermann, Martin
+760. Simmul, Rein
+761. Simovart, Aleksander Karl
+762. Simson, Raimo
+763. Simson, Päivo
+764. Sinijärv, Riivo
+765. Sinijärv, Karl Martin
+766. Skonberg, Stefan Thor
+767. Skonberg, Magnus Paul
+768. Skonberg, Carl Erik
+769. Skonberg, Carl
+770. Soans, Hanno
+771. Soidro, Mart
+772. Sokk, Andres
+773. Soolep, Mihkel
+774. Soolep, Andres
+775. Soom, Andres
+776. Soome, Rasmus
+777. Soomägi, Jüri
+778. Soosaar, Sven-Erik
+779. Soosaar, Marti
+780. Sova, Jakob Julius
+781. Sova, Jaanus
+782. Stepanov, Saamuel
+783. Stern, Jaanus
+784. Strandberg, Bruno
+785. Sudak, Jaan
+786. Sulbi, Raul
+787. Sulg, Jaan jun.
+788. Suluste, Kristjan
+789. Sutt, Janar
+790. Suurkuusk, Günter
+791. Suurküla, Mart
+792. Sõnajalg, Jaak
+793. Sõrra, Toomas Mihkel
+794. Särekanno, Uku
+795. Säärits, Kaur
+796. Sööt, Olaf
+797. Süld, Kaarel
+798. Sütt, Andreas Alexander
+799. Šagarov, Artur
+800. Šois, Miron
+801. Zingel, Uku
+802. Tabun, Janek
+803. Tae, Eero
+804. Tagel, Toivo
+805. Tagel, Marcus
+806. Tallinn, Jaan
+807. Tamm, Urmas
+808. Tamm, Riho
+809. Tamm, Kerdo Kristjan
+810. Tamm, Kaarl Rudolf
+811. Tamm, Ilmar
+812. Tamm, Erki
+813. Tamm, Antti
+814. Tamm, Allan
+815. Tammaru, Enn
+816. Tamme, Aleksander
+817. Tammemäe, Sten-Erik
+818. Tammi, Mikk-Kaspar
+819. Tammik, Joosep
+820. Tang, Tanel
+821. Tapver, Rain
+822. Tarand, Konrad Hugo
+823. Tarand, Kaarel
+824. Tarand, Indrek
+825. Tarand, Andres
+826. Tari, Talvar
+827. Tark, Lukas
+828. Tarkpea, Peeter
+829. Tarmet, Martin
+830. Tarmet, Johan
+831. Tarum, Sven
+832. Teder, Kristjan
+833. Teder, Kaur
+834. Teder, Indrek
+835. Teedumäe, Tarmo
+836. Teemant, Marten
+837. Telliskivi, Kevin
+838. Tenslind, Siim
+839. Tenslind, Mait
+840. Teose, Mark
+841. Teras, Roland Martin
+842. Teras, Jüri jun.
+843. Teras, Hans Jürgen
+844. Teuli, Madis Uljam
+845. Thomson, Tevian
+846. Tiidemann, Tõnn
+847. Tiidemann, Siim
+848. Tiimus, Peeter
+849. Tiitson, Hendrik
+850. Tiivel, Toomas
+851. Tilk, Jim
+852. Timusk, Paul Christopher
+853. Timusk, Markus Ain
+854. Timusk, Jaan
+855. Tingas, Neeme
+856. Tinits, Priit
+857. Tolk, Siim
+858. Tomson, Toomas
+859. Tomson, Eduard Paul
+860. Tomson, Ants
+861. Toom, Märten
+862. Toom, Aarne
+863. Toomet, Ott
+864. Tooming, Antti
+865. Toomist, Kristjan
+866. Toomistu, Tenno
+867. Toomsalu, Markus
+868. Tori, Erkki
+869. Torpan, Sten
+870. Tran, Jakob-Anhtu
+871. Triipan, Martin
+872. Tropp, Raimo
+873. Tropp, Kristjan
+874. Tross, Jaan
+875. Trumann, Lauri
+876. Trummal, Eliel
+877. Truumees, Reino
+878. Tsarjov, Siim
+879. Tsirgu, Tanel
+880. Turk, Märt
+881. Tuulse, Toomas
+882. Tuvi, Taavi
+883. Tuvikene, Taavi
+884. Tõeväli, Kristjan
+885. Tõeväli, Indrek
+886. Tõnisson, Siim Tanel
+887. Tõnisson, Peeter Toomas
+888. Tõõtsov, Peeter
+889. Tähnas, Tarmo
+890. Tänav, Tõnis
+891. Tänava, Märt
+892. Tüllinen, Krister
+893. Türkson, Tarmo
+894. Türkson, Hugo
+895. Türna, Artur
+896. Tüür, Madis
+897. Uiboaed, Gert
+898. Uibopuu, Rein
+899. Ulst, Edward
+900. Uusküla, Teet
+901. Uusmaa, Roger
+902. Vaas, Koit
+903. Vackermann, Ott Villem
+904. Vaga, Markus
+905. Vaher, Väino
+906. Vahtla, Kristjan
+907. Vahtra, Lauri
+908. Vahtra, Hardi
+909. Vahtre, Lauri
+910. Vaik, Rasmus
+911. Vaikla, Magnus
+912. Vaikna, Jaak
+913. Vainik, Mikk
+914. Vainikko, Martin
+915. Vainokivi, Alex
+916. Valdaru, Siim
+917. Valder, Viljar
+918. Valdma, Johannes
+919. Valdre, Margus
+920. Valdre, Ants
+921. Valge, Ado
+922. Vanamölder, Lauri
+923. Vanamölder, Kaarel
+924. Vari, Tanel
+925. Varrik, Jonas
+926. Varrik, Jarek
+927. Varrik, Enn
+928. Varul, Rene
+929. Varul, Raul
+930. Varusk, Silver
+931. Vask, Robin
+932. Vaske, Veiko
+933. Vatsel, Soames
+934. Vatter, Villem Johan
+935. Vatter, Joonas
+936. Vaus, Ain V.
+937. Veem, Kristjan
+938. Veenpere, Tõnis
+939. Veenpere, Jaan
+940. Veeremäe, Kristjan
+941. Veetamm, Kristo
+942. Veidebaum, Sten-Andrus
+943. Veidebaum, Joel-Kaspar
+944. Veisson, Tanel
+945. Veldre, Ülo
+946. Vellend, Ivo
+947. Veltmann, Peeter
+948. Vercamer, Arvo Lennart
+949. Veri, Märt
+950. Veskemaa, Harry
+951. Veskimets, Arvo
+952. Veskimäe, Märten
+953. Veskioja, Ivar
+954. Videvik, Jan Lucas
+955. Viidul, Villu
+956. Viilukas, Imre
+957. Viimsalu, Vilmar
+958. Viires, Mart
+959. Viitso, Tiit-Rein
+960. Viitso, Jaak
+961. Viljamaa, Oliver
+962. Vinkman, Victor Olav
+963. Vinni, Madis
+964. Vinni, Maanus
+965. Visnapuu, Toivo
+966. Vlassov, Jüri
+967. Vodja, Madis
+968. Volberg, Jaak
+969. von Wirén, Jorma
+970. Voog, Viljar
+971. Voog, Janno
+972. Vosman, Hendrik
+973. Vosman, Andres
+974. Võsa, Sander-Ville
+975. Väin, Markus
+976. Väli, Joonas
+977. Väliste, Oskar
+978. Väliste, Mihkel Tuudur
+979. Vöörmann, Paavo
+980. Wirkmaa, Rein
+981. Woode, Jaan
+982. Õispuu, Karl-Martin
+983. Õun, Ragnar
+984. Õun, John
+985. Äniline, Janno
+986. Ödner Koern, Villem
+987. Öövel, Martin
+988. Üle, Ilmar
+989. Üürike, Toomas
+990. Üürike, Madis jr

@@ -1,4 +1,4 @@
-defmodule Jalka2024.Repo.Migrations.CreateTeams do
+defmodule Jalka2026.Repo.Migrations.CreateTeams do
   use Ecto.Migration
 
   def change do

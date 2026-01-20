@@ -7,15 +7,15 @@
 # General application configuration
 import Config
 
-config :jalka2024,
-  ecto_repos: [Jalka2024.Repo]
+config :jalka2026,
+  ecto_repos: [Jalka2026.Repo]
 
 # Configures the endpoint
-config :jalka2024, Jalka2024Web.Endpoint,
+config :jalka2026, Jalka2026Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "3U8JC5dFuT0k2cZDTb/WVERkDV5E4xqZ4rzfW44vvbeSHVUiMshTHHnhu7BEdJiy",
-  render_errors: [view: Jalka2024Web.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Jalka2024.PubSub,
+  render_errors: [view: Jalka2026Web.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Jalka2026.PubSub,
   live_view: [signing_salt: "HRQbNn1t/mSJlj9R9CIx9CjOq3PMzZ14"]
 
 # Configures Elixir's Logger
@@ -26,9 +26,9 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :jalka2024, env: config_env()
+config :jalka2026, env: config_env()
 
-config :jalka2024, compile_env: Mix.env()
+config :jalka2026, compile_env: Mix.env()
 
 config :esbuild,
   version: "0.14.0",

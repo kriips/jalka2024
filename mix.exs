@@ -1,11 +1,11 @@
-defmodule Jalka2024.MixProject do
+defmodule Jalka2026.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :jalka2024,
+      app: :jalka2026,
       version: "0.1.0",
-      elixir: "~> 1.14.1",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -20,14 +20,14 @@ defmodule Jalka2024.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Jalka2024.Application, []},
+      mod: {Jalka2026.Application, []},
       extra_applications: [:logger, :runtime_tools, :ssl]
     ]
   end
 
   defp releases() do
     [
-      jalka2024: [
+      jalka2026: [
         include_executables_for: [:unix],
         cookie: "yQ0RMidBX8IOefY3jj1g2392x9rNJ-VwlPJOyvXnMZvQv7Ae1qsPYw=="
       ]

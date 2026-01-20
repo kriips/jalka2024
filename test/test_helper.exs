@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(Jalka2024.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(Jalka2026.Repo, :manual)

@@ -1,4 +1,4 @@
-defmodule Jalka2024Web.ChannelCase do
+defmodule Jalka2026Web.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule Jalka2024Web.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use Jalka2024Web.ChannelCase, async: true`, although
+  by setting `use Jalka2026Web.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule Jalka2024Web.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import Jalka2024Web.ChannelCase
+      import Jalka2026Web.ChannelCase
 
       # The default endpoint for testing
-      @endpoint Jalka2024Web.Endpoint
+      @endpoint Jalka2026Web.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Jalka2024.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Jalka2026.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Jalka2024.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Jalka2026.Repo, {:shared, self()})
     end
 
     :ok

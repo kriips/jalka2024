@@ -1,4 +1,4 @@
-# Jalka2024
+# Jalka2026
 
 To start your Phoenix server:
 
