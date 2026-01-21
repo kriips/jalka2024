@@ -6,14 +6,18 @@ defmodule Jalka2026Web.UserConfirmationControllerTest do
   import Jalka2026.AccountsFixtures
 
   setup do
-    %{user: user_fixture()}
+    user = user_fixture()
+    # Add email to user for confirmation tests
+    {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
+    %{user: user_with_email}
   end
 
   describe "GET /users/confirm" do
     test "renders the confirmation page", %{conn: conn} do
       conn = get(conn, Routes.user_confirmation_path(conn, :new))
       response = html_response(conn, 200)
-      assert response =~ "<h1>Resend confirmation instructions</h1>"
+      # App uses Estonian - "Meili juhised uuesti" means resend confirmation instructions
+      assert response =~ "<h1>Meili juhised uuesti</h1>"
     end
   end
 

@@ -26,7 +26,8 @@ config :jalka2026, Jalka2026Web.Endpoint,
       "--mode",
       "development",
       "--watch",
-      cd: Path.expand("../assets", __DIR__)
+      cd: Path.expand("../assets", __DIR__),
+      env: %{"NODE_OPTIONS" => "--openssl-legacy-provider"}
     ]
   ]
 

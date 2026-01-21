@@ -18,7 +18,20 @@ defmodule Jalka2026.Football.Match do
     timestamps()
   end
 
-  @valid_groups ~w(Alagrupp\ A Alagrupp\ B Alagrupp\ C Alagrupp\ D Alagrupp\ E Alagrupp\ F Alagrupp\ G Alagrupp\ H Alagrupp\ I Alagrupp\ J Alagrupp\ K Alagrupp\ L)
+  @valid_groups [
+    "Alagrupp A",
+    "Alagrupp B",
+    "Alagrupp C",
+    "Alagrupp D",
+    "Alagrupp E",
+    "Alagrupp F",
+    "Alagrupp G",
+    "Alagrupp H",
+    "Alagrupp I",
+    "Alagrupp J",
+    "Alagrupp K",
+    "Alagrupp L"
+  ]
 
   @doc false
   def changeset(match, attrs) do

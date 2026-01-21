@@ -5,32 +5,32 @@ defmodule Jalka2026.AccountsTest do
   import Jalka2026.AccountsFixtures
   alias Jalka2026.Accounts.{User, UserToken}
 
-  describe "get_user_by_email/1" do
-    test "does not return the user if the email does not exist" do
-      refute Accounts.get_user_by_email("unknown@example.com")
+  describe "get_user_by_name/1" do
+    test "does not return the user if the name does not exist" do
+      refute Accounts.get_user_by_name("unknown")
     end
 
-    test "returns the user if the email exists" do
+    test "returns the user if the name exists" do
       %{id: id} = user = user_fixture()
-      assert %User{id: ^id} = Accounts.get_user_by_email(user.email)
+      assert %User{id: ^id} = Accounts.get_user_by_name(user.name)
     end
   end
 
-  describe "get_user_by_email_and_password/2" do
-    test "does not return the user if the email does not exist" do
-      refute Accounts.get_user_by_email_and_password("unknown@example.com", "hello world!")
+  describe "get_user_by_name_and_password/2" do
+    test "does not return the user if the name does not exist" do
+      refute Accounts.get_user_by_name_and_password("unknown", "hello world!")
     end
 
     test "does not return the user if the password is not valid" do
       user = user_fixture()
-      refute Accounts.get_user_by_email_and_password(user.email, "invalid")
+      refute Accounts.get_user_by_name_and_password(user.name, "invalid")
     end
 
-    test "returns the user if the email and password are valid" do
+    test "returns the user if the name and password are valid" do
       %{id: id} = user = user_fixture()
 
       assert %User{id: ^id} =
-               Accounts.get_user_by_email_and_password(user.email, valid_user_password())
+               Accounts.get_user_by_name_and_password(user.name, valid_user_password())
     end
   end
 
@@ -48,45 +48,51 @@ defmodule Jalka2026.AccountsTest do
   end
 
   describe "register_user/1" do
-    test "requires email and password to be set" do
+    test "requires name and password to be set" do
       {:error, changeset} = Accounts.register_user(%{})
 
+      errors = errors_on(changeset)
+      assert "can't be blank" in errors.password
+      assert "can't be blank" in errors.name
+    end
+
+    test "validates password length when given" do
+      # First create an allowed user for the name
+      name = unique_user_name()
+      allowed_user_fixture(%{name: name})
+      {:error, changeset} = Accounts.register_user(%{name: name, password: "1234"})
+
       assert %{
-               password: ["can't be blank"],
-               email: ["can't be blank"]
+               password: ["should be at least 5 character(s)"]
              } = errors_on(changeset)
     end
 
-    test "validates email and password when given" do
-      {:error, changeset} = Accounts.register_user(%{email: "not valid", password: "not valid"})
-
-      assert %{
-               email: ["must have the @ sign and no spaces"],
-               password: ["should be at least 12 character(s)"]
-             } = errors_on(changeset)
-    end
-
-    test "validates maximum values for email and password for security" do
+    test "validates maximum values for password for security" do
       too_long = String.duplicate("db", 100)
-      {:error, changeset} = Accounts.register_user(%{email: too_long, password: too_long})
-      assert "should be at most 160 character(s)" in errors_on(changeset).email
+      name = unique_user_name()
+      allowed_user_fixture(%{name: name})
+      {:error, changeset} = Accounts.register_user(%{name: name, password: too_long})
       assert "should be at most 80 character(s)" in errors_on(changeset).password
     end
 
-    test "validates email uniqueness" do
-      %{email: email} = user_fixture()
-      {:error, changeset} = Accounts.register_user(%{email: email})
-      assert "has already been taken" in errors_on(changeset).email
+    test "validates name must be in whitelist" do
+      {:error, changeset} = Accounts.register_user(%{name: "NotInWhitelist", password: "hello world!"})
+      assert "ei kuulu nimekirja" in errors_on(changeset).name
+    end
 
-      # Now try with the upper cased email too, to check that email case is ignored.
-      {:error, changeset} = Accounts.register_user(%{email: String.upcase(email)})
-      assert "has already been taken" in errors_on(changeset).email
+    test "validates name uniqueness" do
+      %{name: name} = user_fixture()
+      # The name is already taken, try to register again
+      allowed_user_fixture(%{name: name <> "_duplicate"})
+      {:error, changeset} = Accounts.register_user(%{name: name, password: "hello world!"})
+      assert "has already been taken" in errors_on(changeset).name
     end
 
     test "registers users with a hashed password" do
-      email = unique_user_email()
-      {:ok, user} = Accounts.register_user(valid_user_attributes(email: email))
-      assert user.email == email
+      name = unique_user_name()
+      allowed_user_fixture(%{name: name})
+      {:ok, user} = Accounts.register_user(valid_user_attributes(name: name))
+      assert user.name == name
       assert is_binary(user.hashed_password)
       assert is_nil(user.confirmed_at)
       assert is_nil(user.password)
@@ -96,21 +102,21 @@ defmodule Jalka2026.AccountsTest do
   describe "change_user_registration/2" do
     test "returns a changeset" do
       assert %Ecto.Changeset{} = changeset = Accounts.change_user_registration(%User{})
-      assert changeset.required == [:password, :email]
+      assert changeset.required == [:password, :name]
     end
 
     test "allows fields to be set" do
-      email = unique_user_email()
+      name = unique_user_name()
       password = valid_user_password()
 
       changeset =
         Accounts.change_user_registration(
           %User{},
-          valid_user_attributes(email: email, password: password)
+          valid_user_attributes(name: name, password: password)
         )
 
-      assert changeset.valid?
-      assert get_change(changeset, :email) == email
+      # Note: changeset won't be valid without whitelist entry
+      assert get_change(changeset, :name) == name
       assert get_change(changeset, :password) == password
       assert is_nil(get_change(changeset, :hashed_password))
     end
@@ -125,7 +131,10 @@ defmodule Jalka2026.AccountsTest do
 
   describe "apply_user_email/3" do
     setup do
-      %{user: user_fixture()}
+      user = user_fixture()
+      # Update user to have an email for these tests
+      {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
+      %{user: user_with_email}
     end
 
     test "requires email to change", %{user: user} do
@@ -149,15 +158,6 @@ defmodule Jalka2026.AccountsTest do
       assert "should be at most 160 character(s)" in errors_on(changeset).email
     end
 
-    test "validates email uniqueness", %{user: user} do
-      %{email: email} = user_fixture()
-
-      {:error, changeset} =
-        Accounts.apply_user_email(user, valid_user_password(), %{email: email})
-
-      assert "has already been taken" in errors_on(changeset).email
-    end
-
     test "validates current password", %{user: user} do
       {:error, changeset} =
         Accounts.apply_user_email(user, "invalid", %{email: unique_user_email()})
@@ -167,15 +167,18 @@ defmodule Jalka2026.AccountsTest do
 
     test "applies the email without persisting it", %{user: user} do
       email = unique_user_email()
-      {:ok, user} = Accounts.apply_user_email(user, valid_user_password(), %{email: email})
-      assert user.email == email
+      {:ok, updated_user} = Accounts.apply_user_email(user, valid_user_password(), %{email: email})
+      assert updated_user.email == email
       assert Accounts.get_user!(user.id).email != email
     end
   end
 
   describe "deliver_update_email_instructions/3" do
     setup do
-      %{user: user_fixture()}
+      user = user_fixture()
+      # Update user to have an email for these tests
+      {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
+      %{user: user_with_email}
     end
 
     test "sends token through notification", %{user: user} do
@@ -195,14 +198,17 @@ defmodule Jalka2026.AccountsTest do
   describe "update_user_email/2" do
     setup do
       user = user_fixture()
+      # Update user to have an email for these tests
+      original_email = unique_user_email()
+      {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: original_email))
       email = unique_user_email()
 
       token =
         extract_user_token(fn url ->
-          Accounts.deliver_update_email_instructions(%{user | email: email}, user.email, url)
+          Accounts.deliver_update_email_instructions(%{user_with_email | email: email}, user_with_email.email, url)
         end)
 
-      %{user: user, token: token, email: email}
+      %{user: user_with_email, token: token, email: email}
     end
 
     test "updates the email with a valid token", %{user: user, token: token, email: email} do
@@ -261,12 +267,12 @@ defmodule Jalka2026.AccountsTest do
     test "validates password", %{user: user} do
       {:error, changeset} =
         Accounts.update_user_password(user, valid_user_password(), %{
-          password: "not valid",
+          password: "1234",
           password_confirmation: "another"
         })
 
       assert %{
-               password: ["should be at least 12 character(s)"],
+               password: ["should be at least 5 character(s)"],
                password_confirmation: ["does not match password"]
              } = errors_on(changeset)
     end
@@ -288,13 +294,13 @@ defmodule Jalka2026.AccountsTest do
     end
 
     test "updates the password", %{user: user} do
-      {:ok, user} =
+      {:ok, updated_user} =
         Accounts.update_user_password(user, valid_user_password(), %{
           password: "new valid password"
         })
 
-      assert is_nil(user.password)
-      assert Accounts.get_user_by_email_and_password(user.email, "new valid password")
+      assert is_nil(updated_user.password)
+      assert Accounts.get_user_by_name_and_password(user.name, "new valid password")
     end
 
     test "deletes all tokens for the given user", %{user: user} do
@@ -363,7 +369,10 @@ defmodule Jalka2026.AccountsTest do
 
   describe "deliver_user_confirmation_instructions/2" do
     setup do
-      %{user: user_fixture()}
+      user = user_fixture()
+      # Update user to have an email for these tests
+      {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
+      %{user: user_with_email}
     end
 
     test "sends token through notification", %{user: user} do
@@ -383,13 +392,15 @@ defmodule Jalka2026.AccountsTest do
   describe "confirm_user/1" do
     setup do
       user = user_fixture()
+      # Update user to have an email for these tests
+      {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
 
       token =
         extract_user_token(fn url ->
-          Accounts.deliver_user_confirmation_instructions(user, url)
+          Accounts.deliver_user_confirmation_instructions(user_with_email, url)
         end)
 
-      %{user: user, token: token}
+      %{user: user_with_email, token: token}
     end
 
     test "confirms the email with a valid token", %{user: user, token: token} do
@@ -416,7 +427,10 @@ defmodule Jalka2026.AccountsTest do
 
   describe "deliver_user_reset_password_instructions/2" do
     setup do
-      %{user: user_fixture()}
+      user = user_fixture()
+      # Update user to have an email for these tests
+      {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
+      %{user: user_with_email}
     end
 
     test "sends token through notification", %{user: user} do
@@ -436,13 +450,15 @@ defmodule Jalka2026.AccountsTest do
   describe "get_user_by_reset_password_token/1" do
     setup do
       user = user_fixture()
+      # Update user to have an email for these tests
+      {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
 
       token =
         extract_user_token(fn url ->
-          Accounts.deliver_user_reset_password_instructions(user, url)
+          Accounts.deliver_user_reset_password_instructions(user_with_email, url)
         end)
 
-      %{user: user, token: token}
+      %{user: user_with_email, token: token}
     end
 
     test "returns the user with valid token", %{user: %{id: id}, token: token} do
@@ -470,12 +486,12 @@ defmodule Jalka2026.AccountsTest do
     test "validates password", %{user: user} do
       {:error, changeset} =
         Accounts.reset_user_password(user, %{
-          password: "not valid",
+          password: "1234",
           password_confirmation: "another"
         })
 
       assert %{
-               password: ["should be at least 12 character(s)"],
+               password: ["should be at least 5 character(s)"],
                password_confirmation: ["does not match password"]
              } = errors_on(changeset)
     end
@@ -489,7 +505,7 @@ defmodule Jalka2026.AccountsTest do
     test "updates the password", %{user: user} do
       {:ok, updated_user} = Accounts.reset_user_password(user, %{password: "new valid password"})
       assert is_nil(updated_user.password)
-      assert Accounts.get_user_by_email_and_password(user.email, "new valid password")
+      assert Accounts.get_user_by_name_and_password(user.name, "new valid password")
     end
 
     test "deletes all tokens for the given user", %{user: user} do

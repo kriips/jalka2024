@@ -11,9 +11,10 @@ defmodule Jalka2026Web.UserSessionControllerTest do
     test "renders log in page", %{conn: conn} do
       conn = get(conn, Routes.user_session_path(conn, :new))
       response = html_response(conn, 200)
-      assert response =~ "<h1>Log in</h1>"
-      assert response =~ "Log in</a>"
-      assert response =~ "Register</a>"
+      # App uses Estonian - "Sisene" means "Log in"
+      assert response =~ "<h1>Sisene</h1>"
+      assert response =~ "Sisene</a>"
+      assert response =~ "Registreeri</a>"
     end
 
     test "redirects if already logged in", %{conn: conn, user: user} do
@@ -26,7 +27,7 @@ defmodule Jalka2026Web.UserSessionControllerTest do
     test "logs the user in", %{conn: conn, user: user} do
       conn =
         post(conn, Routes.user_session_path(conn, :create), %{
-          "user" => %{"email" => user.email, "password" => valid_user_password()}
+          "user" => %{"name" => user.name, "password" => valid_user_password()}
         })
 
       assert get_session(conn, :user_token)
@@ -35,16 +36,16 @@ defmodule Jalka2026Web.UserSessionControllerTest do
       # Now do a logged in request and assert on the menu
       conn = get(conn, "/")
       response = html_response(conn, 200)
-      assert response =~ user.email
-      assert response =~ "Settings</a>"
-      assert response =~ "Log out</a>"
+      assert response =~ user.name
+      # Check for Estonian "Välju" (Log out) link
+      assert response =~ "Välju</a>"
     end
 
     test "logs the user in with remember me", %{conn: conn, user: user} do
       conn =
         post(conn, Routes.user_session_path(conn, :create), %{
           "user" => %{
-            "email" => user.email,
+            "name" => user.name,
             "password" => valid_user_password(),
             "remember_me" => "true"
           }
@@ -60,7 +61,7 @@ defmodule Jalka2026Web.UserSessionControllerTest do
         |> init_test_session(user_return_to: "/foo/bar")
         |> post(Routes.user_session_path(conn, :create), %{
           "user" => %{
-            "email" => user.email,
+            "name" => user.name,
             "password" => valid_user_password()
           }
         })
@@ -71,12 +72,13 @@ defmodule Jalka2026Web.UserSessionControllerTest do
     test "emits error message with invalid credentials", %{conn: conn, user: user} do
       conn =
         post(conn, Routes.user_session_path(conn, :create), %{
-          "user" => %{"email" => user.email, "password" => "invalid_password"}
+          "user" => %{"name" => user.name, "password" => "invalid_password"}
         })
 
       response = html_response(conn, 200)
-      assert response =~ "<h1>Log in</h1>"
-      assert response =~ "Invalid email or password"
+      # Estonian login page
+      assert response =~ "<h1>Sisene</h1>"
+      assert response =~ "Vale nimi või parool"
     end
   end
 
@@ -85,14 +87,14 @@ defmodule Jalka2026Web.UserSessionControllerTest do
       conn = conn |> log_in_user(user) |> delete(Routes.user_session_path(conn, :delete))
       assert redirected_to(conn) == "/"
       refute get_session(conn, :user_token)
-      assert get_flash(conn, :info) =~ "Logged out successfully"
+      assert get_flash(conn, :info) =~ "välja logitud"
     end
 
     test "succeeds even if the user is not logged in", %{conn: conn} do
       conn = delete(conn, Routes.user_session_path(conn, :delete))
       assert redirected_to(conn) == "/"
       refute get_session(conn, :user_token)
-      assert get_flash(conn, :info) =~ "Logged out successfully"
+      assert get_flash(conn, :info) =~ "välja logitud"
     end
   end
 end

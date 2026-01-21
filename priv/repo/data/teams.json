@@ -1,2040 +1,386 @@
 [
   {
-    "area": {
-      "id": 2088,
-      "name": "Germany",
-      "code": "DEU",
-      "flag": "https://crests.football-data.org/759.svg"
-    },
     "id": 759,
     "name": "Saksamaa",
     "shortName": "Germany",
     "group": "A",
     "tla": "GER",
-    "crest": "https://crests.football-data.org/759.svg",
-    "address": "Otto-Fleck-Schneise 6 / Postfach 710265 Frankfurt am Main 60492",
-    "website": "http://www.dfb.de",
-    "founded": 1900,
-    "clubColors": "White / Black",
-    "venue": "RheinEnergieSTADION",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 336,
-      "firstName": "Julian",
-      "lastName": "Nagelsmann",
-      "name": "Julian Nagelsmann",
-      "dateOfBirth": "1987-07-23",
-      "nationality": "Germany",
-      "contract": {
-        "start": "2023-09",
-        "until": "2026-07"
-      }
-    },
-    "squad": [
-      {
-        "id": 316,
-        "name": "Oliver Baumann",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1990-06-02",
-        "nationality": "Germany"
-      },
-      {
-        "id": 341,
-        "name": "Manuel Neuer",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1986-03-27",
-        "nationality": "Germany"
-      },
-      {
-        "id": 3173,
-        "name": "Marc-André ter Stegen",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1992-04-30",
-        "nationality": "Germany"
-      },
-      {
-        "id": 6491,
-        "name": "Alexander Nübel",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1996-09-30",
-        "nationality": "Germany"
-      },
-      {
-        "id": 149,
-        "name": "Jonathan Tah",
-        "position": "Defence",
-        "dateOfBirth": "1996-02-11",
-        "nationality": "Germany"
-      },
-      {
-        "id": 156,
-        "name": "Benjamin Henrichs",
-        "position": "Defence",
-        "dateOfBirth": "1997-02-23",
-        "nationality": "Germany"
-      },
-      {
-        "id": 359,
-        "name": "Joshua Kimmich",
-        "position": "Defence",
-        "dateOfBirth": "1995-02-08",
-        "nationality": "Germany"
-      },
-      {
-        "id": 379,
-        "name": "Waldemar Anton",
-        "position": "Defence",
-        "dateOfBirth": "1996-07-20",
-        "nationality": "Germany"
-      },
-      {
-        "id": 3177,
-        "name": "Antonio Rüdiger",
-        "position": "Defence",
-        "dateOfBirth": "1993-03-03",
-        "nationality": "Germany"
-      },
-      {
-        "id": 6549,
-        "name": "Maximilian Mittelstädt",
-        "position": "Defence",
-        "dateOfBirth": "1997-03-18",
-        "nationality": "Germany"
-      },
-      {
-        "id": 9479,
-        "name": "Robin Koch",
-        "position": "Defence",
-        "dateOfBirth": "1996-07-17",
-        "nationality": "Germany"
-      },
-      {
-        "id": 9905,
-        "name": "David Raum",
-        "position": "Defence",
-        "dateOfBirth": "1998-04-22",
-        "nationality": "Germany"
-      },
-      {
-        "id": 75539,
-        "name": "Nico Schlotterbeck",
-        "position": "Defence",
-        "dateOfBirth": "1999-12-01",
-        "nationality": "Germany"
-      },
-      {
-        "id": 47,
-        "name": "Toni Kroos",
-        "position": "Midfield",
-        "dateOfBirth": "1990-01-04",
-        "nationality": "Germany"
-      },
-      {
-        "id": 171,
-        "name": "Kai Havertz",
-        "position": "Midfield",
-        "dateOfBirth": "1999-06-11",
-        "nationality": "Germany"
-      },
-      {
-        "id": 206,
-        "name": "Chris Führich",
-        "position": "Midfield",
-        "dateOfBirth": "1998-01-09",
-        "nationality": "Germany"
-      },
-      {
-        "id": 3182,
-        "name": "Ilkay Gündogan",
-        "position": "Midfield",
-        "dateOfBirth": "1990-10-24",
-        "nationality": "Germany"
-      },
-      {
-        "id": 8273,
-        "name": "Pascal Groß",
-        "position": "Midfield",
-        "dateOfBirth": "1991-06-15",
-        "nationality": "Germany"
-      },
-      {
-        "id": 19334,
-        "name": "Florian Wirtz",
-        "position": "Midfield",
-        "dateOfBirth": "2003-05-03",
-        "nationality": "Germany"
-      },
-      {
-        "id": 45611,
-        "name": "Robert Andrich",
-        "position": "Midfield",
-        "dateOfBirth": "1994-09-22",
-        "nationality": "Germany"
-      },
-      {
-        "id": 144393,
-        "name": "Jamal Musiala",
-        "position": "Midfield",
-        "dateOfBirth": "2003-02-26",
-        "nationality": "Germany"
-      },
-      {
-        "id": 202665,
-        "name": "Aleksandar Pavlović",
-        "position": "Midfield",
-        "dateOfBirth": "2004-05-03",
-        "nationality": "Germany"
-      },
-      {
-        "id": 304,
-        "name": "Niclas Füllkrug",
-        "position": "Offence",
-        "dateOfBirth": "1993-02-09",
-        "nationality": "Germany"
-      },
-      {
-        "id": 370,
-        "name": "Thomas Müller",
-        "position": "Offence",
-        "dateOfBirth": "1989-09-13",
-        "nationality": "Germany"
-      },
-      {
-        "id": 3184,
-        "name": "Leroy Sané",
-        "position": "Offence",
-        "dateOfBirth": "1996-01-11",
-        "nationality": "Germany"
-      },
-      {
-        "id": 6928,
-        "name": "Deniz Undav",
-        "position": "Offence",
-        "dateOfBirth": "1996-07-19",
-        "nationality": "Germany"
-      },
-      {
-        "id": 133903,
-        "name": "Maximilian Beier",
-        "position": "Offence",
-        "dateOfBirth": "2002-10-17",
-        "nationality": "Germany"
-      }
-    ],
-    "staff": [],
-    "lastUpdated": "2021-05-26T09:46:39Z"
+    "crest": "https://crests.football-data.org/759.svg"
   },
   {
-    "area": {
-      "id": 2224,
-      "name": "Spain",
-      "code": "ESP",
-      "flag": "https://crests.football-data.org/760.svg"
-    },
-    "id": 760,
-    "name": "Hispaania",
-    "shortName": "Spain",
-    "group": "B",
-    "tla": "ESP",
-    "crest": "https://crests.football-data.org/760.svg",
-    "address": "Ramón y Cajal, s/n Las Rozas 28230",
-    "website": "http://www.rfef.es",
-    "founded": 1909,
-    "clubColors": "Red / Blue / Yellow",
-    "venue": "Estadio Alfredo Di Stéfano",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 192542,
-      "firstName": "Luis",
-      "lastName": "de la Fuente",
-      "name": "Luis de la Fuente",
-      "dateOfBirth": "1961-06-21",
-      "nationality": "Spain",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T09:46:48Z"
-  },
-  {
-    "area": {
-      "id": 2187,
-      "name": "Portugal",
-      "code": "POR",
-      "flag": "https://crests.football-data.org/765.svg"
-    },
-    "id": 765,
-    "name": "Portugal",
-    "shortName": "Portugal",
-    "group": "F",
-    "tla": "POR",
-    "crest": "https://crests.football-data.org/765.svg",
-    "address": "Rua Alexandre Herculano, 58 Lisboa 1250-012",
-    "website": "http://www.fpf.pt",
-    "founded": 1914,
-    "clubColors": "Red / Green",
-    "venue": "Estádio José Alvalade",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 10211,
-      "firstName": "",
-      "lastName": "Roberto Martínez",
-      "name": "Roberto Martínez",
-      "dateOfBirth": "1973-07-13",
-      "nationality": "Spain",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T09:46:58Z"
-  },
-  {
-    "area": {
-      "id": 2214,
-      "name": "Slovakia",
-      "code": "SVK",
-      "flag": null
-    },
-    "id": 768,
-    "name": "Slovakkia",
-    "shortName": "Slovakia",
-    "group": "E",
-    "tla": "SVK",
-    "crest": "https://crests.football-data.org/768.svg",
-    "address": "Trnavská 100 Bratislava 82101",
-    "website": "http://www.futbalsfz.sk",
-    "founded": 1938,
-    "clubColors": "Blue / White",
-    "venue": "City Arena Trnava",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 192546,
-      "firstName": "Francesco",
-      "lastName": "Calzona",
-      "name": "Francesco Calzona",
-      "dateOfBirth": "1968-10-24",
-      "nationality": "Italy",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T19:20:07Z"
-  },
-  {
-    "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "https://crests.football-data.org/770.svg"
-    },
-    "id": 770,
-    "name": "Inglismaa",
-    "shortName": "England",
-    "group": "C",
-    "tla": "ENG",
-    "crest": "https://crests.football-data.org/770.svg",
-    "address": "Wembley Stadium, PO Box 1966 London SW1P 9EQ",
-    "website": "http://www.thefa.com",
-    "founded": 1863,
-    "clubColors": "White / Red / Navy Blue",
-    "venue": "Wembley Stadium",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 10186,
-      "firstName": "Gareth",
-      "lastName": "Southgate",
-      "name": "Gareth Southgate",
-      "dateOfBirth": "1970-09-03",
-      "nationality": "England",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T09:47:50Z"
-  },
-  {
-    "area": {
-      "id": 2081,
-      "name": "France",
-      "code": "FRA",
-      "flag": "https://crests.football-data.org/773.svg"
-    },
-    "id": 773,
-    "name": "Prantsusmaa",
-    "shortName": "France",
-    "group": "D",
-    "tla": "FRA",
-    "crest": "https://crests.football-data.org/773.svg",
-    "address": "87 Boulevard de Grenelle Paris 75738",
-    "website": "http://www.fff.fr",
-    "founded": 1919,
-    "clubColors": "Blue / White / Red",
-    "venue": "Stade de France",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 10187,
-      "firstName": "Didier",
-      "lastName": "Deschamps",
-      "name": "Didier Deschamps",
-      "dateOfBirth": "1968-10-15",
-      "nationality": "France",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [
-      {
-        "id": 3357,
-        "name": "Alphonse Aréola",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1993-02-27",
-        "nationality": "France"
-      },
-      {
-        "id": 8316,
-        "name": "Brice Samba",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1994-04-25",
-        "nationality": "France"
-      },
-      {
-        "id": 8390,
-        "name": "Mike Maignan",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1995-07-03",
-        "nationality": "France"
-      },
-      {
-        "id": 71,
-        "name": "Theo Hernández",
-        "position": "Defence",
-        "dateOfBirth": "1997-10-06",
-        "nationality": "France"
-      },
-      {
-        "id": 1023,
-        "name": "Jonathan Clauss",
-        "position": "Defence",
-        "dateOfBirth": "1992-09-25",
-        "nationality": "France"
-      },
-      {
-        "id": 3364,
-        "name": "Benjamin Pavard",
-        "position": "Defence",
-        "dateOfBirth": "1996-03-28",
-        "nationality": "France"
-      },
-      {
-        "id": 8458,
-        "name": "Ferland Mendy",
-        "position": "Defence",
-        "dateOfBirth": "1995-06-08",
-        "nationality": "France"
-      },
-      {
-        "id": 8499,
-        "name": "Jules Koundé",
-        "position": "Defence",
-        "dateOfBirth": "1998-11-12",
-        "nationality": "France"
-      },
-      {
-        "id": 9541,
-        "name": "Dayot Upamecano",
-        "position": "Defence",
-        "dateOfBirth": "1998-10-27",
-        "nationality": "France"
-      },
-      {
-        "id": 9542,
-        "name": "Ibrahima Konaté",
-        "position": "Defence",
-        "dateOfBirth": "1999-05-25",
-        "nationality": "France"
-      },
-      {
-        "id": 80171,
-        "name": "William Saliba",
-        "position": "Defence",
-        "dateOfBirth": "2001-03-24",
-        "nationality": "France"
-      },
-      {
-        "id": 360,
-        "name": "Kingsley Coman",
-        "position": "Midfield",
-        "dateOfBirth": "1996-06-13",
-        "nationality": "France"
-      },
-      {
-        "id": 3367,
-        "name": "N'Golo Kanté",
-        "position": "Midfield",
-        "dateOfBirth": "1991-03-29",
-        "nationality": "France"
-      },
-      {
-        "id": 3368,
-        "name": "Adrien Rabiot",
-        "position": "Midfield",
-        "dateOfBirth": "1995-04-03",
-        "nationality": "France"
-      },
-      {
-        "id": 8514,
-        "name": "Aurélien Tchouameni",
-        "position": "Midfield",
-        "dateOfBirth": "2000-01-27",
-        "nationality": "France"
-      },
-      {
-        "id": 81299,
-        "name": "Youssouf Fofana",
-        "position": "Midfield",
-        "dateOfBirth": "1999-01-10",
-        "nationality": "France"
-      },
-      {
-        "id": 102343,
-        "name": "Eduardo Camavinga",
-        "position": "Midfield",
-        "dateOfBirth": "2002-11-10",
-        "nationality": "France"
-      },
-      {
-        "id": 172762,
-        "name": "Bradley Barcola",
-        "position": "Midfield",
-        "dateOfBirth": "2002-09-02",
-        "nationality": "France"
-      },
-      {
-        "id": 186089,
-        "name": "Warren Zaïre-Emery",
-        "position": "Midfield",
-        "dateOfBirth": "2006-03-08",
-        "nationality": "France"
-      },
-      {
-        "id": 114,
-        "name": "Antoine Griezmann",
-        "position": "Offence",
-        "dateOfBirth": "1991-03-21",
-        "nationality": "France"
-      },
-      {
-        "id": 3371,
-        "name": "Olivier Giroud",
-        "position": "Offence",
-        "dateOfBirth": "1986-09-30",
-        "nationality": "France"
-      },
-      {
-        "id": 3373,
-        "name": "Ousmane Dembélé",
-        "position": "Offence",
-        "dateOfBirth": "1997-05-15",
-        "nationality": "France"
-      },
-      {
-        "id": 3374,
-        "name": "Kylian Mbappé",
-        "position": "Offence",
-        "dateOfBirth": "1998-12-20",
-        "nationality": "France"
-      },
-      {
-        "id": 8685,
-        "name": "Marcus Thuram-Ulien",
-        "position": "Offence",
-        "dateOfBirth": "1997-08-06",
-        "nationality": "France"
-      },
-      {
-        "id": 8708,
-        "name": "Randal Kolo Muani",
-        "position": "Offence",
-        "dateOfBirth": "1998-12-05",
-        "nationality": "France"
-      }
-    ],
-    "staff": [],
-    "lastUpdated": "2021-05-26T09:47:59Z"
-  },
-  {
-    "area": {
-      "id": 2215,
-      "name": "Slovenia",
-      "code": "SVN",
-      "flag": null
-    },
-    "id": 777,
-    "name": "Sloveenia",
-    "shortName": "Slovenia",
-    "group": "C",
-    "tla": "SVN",
-    "crest": "https://crests.football-data.org/777.svg",
-    "address": "Brnčičeva 41g / PO Box 3986 Ljubljana 1231",
-    "website": "http://www.nzs.si",
-    "founded": 1920,
-    "clubColors": "Green / White",
-    "venue": "Stadion Stožice",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 15170,
-      "firstName": "Matjaž",
-      "lastName": "Kek",
-      "name": "Matjaž Kek",
-      "dateOfBirth": "1961-09-09",
-      "nationality": "Slovenia",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2024-05-16T15:42:31Z"
-  },
-  {
-    "area": {
-      "id": 2206,
-      "name": "Serbia",
-      "code": "SER",
-      "flag": null
-    },
-    "id": 780,
-    "name": "Serbia",
-    "shortName": "Serbia",
-    "group": "C",
-    "tla": "SRB",
-    "crest": "https://crests.football-data.org/780.svg",
-    "address": "Terazije 35 / CP 263 Beograd 11000",
-    "website": "http://www.fss.rs",
-    "founded": 1919,
-    "clubColors": "Red / Blue / White",
-    "venue": "Stadion Rajko Mitić",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 21441,
-      "firstName": "Dragan",
-      "lastName": "Stojković",
-      "name": "Dragan Stojković",
-      "dateOfBirth": "1965-03-03",
-      "nationality": "Serbia",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2022-04-02T10:42:59Z"
-  },
-  {
-    "area": {
-      "id": 2065,
-      "name": "Denmark",
-      "code": "DNK",
-      "flag": "https://crests.football-data.org/782.svg"
-    },
-    "id": 782,
-    "name": "Taani",
-    "shortName": "Denmark",
-    "group": "C",
-    "tla": "DEN",
-    "crest": "https://crests.football-data.org/782.svg",
-    "address": "House of Football, DBU Allé 1 Brøndby 2605",
-    "website": "http://www.dbu.dk",
-    "founded": 1889,
-    "clubColors": "Red / White",
-    "venue": "Telia Parken",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 24245,
-      "firstName": "Kasper",
-      "lastName": "Hjulmand",
-      "name": "Kasper Hjulmand",
-      "dateOfBirth": "1972-04-09",
-      "nationality": "Denmark",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T10:45:14Z"
-  },
-  {
-    "area": {
-      "id": 2114,
-      "name": "Italy",
-      "code": "ITA",
-      "flag": "https://crests.football-data.org/784.svg"
-    },
-    "id": 784,
-    "name": "Itaalia",
-    "shortName": "Italy",
-    "group": "B",
-    "tla": "ITA",
-    "crest": "https://crests.football-data.org/784.svg",
-    "address": "Via Gregorio Allegri, 14 / CP 2450 Roma 00198",
-    "website": "http://www.figc.it",
-    "founded": 1898,
-    "clubColors": "Blue / White",
-    "venue": "Stadio Artemio Franchi",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 10997,
-      "firstName": "Luciano",
-      "lastName": "Spalletti",
-      "name": "Luciano Spalletti",
-      "dateOfBirth": "1959-03-07",
-      "nationality": "Italy",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T10:29:34Z"
-  },
-  {
-    "area": {
-      "id": 2234,
-      "name": "Switzerland",
-      "code": "CHE",
-      "flag": "https://crests.football-data.org/788.svg"
-    },
     "id": 788,
     "name": "Šveits",
     "shortName": "Switzerland",
     "group": "A",
     "tla": "SUI",
-    "crest": "https://crests.football-data.org/788.svg",
-    "address": "Worbstrasse 48 Bern 3000",
-    "website": "http://www.football.ch",
-    "founded": 1895,
-    "clubColors": "Red / White",
-    "venue": "St. Jakob-Park",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 32308,
-      "firstName": "Murat",
-      "lastName": "Yakin",
-      "name": "Murat Yakin",
-      "dateOfBirth": "1974-09-15",
-      "nationality": "Switzerland",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [
-      {
-        "id": 334,
-        "name": "Gregor Kobel",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1997-12-06",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 3470,
-        "name": "Yann Sommer",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1988-12-17",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 9534,
-        "name": "Yvon Mvogo",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1994-06-06",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 171100,
-        "name": "Pascal Loretz",
-        "position": "Goalkeeper",
-        "dateOfBirth": "2003-06-01",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 205190,
-        "name": "Marvin Keller",
-        "position": "Goalkeeper",
-        "dateOfBirth": "2002-07-03",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 88,
-        "name": "Fabian Schär",
-        "position": "Defence",
-        "dateOfBirth": "1991-12-20",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 143,
-        "name": "Manuel Akanji",
-        "position": "Defence",
-        "dateOfBirth": "1995-07-19",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 238,
-        "name": "Ulisses Garcia",
-        "position": "Defence",
-        "dateOfBirth": "1996-01-11",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 1745,
-        "name": "Ricardo Rodriguez",
-        "position": "Defence",
-        "dateOfBirth": "1992-08-25",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 2114,
-        "name": "Silvan Widmer",
-        "position": "Defence",
-        "dateOfBirth": "1993-03-05",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 3475,
-        "name": "Nico Elvedi",
-        "position": "Defence",
-        "dateOfBirth": "1996-09-30",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 16265,
-        "name": "Michel Aebischer",
-        "position": "Defence",
-        "dateOfBirth": "1997-01-06",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 16268,
-        "name": "Kevin Mbabu",
-        "position": "Defence",
-        "dateOfBirth": "1995-04-19",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 30886,
-        "name": "Cédric Zesiger",
-        "position": "Defence",
-        "dateOfBirth": "1998-06-24",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 96992,
-        "name": "Becir Omeragic",
-        "position": "Defence",
-        "dateOfBirth": "2002-01-20",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 111071,
-        "name": "Leonidas Stergiou",
-        "position": "Defence",
-        "dateOfBirth": "2002-03-03",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 124243,
-        "name": "Bryan Okoh",
-        "position": "Defence",
-        "dateOfBirth": "2003-05-16",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 151443,
-        "name": "Albian Hajdari",
-        "position": "Defence",
-        "dateOfBirth": "2003-05-18",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 152692,
-        "name": "Fabian Rieder",
-        "position": "Defence",
-        "dateOfBirth": "2002-02-16",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 169297,
-        "name": "Aurele Amenda",
-        "position": "Defence",
-        "dateOfBirth": "2003-07-31",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 333,
-        "name": "Steven Zuber",
-        "position": "Midfield",
-        "dateOfBirth": "1991-08-17",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 1841,
-        "name": "Remo Freuler",
-        "position": "Midfield",
-        "dateOfBirth": "1992-04-15",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 3477,
-        "name": "Granit Xhaka",
-        "position": "Midfield",
-        "dateOfBirth": "1992-09-27",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 6687,
-        "name": "Denis Zakaria",
-        "position": "Midfield",
-        "dateOfBirth": "1996-11-20",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 9433,
-        "name": "Renato Steffen",
-        "position": "Midfield",
-        "dateOfBirth": "1991-11-03",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 9490,
-        "name": "Vincent Sierro",
-        "position": "Midfield",
-        "dateOfBirth": "1995-10-08",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 16058,
-        "name": "Noah Okafor",
-        "position": "Midfield",
-        "dateOfBirth": "2000-05-24",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 30802,
-        "name": "Filip Ugrinic",
-        "position": "Midfield",
-        "dateOfBirth": "1999-01-05",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 50278,
-        "name": "Kwadwo Duah",
-        "position": "Midfield",
-        "dateOfBirth": "1997-02-24",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 122237,
-        "name": "Uran Bislimi",
-        "position": "Midfield",
-        "dateOfBirth": "1999-09-25",
-        "nationality": "Kosovo"
-      },
-      {
-        "id": 122313,
-        "name": "Zeki Amdouni",
-        "position": "Midfield",
-        "dateOfBirth": "2000-12-04",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 144909,
-        "name": "Ardon Jasari",
-        "position": "Midfield",
-        "dateOfBirth": "2002-07-30",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 3483,
-        "name": "Breel Embolo",
-        "position": "Offence",
-        "dateOfBirth": "1997-02-14",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 7955,
-        "name": "Xherdan Shaqiri",
-        "position": "Offence",
-        "dateOfBirth": "1991-10-10",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 30755,
-        "name": "Andi Zeqiri",
-        "position": "Offence",
-        "dateOfBirth": "1999-06-22",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 31913,
-        "name": "Ruben Vargas",
-        "position": "Offence",
-        "dateOfBirth": "1998-08-05",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 77641,
-        "name": "Dan Ndoye",
-        "position": "Offence",
-        "dateOfBirth": "2000-10-25",
-        "nationality": "Switzerland"
-      },
-      {
-        "id": 153292,
-        "name": "Joel Monteiro",
-        "position": "Offence",
-        "dateOfBirth": "1999-08-05",
-        "nationality": "Portugal"
-      }
-    ],
-    "staff": [],
-    "lastUpdated": "2021-05-26T10:29:27Z"
+    "crest": "https://crests.football-data.org/788.svg"
   },
   {
-    "area": {
-      "id": 2253,
-      "name": "Ukraine",
-      "code": "UKR",
-      "flag": "https://crests.football-data.org/790.svg"
-    },
-    "id": 790,
-    "name": "Ukraina",
-    "shortName": "Ukraine",
-    "group": "E",
-    "tla": "UKR",
-    "crest": "https://crests.football-data.org/790.svg",
-    "address": "Provulok Laboratorniy 7-A / PO Box 55 Kyïv 01133",
-    "website": "http://www.ffu.org.ua",
-    "founded": 1991,
-    "clubColors": "Yellow / Blue",
-    "venue": "NSK Olimpijs'kyj",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 196219,
-      "firstName": "Serhiy",
-      "lastName": "Rebrov",
-      "name": "Serhiy Rebrov",
-      "dateOfBirth": "1974-06-03",
-      "nationality": "Ukraine",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-06-02T14:19:45Z"
-  },
-  {
-    "area": {
-      "id": 2186,
-      "name": "Poland",
-      "code": "POL",
-      "flag": "https://crests.football-data.org/794.svg"
-    },
-    "id": 794,
-    "name": "Poola",
-    "shortName": "Poland",
-    "group": "D",
-    "tla": "POL",
-    "crest": "https://crests.football-data.org/794.svg",
-    "address": "Bitwy Warszawskiej 1920 r., 7 Warszawa 02366",
-    "website": "http://www.pzpn.pl",
-    "founded": 1919,
-    "clubColors": "White / Red",
-    "venue": "Stadion Energa Gdańsk",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 64156,
-      "firstName": "Michał",
-      "lastName": "Probierz",
-      "name": "Michał Probierz",
-      "dateOfBirth": "1972-09-24",
-      "nationality": "Poland",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T09:49:02Z"
-  },
-  {
-    "area": {
-      "id": 2062,
-      "name": "Czech Republic",
-      "code": "CZE",
-      "flag": "https://crests.football-data.org/798.svg"
-    },
-    "id": 798,
-    "name": "Tšehhi",
-    "shortName": "Czechia",
-    "group": "F",
-    "tla": "CZE",
-    "crest": "https://crests.football-data.org/798.svg",
-    "address": "Diskařská 2431/4 Praha 16017",
-    "website": "http://www.fotbal.cz",
-    "founded": 1901,
-    "clubColors": "Red / White / Blue",
-    "venue": "Sinobo Stadium",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 197559,
-      "firstName": "Ivan",
-      "lastName": "Hašek",
-      "name": "Ivan Hašek",
-      "dateOfBirth": "1963-09-06",
-      "nationality": "Czech Republic",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2024-05-14T22:53:38Z"
-  },
-  {
-    "area": {
-      "id": 2058,
-      "name": "Croatia",
-      "code": "HRV",
-      "flag": "https://crests.football-data.org/799.svg"
-    },
-    "id": 799,
-    "name": "Horvaatia",
-    "shortName": "Croatia",
-    "group": "B",
-    "tla": "CRO",
-    "crest": "https://crests.football-data.org/799.svg",
-    "address": "Ulica grada Vukovara, 269 A Zagreb 10000",
-    "website": "http://www.hns-cff.hr",
-    "founded": 1912,
-    "clubColors": "Red / White / Blue",
-    "venue": "Stadion Maksimir",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 10209,
-      "firstName": "Zlatko",
-      "lastName": "Dalić",
-      "name": "Zlatko Dalić",
-      "dateOfBirth": "1966-10-26",
-      "nationality": "Croatia",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T10:28:24Z"
-  },
-  {
-    "area": {
-      "id": 2247,
-      "name": "Turkey",
-      "code": "TUR",
-      "flag": "https://crests.football-data.org/803.svg"
-    },
-    "id": 803,
-    "name": "Türgi",
-    "shortName": "Turkey",
-    "group": "F",
-    "tla": "TUR",
-    "crest": "https://crests.football-data.org/803.svg",
-    "address": "Istinye Mahallesi, Darüşşafaka Caddesi, 45 İstanbul 34330",
-    "website": "http://www.tff.org",
-    "founded": 1923,
-    "clubColors": "Red / White",
-    "venue": "Ali Sami Yen Stadyumu",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 133,
-      "firstName": "Vincenzo",
-      "lastName": "Montella",
-      "name": "Vincenzo Montella",
-      "dateOfBirth": "1974-06-18",
-      "nationality": "Italy",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T10:28:10Z"
-  },
-  {
-    "area": {
-      "id": 2023,
-      "name": "Belgium",
-      "code": "BEL",
-      "flag": "https://crests.football-data.org/805.svg"
-    },
-    "id": 805,
-    "name": "Belgia",
-    "shortName": "Belgium",
-    "group": "E",
-    "tla": "BEL",
-    "crest": "https://crests.football-data.org/805.svg",
-    "address": "145, avenue Houba de Strooper Brussels 1020",
-    "website": "https://www.rbfa.be",
-    "founded": 1895,
-    "clubColors": "Red / Black / Yellow",
-    "venue": "King Power at Den Dreef Stadion",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 10239,
-      "firstName": "Domenico",
-      "lastName": "Tedesco",
-      "name": "Domenico Tedesco",
-      "dateOfBirth": "1985-09-12",
-      "nationality": "Germany",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-26T10:28:44Z"
-  },
-  {
-    "area": {
-      "id": 2194,
-      "name": "Romania",
-      "code": "ROU",
-      "flag": "https://crests.football-data.org/811.svg"
-    },
-    "id": 811,
-    "name": "Rumeeenia",
-    "shortName": "Romania",
-    "group": "E",
-    "tla": "ROU",
-    "crest": "https://crests.football-data.org/811.svg",
-    "address": "Strada Vasile Şerbănică, 12 Bucureşti 022186",
-    "website": "http://www.frf.ro",
-    "founded": 1909,
-    "clubColors": "Yellow / Blue / Red",
-    "venue": "Stadionul Ilie Oană",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 36540,
-      "firstName": "Edward",
-      "lastName": "Iordanescu",
-      "name": "Edward Iordănescu",
-      "dateOfBirth": "1978-06-16",
-      "nationality": "Romania",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2024-05-16T15:42:03Z"
-  },
-  {
-    "area": {
-      "id": 2016,
-      "name": "Austria",
-      "code": "AUT",
-      "flag": "https://crests.football-data.org/816.svg"
-    },
-    "id": 816,
-    "name": "Austria",
-    "shortName": "Austria",
-    "group": "D",
-    "tla": "AUT",
-    "crest": "https://crests.football-data.org/816.svg",
-    "address": "Ernst-Happel-Stadion, Sektor A/F, Meiereistraße 7 Wien 1020",
-    "website": "http://www.oefb.at",
-    "founded": 1904,
-    "clubColors": "Red / White / Black",
-    "venue": "Ernst-Happel-Stadion",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 59070,
-      "firstName": "Ralf",
-      "lastName": "Rangnick",
-      "name": "Ralf Rangnick",
-      "dateOfBirth": "1958-06-29",
-      "nationality": "Germany",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-28T19:09:15Z"
-  },
-  {
-    "area": {
-      "id": 2106,
-      "name": "Hungary",
-      "code": "HUN",
-      "flag": "https://crests.football-data.org/827.svg"
-    },
     "id": 827,
     "name": "Ungari",
     "shortName": "Hungary",
     "group": "A",
     "tla": "HUN",
-    "crest": "https://crests.football-data.org/827.svg",
-    "address": "Kánai út 2/d Budapest 1112",
-    "website": "http://www.mlsz.hu",
-    "founded": 1901,
-    "clubColors": "Red / White / Green",
-    "venue": "Puskás Aréna",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 84502,
-      "firstName": "Marco",
-      "lastName": "Rossi",
-      "name": "Marco Rossi",
-      "dateOfBirth": "1964-09-09",
-      "nationality": "Italy",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [
-      {
-        "id": 9533,
-        "name": "Péter Gulácsi",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1990-05-06",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 57216,
-        "name": "Dénes Dibusz",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1990-11-16",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 73670,
-        "name": "Péter Szappanos",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1990-11-14",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 569,
-        "name": "Ádám Lang",
-        "position": "Defence",
-        "dateOfBirth": "1993-01-17",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 9537,
-        "name": "Willi Orban",
-        "position": "Defence",
-        "dateOfBirth": "1992-11-03",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 57208,
-        "name": "Attila Fiola",
-        "position": "Defence",
-        "dateOfBirth": "1990-02-17",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 63061,
-        "name": "Endre Botka",
-        "position": "Defence",
-        "dateOfBirth": "1994-08-25",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 63096,
-        "name": "Loïc Nego",
-        "position": "Defence",
-        "dateOfBirth": "1991-01-15",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 63185,
-        "name": "Zsolt Nagy",
-        "position": "Defence",
-        "dateOfBirth": "1993-05-25",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 63207,
-        "name": "Attila Szalai",
-        "position": "Defence",
-        "dateOfBirth": "1998-01-20",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 63262,
-        "name": "Bendegúz Bolla",
-        "position": "Defence",
-        "dateOfBirth": "1999-11-22",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 136712,
-        "name": "Botond Balogh",
-        "position": "Defence",
-        "dateOfBirth": "2002-06-06",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 141783,
-        "name": "Márton Dárdai",
-        "position": "Defence",
-        "dateOfBirth": "2002-02-12",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 171141,
-        "name": "Milos Kerkez",
-        "position": "Defence",
-        "dateOfBirth": "2003-11-07",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 1879,
-        "name": "Ádam Nagy",
-        "position": "Midfield",
-        "dateOfBirth": "1995-06-17",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 15194,
-        "name": "László Kleinheisler",
-        "position": "Midfield",
-        "dateOfBirth": "1994-04-08",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 15312,
-        "name": "Dániel Gazdag",
-        "position": "Midfield",
-        "dateOfBirth": "1996-03-02",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 16119,
-        "name": "Roland Sallai",
-        "position": "Midfield",
-        "dateOfBirth": "1997-05-22",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 16347,
-        "name": "Dominik Szoboszlai",
-        "position": "Midfield",
-        "dateOfBirth": "2000-10-25",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 72117,
-        "name": "András Schafer",
-        "position": "Midfield",
-        "dateOfBirth": "1999-04-13",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 87197,
-        "name": "Krisztofer Horváth",
-        "position": "Midfield",
-        "dateOfBirth": "2002-01-08",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 117948,
-        "name": "Mihály Kata",
-        "position": "Midfield",
-        "dateOfBirth": "2002-04-13",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 5230,
-        "name": "Callum Styles",
-        "position": "Offence",
-        "dateOfBirth": "2000-03-28",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 10694,
-        "name": "Barnabás Varga",
-        "position": "Offence",
-        "dateOfBirth": "1994-01-25",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 43615,
-        "name": "Kevin Csoboth",
-        "position": "Offence",
-        "dateOfBirth": "2000-06-20",
-        "nationality": "Hungary"
-      },
-      {
-        "id": 63165,
-        "name": "Martin Ádám",
-        "position": "Offence",
-        "dateOfBirth": "1994-11-06",
-        "nationality": "Hungary"
-      }
-    ],
-    "staff": [],
-    "lastUpdated": "2021-05-28T19:08:20Z"
+    "crest": "https://crests.football-data.org/827.svg"
   },
   {
-    "area": {
-      "id": 2002,
-      "name": "Albania",
-      "code": "ALB",
-      "flag": null
-    },
-    "id": 1065,
-    "name": "Albaania",
-    "shortName": "Albania",
-    "group": "B",
-    "tla": "ALB",
-    "crest": "https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg",
-    "address": "Rruga e Elbasanit 9 Tiranë 1000",
-    "website": "http://www.fshf.org",
-    "founded": 1930,
-    "clubColors": "Red / Black",
-    "venue": "Air Albania Stadium",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 120991,
-      "firstName": "",
-      "lastName": "Sylvinho",
-      "name": "Sylvinho",
-      "dateOfBirth": "1974-04-12",
-      "nationality": "Brazil",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-04-05T07:09:29Z"
-  },
-  {
-    "area": {
-      "id": 2087,
-      "name": "Georgia",
-      "code": "GEO",
-      "flag": null
-    },
-    "id": 1978,
-    "name": "Gruusia",
-    "shortName": "Georgia",
-    "group": "F",
-    "tla": "GEO",
-    "crest": "https://crests.football-data.org/ge.svg",
-    "address": "76a Chavchavadze Ave. Tbilisi 0179",
-    "website": "http://www.gff.ge",
-    "founded": 1990,
-    "clubColors": "White / Red",
-    "venue": "Boris Paichadzis Dinamo Arena",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 57536,
-      "firstName": "Willy",
-      "lastName": "Sagnol",
-      "name": "Willy Sagnol",
-      "dateOfBirth": "1977-03-18",
-      "nationality": "France",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2024-05-16T15:41:39Z"
-  },
-  {
-    "area": {
-      "id": 2163,
-      "name": "Netherlands",
-      "code": "NLD",
-      "flag": "https://crests.football-data.org/8601.svg"
-    },
-    "id": 8601,
-    "name": "Holland",
-    "shortName": "Netherlands",
-    "group": "D",
-    "tla": "NED",
-    "crest": "https://crests.football-data.org/8601.svg",
-    "address": "Woudenbergseweg 56-58 / Postbus 515 Zeist 3700 AM",
-    "website": "http://www.knvb.nl",
-    "founded": 1889,
-    "clubColors": "Orange / White / Blue",
-    "venue": "Johan Cruyff ArenA",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 11591,
-      "firstName": "Ronald",
-      "lastName": "Koeman",
-      "name": "Ronald Koeman",
-      "dateOfBirth": "1963-03-21",
-      "nationality": "Netherlands",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [
-      {
-        "id": 7673,
-        "name": "Nick Olij",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1995-08-01",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 9923,
-        "name": "Mark Flekken",
-        "position": "Goalkeeper",
-        "dateOfBirth": "1993-06-13",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 126870,
-        "name": "Bart Verbruggen",
-        "position": "Goalkeeper",
-        "dateOfBirth": "2002-08-18",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 2053,
-        "name": "Stefan de Vrij",
-        "position": "Defence",
-        "dateOfBirth": "1992-02-05",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7417,
-        "name": "Denzel Dumfries",
-        "position": "Defence",
-        "dateOfBirth": "1996-04-18",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7468,
-        "name": "Lutsharel Geertruida",
-        "position": "Defence",
-        "dateOfBirth": "2000-07-18",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7869,
-        "name": "Virgil van Dijk",
-        "position": "Defence",
-        "dateOfBirth": "1991-07-08",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 8240,
-        "name": "Nathan Aké",
-        "position": "Defence",
-        "dateOfBirth": "1995-02-18",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 128954,
-        "name": "Jeremie Frimpong",
-        "position": "Defence",
-        "dateOfBirth": "2000-12-10",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 131120,
-        "name": "Ian Maatsen",
-        "position": "Defence",
-        "dateOfBirth": "2002-03-10",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 131177,
-        "name": "Mickey van de Ven",
-        "position": "Defence",
-        "dateOfBirth": "2001-04-19",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 1848,
-        "name": "Marten de Roon",
-        "position": "Midfield",
-        "dateOfBirth": "1991-03-29",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7559,
-        "name": "Frenkie de Jong",
-        "position": "Midfield",
-        "dateOfBirth": "1997-05-12",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7693,
-        "name": "Teun Koopmeiners",
-        "position": "Midfield",
-        "dateOfBirth": "1998-02-28",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7696,
-        "name": "Tijjani Reijnders",
-        "position": "Midfield",
-        "dateOfBirth": "1998-07-29",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7871,
-        "name": "Georginio Wijnaldum",
-        "position": "Midfield",
-        "dateOfBirth": "1990-11-11",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 53426,
-        "name": "Joey Veerman",
-        "position": "Midfield",
-        "dateOfBirth": "1998-11-19",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 81793,
-        "name": "Ryan Gravenberch",
-        "position": "Midfield",
-        "dateOfBirth": "2002-05-16",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 97536,
-        "name": "Quinten Timber",
-        "position": "Midfield",
-        "dateOfBirth": "2001-06-17",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 148289,
-        "name": "Xavi Simons",
-        "position": "Midfield",
-        "dateOfBirth": "2003-04-21",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7453,
-        "name": "Steven Bergwijn",
-        "position": "Offence",
-        "dateOfBirth": "1997-10-08",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7457,
-        "name": "Donyell Malen",
-        "position": "Offence",
-        "dateOfBirth": "1999-01-19",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7459,
-        "name": "Cody Gakpo",
-        "position": "Offence",
-        "dateOfBirth": "1999-05-07",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 7697,
-        "name": "Wout Weghorst",
-        "position": "Offence",
-        "dateOfBirth": "1992-08-07",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 8472,
-        "name": "Memphis Depay",
-        "position": "Offence",
-        "dateOfBirth": "1994-02-13",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 9770,
-        "name": "Jerdy Schouten",
-        "position": "Offence",
-        "dateOfBirth": "1997-01-12",
-        "nationality": "Netherlands"
-      },
-      {
-        "id": 97535,
-        "name": "Brian Brobbey",
-        "position": "Offence",
-        "dateOfBirth": "2002-02-01",
-        "nationality": "Netherlands"
-      }
-    ],
-    "staff": [],
-    "lastUpdated": "2021-05-28T18:49:20Z"
-  },
-  {
-    "area": {
-      "id": 2204,
-      "name": "Scotland",
-      "code": "SCO",
-      "flag": "https://crests.football-data.org/814.svg"
-    },
     "id": 8873,
     "name": "Šotimaa",
     "shortName": "Scotland",
     "group": "A",
     "tla": "SCO",
-    "crest": "https://crests.football-data.org/814.svg",
-    "address": "Hampden Park Glasgow G42 9AY",
-    "website": "http://www.scottishfa.co.uk",
-    "founded": 1873,
-    "clubColors": "Navy Blue / White",
-    "venue": "Hampden Park",
-    "runningCompetitions": [
-      {
-        "id": 2018,
-        "name": "European Championship",
-        "code": "EC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/ec.png"
-      }
-    ],
-    "coach": {
-      "id": 34834,
-      "firstName": "Steve",
-      "lastName": "Clarke",
-      "name": "Steve Clarke",
-      "dateOfBirth": "1963-08-29",
-      "nationality": "Scotland",
-      "contract": {
-        "start": null,
-        "until": null
-      }
-    },
-    "squad": [],
-    "staff": [],
-    "lastUpdated": "2021-05-28T18:49:42Z"
+    "crest": "https://crests.football-data.org/814.svg"
+  },
+  {
+    "id": 760,
+    "name": "Hispaania",
+    "shortName": "Spain",
+    "group": "B",
+    "tla": "ESP",
+    "crest": "https://crests.football-data.org/760.svg"
+  },
+  {
+    "id": 784,
+    "name": "Itaalia",
+    "shortName": "Italy",
+    "group": "B",
+    "tla": "ITA",
+    "crest": "https://crests.football-data.org/784.svg"
+  },
+  {
+    "id": 799,
+    "name": "Horvaatia",
+    "shortName": "Croatia",
+    "group": "B",
+    "tla": "CRO",
+    "crest": "https://crests.football-data.org/799.svg"
+  },
+  {
+    "id": 1065,
+    "name": "Albaania",
+    "shortName": "Albania",
+    "group": "B",
+    "tla": "ALB",
+    "crest": "https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg"
+  },
+  {
+    "id": 770,
+    "name": "Inglismaa",
+    "shortName": "England",
+    "group": "C",
+    "tla": "ENG",
+    "crest": "https://crests.football-data.org/770.svg"
+  },
+  {
+    "id": 777,
+    "name": "Sloveenia",
+    "shortName": "Slovenia",
+    "group": "C",
+    "tla": "SVN",
+    "crest": "https://crests.football-data.org/777.svg"
+  },
+  {
+    "id": 780,
+    "name": "Serbia",
+    "shortName": "Serbia",
+    "group": "C",
+    "tla": "SRB",
+    "crest": "https://crests.football-data.org/780.svg"
+  },
+  {
+    "id": 782,
+    "name": "Taani",
+    "shortName": "Denmark",
+    "group": "C",
+    "tla": "DEN",
+    "crest": "https://crests.football-data.org/782.svg"
+  },
+  {
+    "id": 773,
+    "name": "Prantsusmaa",
+    "shortName": "France",
+    "group": "D",
+    "tla": "FRA",
+    "crest": "https://crests.football-data.org/773.svg"
+  },
+  {
+    "id": 794,
+    "name": "Poola",
+    "shortName": "Poland",
+    "group": "D",
+    "tla": "POL",
+    "crest": "https://crests.football-data.org/794.svg"
+  },
+  {
+    "id": 816,
+    "name": "Austria",
+    "shortName": "Austria",
+    "group": "D",
+    "tla": "AUT",
+    "crest": "https://crests.football-data.org/816.svg"
+  },
+  {
+    "id": 8601,
+    "name": "Holland",
+    "shortName": "Netherlands",
+    "group": "D",
+    "tla": "NED",
+    "crest": "https://crests.football-data.org/8601.svg"
+  },
+  {
+    "id": 768,
+    "name": "Slovakkia",
+    "shortName": "Slovakia",
+    "group": "E",
+    "tla": "SVK",
+    "crest": "https://crests.football-data.org/768.svg"
+  },
+  {
+    "id": 790,
+    "name": "Ukraina",
+    "shortName": "Ukraine",
+    "group": "E",
+    "tla": "UKR",
+    "crest": "https://crests.football-data.org/790.svg"
+  },
+  {
+    "id": 805,
+    "name": "Belgia",
+    "shortName": "Belgium",
+    "group": "E",
+    "tla": "BEL",
+    "crest": "https://crests.football-data.org/805.svg"
+  },
+  {
+    "id": 811,
+    "name": "Rumeenia",
+    "shortName": "Romania",
+    "group": "E",
+    "tla": "ROU",
+    "crest": "https://crests.football-data.org/811.svg"
+  },
+  {
+    "id": 765,
+    "name": "Portugal",
+    "shortName": "Portugal",
+    "group": "F",
+    "tla": "POR",
+    "crest": "https://crests.football-data.org/765.svg"
+  },
+  {
+    "id": 798,
+    "name": "Tšehhi",
+    "shortName": "Czechia",
+    "group": "F",
+    "tla": "CZE",
+    "crest": "https://crests.football-data.org/798.svg"
+  },
+  {
+    "id": 803,
+    "name": "Türgi",
+    "shortName": "Turkey",
+    "group": "F",
+    "tla": "TUR",
+    "crest": "https://crests.football-data.org/803.svg"
+  },
+  {
+    "id": 1978,
+    "name": "Gruusia",
+    "shortName": "Georgia",
+    "group": "F",
+    "tla": "GEO",
+    "crest": "https://crests.football-data.org/ge.svg"
+  },
+  {
+    "id": 762,
+    "name": "Argentina",
+    "shortName": "Argentina",
+    "group": "G",
+    "tla": "ARG",
+    "crest": "https://crests.football-data.org/762.svg"
+  },
+  {
+    "id": 764,
+    "name": "Brasiilia",
+    "shortName": "Brazil",
+    "group": "G",
+    "tla": "BRA",
+    "crest": "https://crests.football-data.org/764.svg"
+  },
+  {
+    "id": 769,
+    "name": "Kolumbia",
+    "shortName": "Colombia",
+    "group": "G",
+    "tla": "COL",
+    "crest": "https://crests.football-data.org/769.svg"
+  },
+  {
+    "id": 771,
+    "name": "Ecuador",
+    "shortName": "Ecuador",
+    "group": "G",
+    "tla": "ECU",
+    "crest": "https://crests.football-data.org/771.svg"
+  },
+  {
+    "id": 758,
+    "name": "Uruguay",
+    "shortName": "Uruguay",
+    "group": "H",
+    "tla": "URU",
+    "crest": "https://crests.football-data.org/758.svg"
+  },
+  {
+    "id": 763,
+    "name": "Tšiili",
+    "shortName": "Chile",
+    "group": "H",
+    "tla": "CHI",
+    "crest": "https://crests.football-data.org/763.svg"
+  },
+  {
+    "id": 766,
+    "name": "Venetsueela",
+    "shortName": "Venezuela",
+    "group": "H",
+    "tla": "VEN",
+    "crest": "https://crests.football-data.org/766.svg"
+  },
+  {
+    "id": 767,
+    "name": "Paraguay",
+    "shortName": "Paraguay",
+    "group": "H",
+    "tla": "PAR",
+    "crest": "https://crests.football-data.org/767.svg"
+  },
+  {
+    "id": 779,
+    "name": "USA",
+    "shortName": "United States",
+    "group": "I",
+    "tla": "USA",
+    "crest": "https://crests.football-data.org/779.svg"
+  },
+  {
+    "id": 791,
+    "name": "Mehhiko",
+    "shortName": "Mexico",
+    "group": "I",
+    "tla": "MEX",
+    "crest": "https://crests.football-data.org/791.svg"
+  },
+  {
+    "id": 793,
+    "name": "Kanada",
+    "shortName": "Canada",
+    "group": "I",
+    "tla": "CAN",
+    "crest": "https://crests.football-data.org/793.svg"
+  },
+  {
+    "id": 795,
+    "name": "Jamaica",
+    "shortName": "Jamaica",
+    "group": "I",
+    "tla": "JAM",
+    "crest": "https://crests.football-data.org/795.svg"
+  },
+  {
+    "id": 785,
+    "name": "Jaapan",
+    "shortName": "Japan",
+    "group": "J",
+    "tla": "JPN",
+    "crest": "https://crests.football-data.org/785.svg"
+  },
+  {
+    "id": 772,
+    "name": "Lõuna-Korea",
+    "shortName": "South Korea",
+    "group": "J",
+    "tla": "KOR",
+    "crest": "https://crests.football-data.org/772.svg"
+  },
+  {
+    "id": 781,
+    "name": "Iraan",
+    "shortName": "Iran",
+    "group": "J",
+    "tla": "IRN",
+    "crest": "https://crests.football-data.org/781.svg"
+  },
+  {
+    "id": 787,
+    "name": "Austraalia",
+    "shortName": "Australia",
+    "group": "J",
+    "tla": "AUS",
+    "crest": "https://crests.football-data.org/787.svg"
+  },
+  {
+    "id": 804,
+    "name": "Senegal",
+    "shortName": "Senegal",
+    "group": "K",
+    "tla": "SEN",
+    "crest": "https://crests.football-data.org/804.svg"
+  },
+  {
+    "id": 802,
+    "name": "Maroko",
+    "shortName": "Morocco",
+    "group": "K",
+    "tla": "MAR",
+    "crest": "https://crests.football-data.org/802.svg"
+  },
+  {
+    "id": 1530,
+    "name": "Nigeeria",
+    "shortName": "Nigeria",
+    "group": "K",
+    "tla": "NGA",
+    "crest": "https://crests.football-data.org/1530.svg"
+  },
+  {
+    "id": 812,
+    "name": "Kamerun",
+    "shortName": "Cameroon",
+    "group": "K",
+    "tla": "CMR",
+    "crest": "https://crests.football-data.org/812.svg"
+  },
+  {
+    "id": 818,
+    "name": "Tuneesia",
+    "shortName": "Tunisia",
+    "group": "L",
+    "tla": "TUN",
+    "crest": "https://crests.football-data.org/818.svg"
+  },
+  {
+    "id": 813,
+    "name": "Egiptus",
+    "shortName": "Egypt",
+    "group": "L",
+    "tla": "EGY",
+    "crest": "https://crests.football-data.org/813.svg"
+  },
+  {
+    "id": 817,
+    "name": "Alžeeria",
+    "shortName": "Algeria",
+    "group": "L",
+    "tla": "ALG",
+    "crest": "https://crests.football-data.org/817.svg"
+  },
+  {
+    "id": 808,
+    "name": "Saudi Araabia",
+    "shortName": "Saudi Arabia",
+    "group": "L",
+    "tla": "KSA",
+    "crest": "https://crests.football-data.org/808.svg"
   }
 ]

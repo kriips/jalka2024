@@ -5,7 +5,8 @@ defmodule Jalka2026Web.PageLiveTest do
 
   test "disconnected and connected render", %{conn: conn} do
     {:ok, page_live, disconnected_html} = live(conn, "/")
-    assert disconnected_html =~ "Welcome to Phoenix!"
-    assert render(page_live) =~ "Welcome to Phoenix!"
+    # The app shows football prediction rules - check for MM 2026 content
+    assert disconnected_html =~ "MM 2026"
+    assert render(page_live) =~ "MM 2026"
   end
 end

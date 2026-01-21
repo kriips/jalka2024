@@ -2,9 +2,16 @@ defmodule Jalka2026Web.UserSettingsControllerTest do
   use Jalka2026Web.ConnCase, async: true
 
   alias Jalka2026.Accounts
+  alias Jalka2026.Repo
   import Jalka2026.AccountsFixtures
 
-  setup :register_and_log_in_user
+  setup context do
+    # Register and log in user
+    %{conn: conn, user: user} = register_and_log_in_user(context)
+    # Add email to user for email-related tests
+    {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
+    %{conn: conn, user: user_with_email}
+  end
 
   describe "GET /users/settings" do
     test "renders settings page", %{conn: conn} do
@@ -16,7 +23,8 @@ defmodule Jalka2026Web.UserSettingsControllerTest do
     test "redirects if user is not logged in" do
       conn = build_conn()
       conn = get(conn, Routes.user_settings_path(conn, :edit))
-      assert redirected_to(conn) == Routes.user_session_path(conn, :new)
+      # App redirects to registration page when not authenticated
+      assert redirected_to(conn) == Routes.user_registration_new_path(conn, :new)
     end
   end
 
@@ -35,7 +43,7 @@ defmodule Jalka2026Web.UserSettingsControllerTest do
       assert redirected_to(new_password_conn) == Routes.user_settings_path(conn, :edit)
       assert get_session(new_password_conn, :user_token) != get_session(conn, :user_token)
       assert get_flash(new_password_conn, :info) =~ "Password updated successfully"
-      assert Accounts.get_user_by_email_and_password(user.email, "new valid password")
+      assert Accounts.get_user_by_name_and_password(user.name, "new valid password")
     end
 
     test "does not update password on invalid data", %{conn: conn} do
@@ -44,14 +52,14 @@ defmodule Jalka2026Web.UserSettingsControllerTest do
           "action" => "update_password",
           "current_password" => "invalid",
           "user" => %{
-            "password" => "too short",
+            "password" => "1234",
             "password_confirmation" => "does not match"
           }
         })
 
       response = html_response(old_password_conn, 200)
       assert response =~ "<h1>Settings</h1>"
-      assert response =~ "should be at least 12 character(s)"
+      assert response =~ "should be at least 5 character(s)"
       assert response =~ "does not match password"
       assert response =~ "is not valid"
 
@@ -123,7 +131,8 @@ defmodule Jalka2026Web.UserSettingsControllerTest do
     test "redirects if user is not logged in", %{token: token} do
       conn = build_conn()
       conn = get(conn, Routes.user_settings_path(conn, :confirm_email, token))
-      assert redirected_to(conn) == Routes.user_session_path(conn, :new)
+      # App redirects to registration page when not authenticated
+      assert redirected_to(conn) == Routes.user_registration_new_path(conn, :new)
     end
   end
 end

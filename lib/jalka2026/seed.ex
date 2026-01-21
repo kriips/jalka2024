@@ -60,17 +60,29 @@ defmodule Jalka2026.Seed do
       :prod -> "/app/lib/jalka2026-0.1.0"
       _ -> Mix.Project.app_path()
     end
-    if Code.ensure_compiled(Jalka2026.Accounts.AllowedUser) &&
-         Jalka2026.Accounts.AllowedUser |> Jalka2026.Repo.aggregate(:count, :id) <= 977 do
-      Logger.info("Adding secondary seed data...")
-      Enum.each(
-        Jason.decode!(File.read!('#{prefix}/priv/repo/data/allowed_users2.json')),
-        fn attrs ->
-          %Jalka2026.Accounts.AllowedUser{}
-          |> Jalka2026.Accounts.AllowedUser.changeset(attrs)
-          |> Jalka2026.Repo.insert!()
+
+    # For 2026 tournament: Load any additional users from allowed_users2.json
+    # The main allowed_users.json now has 990 users for the 2026 tournament
+    if Code.ensure_compiled(Jalka2026.Accounts.AllowedUser) do
+      current_count = Jalka2026.Accounts.AllowedUser |> Jalka2026.Repo.aggregate(:count, :id)
+
+      # Only add secondary users if count is below expected 990 (2026 tournament list)
+      if current_count < 990 do
+        Logger.info("Adding secondary seed data for 2026 tournament...")
+        secondary_file = '#{prefix}/priv/repo/data/allowed_users2.json'
+
+        if File.exists?(secondary_file) do
+          Enum.each(
+            Jason.decode!(File.read!(secondary_file)),
+            fn attrs ->
+              # Use insert with on_conflict to handle duplicates gracefully
+              %Jalka2026.Accounts.AllowedUser{}
+              |> Jalka2026.Accounts.AllowedUser.changeset(attrs)
+              |> Jalka2026.Repo.insert(on_conflict: :nothing)
+            end
+          )
         end
-      )
+      end
     end
   end
 end

@@ -6,14 +6,18 @@ defmodule Jalka2026Web.UserResetPasswordControllerTest do
   import Jalka2026.AccountsFixtures
 
   setup do
-    %{user: user_fixture()}
+    user = user_fixture()
+    # Add email to user for reset password tests
+    {:ok, user_with_email} = Repo.update(Ecto.Changeset.change(user, email: unique_user_email()))
+    %{user: user_with_email}
   end
 
   describe "GET /users/reset_password" do
     test "renders the reset password page", %{conn: conn} do
       conn = get(conn, Routes.user_reset_password_path(conn, :new))
       response = html_response(conn, 200)
-      assert response =~ "<h1>Forgot your password?</h1>"
+      # Estonian: "Unustasid parooli?" means "Forgot your password?"
+      assert response =~ "<h1>Unustasid parooli?</h1>"
     end
   end
 
@@ -86,21 +90,21 @@ defmodule Jalka2026Web.UserResetPasswordControllerTest do
       assert redirected_to(conn) == Routes.user_session_path(conn, :new)
       refute get_session(conn, :user_token)
       assert get_flash(conn, :info) =~ "Password reset successfully"
-      assert Accounts.get_user_by_email_and_password(user.email, "new valid password")
+      assert Accounts.get_user_by_name_and_password(user.name, "new valid password")
     end
 
     test "does not reset password on invalid data", %{conn: conn, token: token} do
       conn =
         put(conn, Routes.user_reset_password_path(conn, :update, token), %{
           "user" => %{
-            "password" => "too short",
+            "password" => "1234",
             "password_confirmation" => "does not match"
           }
         })
 
       response = html_response(conn, 200)
       assert response =~ "<h1>Reset password</h1>"
-      assert response =~ "should be at least 12 character(s)"
+      assert response =~ "should be at least 5 character(s)"
       assert response =~ "does not match password"
     end
 
