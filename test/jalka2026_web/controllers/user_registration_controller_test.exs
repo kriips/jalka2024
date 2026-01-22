@@ -34,7 +34,7 @@ defmodule Jalka2026Web.UserRegistrationControllerTest do
         })
 
       assert get_session(conn, :user_token)
-      assert redirected_to(conn) =~ "/predict"
+      assert redirected_to(conn) =~ "/football/predict"
 
       # Now do a logged in request and assert on the menu
       conn = get(conn, "/")

@@ -8,7 +8,7 @@ defmodule Jalka2026.Seed do
     if Code.ensure_compiled(Jalka2026.Accounts.AllowedUser) &&
          Jalka2026.Accounts.AllowedUser |> Jalka2026.Repo.aggregate(:count, :id) == 0 do
       Enum.each(
-        Jason.decode!(File.read!('#{prefix}/priv/repo/data/allowed_users.json')),
+        Jason.decode!(File.read!("#{prefix}/priv/repo/data/allowed_users.json")),
         fn attrs ->
           %Jalka2026.Accounts.AllowedUser{}
           |> Jalka2026.Accounts.AllowedUser.changeset(attrs)
@@ -17,20 +17,51 @@ defmodule Jalka2026.Seed do
       )
     end
 
+    # Load matches first to derive team groups (new format doesn't have group in teams.json)
+    matches_data = Jason.decode!(File.read!("#{prefix}/priv/repo/data/matches.json"))
+    matches = if is_list(matches_data), do: matches_data, else: Map.get(matches_data, "matches", [])
+
+    # Build a map of team_id -> group from matches (GROUP_A -> A, GROUP_B -> B, etc.)
+    team_groups = matches
+    |> Enum.filter(& &1["stage"] == "GROUP_STAGE")
+    |> Enum.flat_map(fn match ->
+      group = match["group"] |> String.replace("GROUP_", "")
+      [
+        {match["homeTeam"]["id"], group},
+        {match["awayTeam"]["id"], group}
+      ]
+    end)
+    |> Enum.reject(fn {id, _} -> is_nil(id) end)
+    |> Enum.into(%{})
+
     if Code.ensure_compiled(Jalka2026.Football.Team) &&
          Jalka2026.Football.Team |> Jalka2026.Repo.aggregate(:count, :id) == 0 do
+      teams_data = Jason.decode!(File.read!("#{prefix}/priv/repo/data/teams.json"))
+      # Handle both old format (flat array) and new format (object with "teams" key)
+      teams = if is_list(teams_data), do: teams_data, else: Map.get(teams_data, "teams", [])
+
       Enum.each(
-        Jason.decode!(File.read!('#{prefix}/priv/repo/data/teams.json')),
+        teams,
         fn attrs ->
-          %Jalka2026.Football.Team{}
-          |> Jalka2026.Football.Team.changeset(%{
-            id: Map.get(attrs, "id"),
-            name: Map.get(attrs, "name"),
-            code: Map.get(attrs, "tla"),
-            flag: Map.get(attrs, "crest"),
-            group: Map.get(attrs, "group")
-          })
-          |> Jalka2026.Repo.insert!()
+          team_id = Map.get(attrs, "id")
+          # Get group from team data (old format) or derive from matches (new format)
+          group = Map.get(attrs, "group") || Map.get(team_groups, team_id)
+          # Use tla, or shortName, or first 3 chars of name as fallback for code
+          code = Map.get(attrs, "tla") || Map.get(attrs, "shortName") || String.slice(Map.get(attrs, "name", "UNK"), 0, 3) |> String.upcase()
+
+          if group do
+            %Jalka2026.Football.Team{}
+            |> Jalka2026.Football.Team.changeset(%{
+              id: team_id,
+              name: Map.get(attrs, "name"),
+              code: code,
+              flag: Map.get(attrs, "crest"),
+              group: group
+            })
+            |> Jalka2026.Repo.insert!()
+          else
+            Logger.warning("Skipping team #{team_id} (#{Map.get(attrs, "name")}) - no group found")
+          end
         end
       )
     end
@@ -38,7 +69,7 @@ defmodule Jalka2026.Seed do
     if Code.ensure_compiled(Jalka2026.Football.Match) &&
          Jalka2026.Football.Match |> Jalka2026.Repo.aggregate(:count, :id) == 0 do
       Enum.each(
-        Jason.decode!(File.read!('#{prefix}/priv/repo/data/matches.json')),
+        matches,
         fn attrs ->
           if (Map.get(attrs, "stage") == "GROUP_STAGE") do
             %Jalka2026.Football.Match{}
@@ -69,7 +100,7 @@ defmodule Jalka2026.Seed do
       # Only add secondary users if count is below expected 990 (2026 tournament list)
       if current_count < 990 do
         Logger.info("Adding secondary seed data for 2026 tournament...")
-        secondary_file = '#{prefix}/priv/repo/data/allowed_users2.json'
+        secondary_file = "#{prefix}/priv/repo/data/allowed_users2.json"
 
         if File.exists?(secondary_file) do
           Enum.each(

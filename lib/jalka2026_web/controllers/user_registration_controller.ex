@@ -15,7 +15,7 @@ defmodule Jalka2026Web.UserRegistrationController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "Kasutaja loodud.")
-        |> put_session(:user_return_to, "/predict")
+        |> put_session(:user_return_to, "/football/predict")
         |> UserAuth.log_in_user(user)
 
       {:error, %Ecto.Changeset{} = _changeset} ->

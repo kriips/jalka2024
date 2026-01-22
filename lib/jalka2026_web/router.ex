@@ -66,9 +66,9 @@ defmodule Jalka2026Web.Router do
   scope "/", Jalka2026Web do
     pipe_through([:browser, :require_authenticated_user])
 
-#    live("/football/predict", UserPredictionLive.Navigate, :navigate)
-#    live("/football/predict/playoffs", UserPredictionLive.Playoffs, :edit)
-#    live("/football/predict/:group", UserPredictionLive.Groups, :edit)
+    live("/football/predict", UserPredictionLive.Navigate, :navigate)
+    live("/football/predict/playoffs", UserPredictionLive.Playoffs, :edit)
+    live("/football/predict/:group", UserPredictionLive.Groups, :edit)
     live("/football/result/group", ResultLive.Groups, :create)
     live("/football/result/playoff", ResultLive.Playoff, :create)
     get("/users/settings", UserSettingsController, :edit)
