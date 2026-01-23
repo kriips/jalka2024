@@ -22,6 +22,15 @@ defmodule Jalka2026Web.LiveHelpers do
     end
   end
 
+  @doc """
+  Checks if predictions are still open (before the tournament deadline).
+  Returns true if predictions can still be made, false if the deadline has passed.
+  """
+  def predictions_open? do
+    deadline = Application.get_env(:jalka2026, :prediction_deadline)
+    deadline == nil or DateTime.compare(DateTime.utc_now(), deadline) == :lt
+  end
+
   defp find_current_user(session) do
     with user_token when not is_nil(user_token) <- session["user_token"],
          %User{} = user <- Accounts.get_user_by_session_token(user_token),

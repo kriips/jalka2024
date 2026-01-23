@@ -1,5 +1,5 @@
 defmodule Jalka2026Web.FootballLive.User do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.{FootballResolver, AccountsResolver}
 
@@ -17,8 +17,4 @@ defmodule Jalka2026Web.FootballLive.User do
          |> FootballResolver.add_playoff_correctness()
      )}
   end
-
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.UserView, "user.html", assigns)
 end

@@ -1,14 +1,13 @@
 defmodule Jalka2026Web.UserPredictionLive.Groups do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.FootballResolver
-  alias Jalka2026Web.LiveHelpers
   alias Jalka2026.Football.{Match}
 
   @impl true
   def mount(params, session, socket) do
     group = Map.get(params, "group")
-    socket = LiveHelpers.assign_defaults(session, socket)
+    socket = Jalka2026Web.LiveHelpers.assign_defaults(session, socket)
 
     predictions =
       FootballResolver.list_matches_by_group(group)
@@ -23,54 +22,64 @@ defmodule Jalka2026Web.UserPredictionLive.Groups do
   end
 
   @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.PredictionView, "groups.html", assigns)
-
-  @impl true
   def handle_event("inc-score", user_params, socket) do
-    changed_score =
-      case user_params["side"] do
-        "home" ->
-          {inc_score(user_params["home-score"]), nullify_hyphen(user_params["away-score"])}
+    if Jalka2026Web.LiveHelpers.predictions_open?() do
+      changed_score =
+        case user_params["side"] do
+          "home" ->
+            {inc_score(user_params["home-score"]), nullify_hyphen(user_params["away-score"])}
 
-        "away" ->
-          {nullify_hyphen(user_params["home-score"]), inc_score(user_params["away-score"])}
-      end
+          "away" ->
+            {nullify_hyphen(user_params["home-score"]), inc_score(user_params["away-score"])}
+        end
 
-    match_id = String.to_integer(user_params["match"])
+      match_id = String.to_integer(user_params["match"])
 
-    updated_prediction =
-      FootballResolver.change_prediction_score(%{
-        match_id: match_id,
-        user_id: socket.assigns.current_user.id,
-        side: user_params["side"],
-        score: changed_score
-      })
+      updated_prediction =
+        FootballResolver.change_prediction_score(%{
+          match_id: match_id,
+          user_id: socket.assigns.current_user.id,
+          side: user_params["side"],
+          score: changed_score
+        })
 
-    {:noreply, socket |> update_prediction(match_id, updated_prediction)}
+      {:noreply, socket |> update_prediction(match_id, updated_prediction)}
+    else
+      {:noreply,
+       socket
+       |> put_flash(:error, "Ennustamine on suletud - turniir on alanud")
+       |> redirect(to: "/")}
+    end
   end
 
   def handle_event("dec-score", user_params, socket) do
-    changed_score =
-      case user_params["side"] do
-        "home" ->
-          {dec_score(user_params["home-score"]), nullify_hyphen(user_params["away-score"])}
+    if Jalka2026Web.LiveHelpers.predictions_open?() do
+      changed_score =
+        case user_params["side"] do
+          "home" ->
+            {dec_score(user_params["home-score"]), nullify_hyphen(user_params["away-score"])}
 
-        "away" ->
-          {nullify_hyphen(user_params["home-score"]), dec_score(user_params["away-score"])}
-      end
+          "away" ->
+            {nullify_hyphen(user_params["home-score"]), dec_score(user_params["away-score"])}
+        end
 
-    match_id = String.to_integer(user_params["match"])
+      match_id = String.to_integer(user_params["match"])
 
-    updated_prediction =
-      FootballResolver.change_prediction_score(%{
-        match_id: match_id,
-        user_id: socket.assigns.current_user.id,
-        side: user_params["side"],
-        score: changed_score
-      })
+      updated_prediction =
+        FootballResolver.change_prediction_score(%{
+          match_id: match_id,
+          user_id: socket.assigns.current_user.id,
+          side: user_params["side"],
+          score: changed_score
+        })
 
-    {:noreply, socket |> update_prediction(match_id, updated_prediction)}
+      {:noreply, socket |> update_prediction(match_id, updated_prediction)}
+    else
+      {:noreply,
+       socket
+       |> put_flash(:error, "Ennustamine on suletud - turniir on alanud")
+       |> redirect(to: "/")}
+    end
   end
 
   defp add_score(%Match{} = match, socket) do

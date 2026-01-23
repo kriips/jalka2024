@@ -1,14 +1,11 @@
-defmodule Jalka2026Web.ErrorViewTest do
+defmodule Jalka2026Web.ErrorHTMLTest do
   use Jalka2026Web.ConnCase, async: true
 
-  # Bring render/3 and render_to_string/3 for testing custom views
-  import Phoenix.View
-
   test "renders 404.html" do
-    assert render_to_string(Jalka2026Web.ErrorView, "404.html", []) == "Not Found"
+    assert Jalka2026Web.ErrorHTML.render("404.html", []) == "Not Found"
   end
 
   test "renders 500.html" do
-    assert render_to_string(Jalka2026Web.ErrorView, "500.html", []) == "Internal Server Error"
+    assert Jalka2026Web.ErrorHTML.render("500.html", []) == "Internal Server Error"
   end
 end

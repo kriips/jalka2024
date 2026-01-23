@@ -1,5 +1,5 @@
 defmodule Jalka2026Web.LeaderboardLive.Leaderboard do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026.Leaderboard
 
@@ -7,8 +7,4 @@ defmodule Jalka2026Web.LeaderboardLive.Leaderboard do
   def mount(_params, _session, socket) do
     {:ok, assign(socket, leaderboard: Leaderboard.get_leaderboard())}
   end
-
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.LeaderboardView, "leaderboard.html", assigns)
 end

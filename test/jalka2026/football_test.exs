@@ -2,7 +2,6 @@ defmodule Jalka2026.FootballTest do
   use Jalka2026.DataCase
 
   alias Jalka2026.Football
-  alias Jalka2026.Football.{Match, GroupPrediction, PlayoffPrediction, PlayoffResult, Team}
   import Jalka2026.FootballFixtures
   import Jalka2026.AccountsFixtures
 

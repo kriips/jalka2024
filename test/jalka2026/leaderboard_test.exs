@@ -1,7 +1,6 @@
 defmodule Jalka2026.LeaderboardTest do
   use Jalka2026.DataCase
 
-  alias Jalka2026.Leaderboard
   import Jalka2026.FootballFixtures
   import Jalka2026.AccountsFixtures
 

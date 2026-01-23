@@ -8,7 +8,6 @@ config :bcrypt_elixir, :log_rounds, 1
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-IO.inspect("getting to test config")
 config :jalka2026, Jalka2026.Repo,
   username: "postgres",
   password: "postgres",
@@ -23,6 +22,6 @@ config :jalka2026, Jalka2026Web.Endpoint,
   server: false
 
 # Print only warnings and errors during test
-config :logger, level: :warn
+config :logger, level: :warning
 
 config :jalka2026, :environment, :test

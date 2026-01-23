@@ -1,29 +1,31 @@
 defmodule Jalka2026Web.UserPredictionLive.Playoffs do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.FootballResolver
-  alias Jalka2026Web.LiveHelpers
 
   @impl true
   def mount(_params, session, socket) do
-    socket = LiveHelpers.assign_defaults(session, socket)
+    socket = Jalka2026Web.LiveHelpers.assign_defaults(session, socket)
     {:ok, add_teams(socket)}
   end
 
   @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.PredictionView, "playoffs.html", assigns)
-
-  @impl true
   def handle_event("toggle-team", user_params, socket) do
-    FootballResolver.change_playoff_prediction(%{
-      user_id: socket.assigns.current_user.id,
-      team_id: String.to_integer(user_params["team"]),
-      phase: String.to_integer(user_params["phase"]),
-      include: user_params["value"] == "on"
-    })
+    if Jalka2026Web.LiveHelpers.predictions_open?() do
+      FootballResolver.change_playoff_prediction(%{
+        user_id: socket.assigns.current_user.id,
+        team_id: String.to_integer(user_params["team"]),
+        phase: String.to_integer(user_params["phase"]),
+        include: user_params["value"] == "on"
+      })
 
-    {:noreply, add_teams(socket)}
+      {:noreply, add_teams(socket)}
+    else
+      {:noreply,
+       socket
+       |> Phoenix.LiveView.put_flash(:error, "Ennustamine on suletud - turniir on alanud")
+       |> Phoenix.LiveView.redirect(to: "/")}
+    end
   end
 
   defp add_predictions(teams_with_group, predictions, phase) do

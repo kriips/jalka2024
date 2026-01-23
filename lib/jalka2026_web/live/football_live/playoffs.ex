@@ -1,5 +1,5 @@
 defmodule Jalka2026Web.FootballLive.Playoffs do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.FootballResolver
 
@@ -8,8 +8,4 @@ defmodule Jalka2026Web.FootballLive.Playoffs do
     predictions = FootballResolver.get_playoff_predictions()
     {:ok, assign(socket, predictions: predictions)}
   end
-
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.PlayoffsView, "playoffs.html", assigns)
 end

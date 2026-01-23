@@ -71,12 +71,19 @@ defmodule Jalka2026.Seed do
       Enum.each(
         matches,
         fn attrs ->
-          if (Map.get(attrs, "stage") == "GROUP_STAGE") do
+          home_team_id = Kernel.get_in(attrs, ["homeTeam", "id"])
+          away_team_id = Kernel.get_in(attrs, ["awayTeam", "id"])
+
+          if Map.get(attrs, "stage") == "GROUP_STAGE" && home_team_id && away_team_id do
+            # Transform GROUP_A -> Alagrupp A, GROUP_B -> Alagrupp B, etc.
+            group_letter = Map.get(attrs, "group") |> String.replace("GROUP_", "")
+            group = "Alagrupp #{group_letter}"
+
             %Jalka2026.Football.Match{}
             |> Jalka2026.Football.Match.changeset(%{
-              group: Map.get(attrs, "group"),
-              home_team_id: Kernel.get_in(attrs, ["homeTeam", "id"]),
-              away_team_id: Kernel.get_in(attrs, ["awayTeam", "id"]),
+              group: group,
+              home_team_id: home_team_id,
+              away_team_id: away_team_id,
               date: Map.get(attrs, "utcDate")
             })
             |> Jalka2026.Repo.insert!()

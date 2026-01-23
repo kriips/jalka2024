@@ -7,7 +7,7 @@ defmodule Jalka2026Web.Router do
     plug(:accepts, ["html"])
     plug(:fetch_session)
     plug(:fetch_live_flash)
-    plug(:put_root_layout, {Jalka2026Web.LayoutView, :root})
+    plug(:put_root_layout, html: {Jalka2026Web.Layouts, :root})
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
     plug(:fetch_current_user)
@@ -66,14 +66,20 @@ defmodule Jalka2026Web.Router do
   scope "/", Jalka2026Web do
     pipe_through([:browser, :require_authenticated_user])
 
-    live("/football/predict", UserPredictionLive.Navigate, :navigate)
-    live("/football/predict/playoffs", UserPredictionLive.Playoffs, :edit)
-    live("/football/predict/:group", UserPredictionLive.Groups, :edit)
     live("/football/result/group", ResultLive.Groups, :create)
     live("/football/result/playoff", ResultLive.Playoff, :create)
     get("/users/settings", UserSettingsController, :edit)
     put("/users/settings", UserSettingsController, :update)
     get("/users/settings/confirm_email/:token", UserSettingsController, :confirm_email)
+  end
+
+  # Prediction routes - require authentication AND predictions to be open
+  scope "/", Jalka2026Web do
+    pipe_through([:browser, :require_authenticated_user, :require_predictions_open])
+
+    live("/football/predict", UserPredictionLive.Navigate, :navigate)
+    live("/football/predict/playoffs", UserPredictionLive.Playoffs, :edit)
+    live("/football/predict/:group", UserPredictionLive.Groups, :edit)
   end
 
   scope "/", Jalka2026Web do

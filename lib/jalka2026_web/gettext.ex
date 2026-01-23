@@ -20,5 +20,5 @@ defmodule Jalka2026Web.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :jalka2026
+  use Gettext.Backend, otp_app: :jalka2026
 end

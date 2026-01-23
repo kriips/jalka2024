@@ -1,12 +1,11 @@
 defmodule Jalka2026Web.UserPredictionLive.Navigate do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.FootballResolver
-  alias Jalka2026Web.LiveHelpers
 
   @impl true
   def mount(_params, session, socket) do
-    socket = LiveHelpers.assign_defaults(session, socket)
+    socket = Jalka2026Web.LiveHelpers.assign_defaults(session, socket)
     filled_predictions = FootballResolver.filled_predictions(socket.assigns.current_user.id)
     playoff_predictions = FootballResolver.get_playoff_predictions(socket.assigns.current_user.id)
     progress = count_progress(filled_predictions, playoff_predictions)
@@ -32,10 +31,6 @@ defmodule Jalka2026Web.UserPredictionLive.Navigate do
        playoffs_filled: playoffs_filled
      )}
   end
-
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.PredictionView, "navigate.html", assigns)
 
   defp map_style(filled_predictions) do
     filled_predictions

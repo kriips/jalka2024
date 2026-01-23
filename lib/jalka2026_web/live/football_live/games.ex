@@ -1,5 +1,5 @@
 defmodule Jalka2026Web.FootballLive.Games do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.FootballResolver
 
@@ -8,8 +8,4 @@ defmodule Jalka2026Web.FootballLive.Games do
     matches = FootballResolver.list_matches()
     {:ok, assign(socket, matches: matches)}
   end
-
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.GamesView, "games.html", assigns)
 end

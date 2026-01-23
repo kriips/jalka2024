@@ -30,8 +30,12 @@ config :jalka2026, env: config_env()
 
 config :jalka2026, compile_env: Mix.env()
 
+# Tournament prediction deadline - predictions are locked when the first match starts
+# World Cup 2026 starts June 11, 2026 at 19:00:00 UTC
+config :jalka2026, :prediction_deadline, ~U[2026-06-11 19:00:00Z]
+
 config :esbuild,
-  version: "0.14.0",
+  version: "0.25.0",
   default: [
     args: ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets),
     #      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),

@@ -1,19 +1,21 @@
 defmodule Jalka2026Web.FootballLive.Game do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.FootballResolver
 
   @impl true
   def mount(params, _session, socket) do
-    {:ok,
-     socket
-     |> assign(
-       predictions: FootballResolver.get_predictions_by_match_result(params["id"]),
-       match: FootballResolver.list_match(params["id"])
-     )}
-  end
+    case FootballResolver.list_match(params["id"]) do
+      nil ->
+        {:ok, socket |> redirect(to: "/football/games")}
 
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.GamesView, "game.html", assigns)
+      match ->
+        {:ok,
+         socket
+         |> assign(
+           predictions: FootballResolver.get_predictions_by_match_result(params["id"]),
+           match: match
+         )}
+    end
+  end
 end

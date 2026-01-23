@@ -1,18 +1,13 @@
 defmodule Jalka2026Web.ResultLive.Groups do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026Web.Resolvers.FootballResolver
-  alias Jalka2026Web.LiveHelpers
 
   @impl true
   def mount(_params, session, socket) do
-    socket = LiveHelpers.assign_defaults(session, socket)
+    socket = Jalka2026Web.LiveHelpers.assign_defaults(session, socket)
     {:ok, socket}
   end
-
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.ResultView, "groups.html", assigns)
 
   @impl true
   def handle_event("save", values, socket) do

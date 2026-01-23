@@ -1,5 +1,5 @@
 defmodule Jalka2026Web.UserRegistrationLive.New do
-  use Phoenix.LiveView
+  use Jalka2026Web, :live_view
 
   alias Jalka2026.Accounts
   alias Jalka2026.Accounts.User
@@ -18,10 +18,6 @@ defmodule Jalka2026Web.UserRegistrationLive.New do
     changeset = Accounts.change_user_registration(%User{})
     {:ok, assign(socket, changeset: changeset, query: "", results: %{}, trigger_submit: false)}
   end
-
-  @impl true
-  def render(assigns),
-    do: Phoenix.View.render(Jalka2026Web.UserRegistrationView, "new.html", assigns)
 
   @impl true
   def handle_event("validate", %{"user" => user_params}, socket) do

@@ -147,4 +147,27 @@ defmodule Jalka2026Web.UserAuth do
   defp maybe_store_return_to(conn), do: conn
 
   defp signed_in_path(_conn), do: "/"
+
+  @doc """
+  Used for routes that require predictions to still be open.
+  Blocks access after the tournament has started.
+  """
+  def require_predictions_open(conn, _opts) do
+    deadline = Application.get_env(:jalka2026, :prediction_deadline)
+
+    if predictions_open?(deadline) do
+      conn
+    else
+      conn
+      |> put_flash(:error, "Ennustamine on suletud - turniir on alanud")
+      |> redirect(to: "/")
+      |> halt()
+    end
+  end
+
+  defp predictions_open?(nil), do: true
+
+  defp predictions_open?(deadline) do
+    DateTime.compare(DateTime.utc_now(), deadline) == :lt
+  end
 end
