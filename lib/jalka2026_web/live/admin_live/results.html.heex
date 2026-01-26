@@ -1,0 +1,137 @@
+<main role="main" class="container" aria-label={@page_title}>
+    <div class="prediction-page-header">
+        <h1 id="page-title"><%= @page_title %></h1>
+        <p class="page-subtitle">
+            <%= if @type == :groups, do: "Lisa ja muuda alagrupimangude tulemusi", else: "Lisa ja muuda playoff-tulemusi" %>
+        </p>
+    </div>
+
+    <div class="container" id="main-content">
+        <%= if @type == :groups do %>
+            <!-- Group selector -->
+            <div class="info-card">
+                <h2 class="info-card-title">Vali alagrupp</h2>
+                <div class="group-selector">
+                    <%= for group <- ~w(A B C D E F G H I J K L) do %>
+                        <button
+                            type="button"
+                            class={"group-btn " <> if @selected_group == group, do: "active", else: ""}
+                            phx-click="select_group"
+                            phx-value-group={group}
+                        >
+                            <%= group %>
+                        </button>
+                    <% end %>
+                </div>
+            </div>
+
+            <!-- Matches for selected group -->
+            <div class="info-card">
+                <h2 class="info-card-title">Alagrupp <%= @selected_group %></h2>
+                <div class="matches-list">
+                    <%= for match <- Map.get(@groups, @selected_group, []) do %>
+                        <div class={"match-row " <> if match.finished, do: "finished", else: ""}>
+                            <div class="match-teams">
+                                <span class="team home"><%= match.home_team.name %></span>
+                                <span class="vs">vs</span>
+                                <span class="team away"><%= match.away_team.name %></span>
+                            </div>
+                            <form class="match-score-form" phx-submit="save_result">
+                                <input type="hidden" name="match_id" value={match.id} />
+                                <input
+                                    type="number"
+                                    name="home_score"
+                                    class="score-input"
+                                    min="0"
+                                    max="20"
+                                    value={match.home_score}
+                                    placeholder="-"
+                                />
+                                <span class="score-separator">:</span>
+                                <input
+                                    type="number"
+                                    name="away_score"
+                                    class="score-input"
+                                    min="0"
+                                    max="20"
+                                    value={match.away_score}
+                                    placeholder="-"
+                                />
+                                <button type="submit" class="save-btn">
+                                    <%= if match.finished, do: "Uuenda", else: "Salvesta" %>
+                                </button>
+                            </form>
+                            <div class="match-status">
+                                <%= if match.finished do %>
+                                    <span class="status-badge finished">Lopetatud</span>
+                                <% else %>
+                                    <span class="status-badge pending">Ootel</span>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% else %>
+            <!-- Phase selector -->
+            <div class="info-card">
+                <h2 class="info-card-title">Vali faas</h2>
+                <div class="phase-selector">
+                    <%= for phase <- [32, 16, 8, 4, 2, 1] do %>
+                        <button
+                            type="button"
+                            class={"phase-btn " <> if @selected_phase == phase, do: "active", else: ""}
+                            phx-click="select_phase"
+                            phx-value-phase={phase}
+                        >
+                            <%= phase_name(phase) %>
+                        </button>
+                    <% end %>
+                </div>
+            </div>
+
+            <!-- Teams for selected phase -->
+            <div class="info-card">
+                <h2 class="info-card-title"><%= phase_name(@selected_phase) %></h2>
+                <p class="info-note">Kliki tiimil, et lisada/eemaldada see sellest faasist</p>
+                <div class="teams-grid">
+                    <%= for {group, teams} <- Enum.sort(@teams_by_group) do %>
+                        <div class="team-group">
+                            <h3 class="group-label">Grupp <%= group %></h3>
+                            <div class="team-buttons">
+                                <%= for {team_id, team_name} <- teams do %>
+                                    <button
+                                        type="button"
+                                        class={"team-btn " <> if team_in_phase?(@playoff_results, team_id, @selected_phase), do: "selected", else: ""}
+                                        phx-click="save_playoff_result"
+                                        phx-value-team_name={team_name}
+                                        phx-value-phase={@selected_phase}
+                                    >
+                                        <%= team_name %>
+                                    </button>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+
+        <!-- Actions -->
+        <div class="info-card">
+            <h2 class="info-card-title">Toimingud</h2>
+            <div class="admin-actions">
+                <button type="button" class="admin-action-btn" phx-click="recalc_leaderboard">
+                    Uuenda edetabel
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="admin-footer">
+            <.link navigate={Routes.admin_dashboard_path(@socket, :index)} class="back-link">
+                Tagasi juhtpaneelile
+            </.link>
+        </div>
+    </div>
+</main>

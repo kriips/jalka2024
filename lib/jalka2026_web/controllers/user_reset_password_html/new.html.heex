@@ -1,0 +1,15 @@
+<h1>Unustasid parooli?</h1>
+
+<.form :let={f} for={%{}} as={:user} action={Routes.user_reset_password_path(@conn, :create)}>
+  <%= label f, :email %>
+  <%= email_input f, :email, required: true %>
+
+  <div>
+    <%= submit "Saada juhised parooli lähtestamiseks" %>
+  </div>
+</.form>
+
+<p>
+  <%= link "Registreeri", to: Routes.user_registration_new_path(@conn, :new) %> |
+  <%= link "Sisene", to: Routes.user_session_path(@conn, :new) %>
+</p>

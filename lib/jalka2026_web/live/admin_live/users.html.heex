@@ -1,0 +1,93 @@
+<main role="main" class="container" aria-label={@page_title}>
+    <div class="prediction-page-header">
+        <h1 id="page-title"><%= @page_title %></h1>
+        <p class="page-subtitle">Halda kasutajaid ja administraatori oigusi</p>
+    </div>
+
+    <div class="container" id="main-content">
+        <!-- Search -->
+        <div class="info-card">
+            <h2 class="info-card-title">Otsi kasutajat</h2>
+            <form phx-change="search" phx-submit="search">
+                <input
+                    type="text"
+                    name="query"
+                    value={@search_query}
+                    placeholder="Otsi nime voi e-posti jargi..."
+                    class="search-input"
+                    phx-debounce="300"
+                />
+            </form>
+        </div>
+
+        <!-- Users Table -->
+        <div class="info-card">
+            <h2 class="info-card-title">Kasutajad (<%= length(@users) %>)</h2>
+            <div class="users-table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" phx-click="sort" phx-value-field="name">
+                                Nimi<%= sort_indicator(:name, @sort_by, @sort_dir) %>
+                            </th>
+                            <th class="sortable" phx-click="sort" phx-value-field="email">
+                                E-post<%= sort_indicator(:email, @sort_by, @sort_dir) %>
+                            </th>
+                            <th class="sortable" phx-click="sort" phx-value-field="prediction_count">
+                                Ennustusi<%= sort_indicator(:prediction_count, @sort_by, @sort_dir) %>
+                            </th>
+                            <th class="sortable" phx-click="sort" phx-value-field="playoff_prediction_count">
+                                Playoff<%= sort_indicator(:playoff_prediction_count, @sort_by, @sort_dir) %>
+                            </th>
+                            <th class="sortable" phx-click="sort" phx-value-field="is_admin">
+                                Admin<%= sort_indicator(:is_admin, @sort_by, @sort_dir) %>
+                            </th>
+                            <th>Toimingud</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%= for user <- @users do %>
+                            <tr class={if user.is_admin, do: "admin-row", else: ""}>
+                                <td><%= user.name %></td>
+                                <td><%= user.email || "-" %></td>
+                                <td class="text-center"><%= user.prediction_count %> / 72</td>
+                                <td class="text-center"><%= user.playoff_prediction_count %></td>
+                                <td class="text-center">
+                                    <%= if user.is_admin do %>
+                                        <span class="badge admin">Jah</span>
+                                    <% else %>
+                                        <span class="badge">Ei</span>
+                                    <% end %>
+                                </td>
+                                <td class="actions-cell">
+                                    <button
+                                        type="button"
+                                        class={"toggle-admin-btn " <> if user.is_admin, do: "remove", else: "add"}
+                                        phx-click="toggle_admin"
+                                        phx-value-user_id={user.id}
+                                        title={if user.is_admin, do: "Eemalda admin", else: "Tee adminiks"}
+                                    >
+                                        <%= if user.is_admin, do: "Eemalda admin", else: "Tee adminiks" %>
+                                    </button>
+                                    <.link
+                                        navigate={Routes.football_user_path(@socket, :view, user.id)}
+                                        class="view-predictions-link"
+                                    >
+                                        Vaata ennustusi
+                                    </.link>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="admin-footer">
+            <.link navigate={Routes.admin_dashboard_path(@socket, :index)} class="back-link">
+                Tagasi juhtpaneelile
+            </.link>
+        </div>
+    </div>
+</main>

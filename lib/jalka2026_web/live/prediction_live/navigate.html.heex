@@ -1,0 +1,70 @@
+<main role="main" class="container" aria-label="Ennustuste navigeerimine">
+    <div class="prediction-page-header">
+        <h1 id="page-title">Ennusta</h1>
+        <p class="page-subtitle" id="page-description">Vali alagrupp või playoff-mängud</p>
+    </div>
+    <div class="container" id="main-content" aria-describedby="page-description">
+        <section class="section-card" aria-labelledby="groups-heading">
+            <h2 class="section-card-title" id="groups-heading">Alagrupid</h2>
+            <nav class="nav-button-grid" role="navigation" aria-label="Alagrupid">
+                <% groups = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"] %>
+                <%= for group <- groups do %>
+                <% is_filled = @filled["Alagrupp #{group}"] != "button-outline" %>
+                <.link
+                    navigate={Routes.user_prediction_groups_path(@socket, :edit, group)}
+                    class={"nav-button #{if is_filled, do: "filled", else: ""}"}
+                    aria-label={"Alagrupp #{group}#{if is_filled, do: " - täidetud", else: " - täitmata"}"}
+                    aria-current={if is_filled, do: "false", else: "false"}
+                >
+                    Alagrupp <%= group %>
+                    <span class="sr-only"><%= if is_filled, do: "(täidetud)", else: "(täitmata)" %></span>
+                </.link>
+                <% end %>
+            </nav>
+        </section>
+
+        <section class="section-card" aria-labelledby="playoffs-heading">
+            <h2 class="section-card-title" id="playoffs-heading">Playoff-mängud</h2>
+            <%= if @playoffs_disabled == "disabled" do %>
+                <button
+                    class={"nav-button disabled #{if @playoffs_filled == "button-outline", do: "", else: "filled"}"}
+                    disabled
+                    aria-disabled="true"
+                    aria-describedby="playoffs-disabled-reason"
+                >
+                    Playoff-mängud
+                </button>
+                <p class="sr-only" id="playoffs-disabled-reason">Playoff-mängud on lukus. Täida kõigepealt kõik alagrupid.</p>
+                <p class="helper-text" aria-hidden="true">(täida kõigepealt alagrupid)</p>
+            <% else %>
+                <% playoffs_filled = @playoffs_filled != "button-outline" %>
+                <.link
+                    navigate={Routes.user_prediction_playoffs_path(@socket, :edit)}
+                    class={"nav-button #{if playoffs_filled, do: "filled", else: ""}"}
+                    aria-label={"Playoff-mängud#{if playoffs_filled, do: " - täidetud", else: " - täitmata"}"}
+                >
+                    Playoff-mängud
+                    <span class="sr-only"><%= if playoffs_filled, do: "(täidetud)", else: "(täitmata)" %></span>
+                </.link>
+            <% end %>
+        </section>
+
+        <section class="section-card" aria-labelledby="progress-heading">
+            <h2 class="section-card-title" id="progress-heading">Edenemine</h2>
+            <div class="progress-container" role="group" aria-labelledby="progress-heading">
+                <div class="progress-info">
+                    <span class="progress-label" id="progress-label">Täidetud</span>
+                    <span class="progress-value" aria-hidden="true"><%= @progress %>%</span>
+                </div>
+                <div class="progress-bar-modern" role="progressbar" aria-valuenow={@progress} aria-valuemin="0" aria-valuemax="100" aria-labelledby="progress-label" aria-valuetext={"#{@progress} protsenti täidetud"}>
+                    <div class="progress-bar-fill-modern" style={"width: #{@progress}%;"} aria-hidden="true"></div>
+                </div>
+                <p class="sr-only" aria-live="polite">Oled täitnud <%= @progress %> protsenti ennustustest.</p>
+            </div>
+        </section>
+
+        <nav class="back-button-container" aria-label="Navigeerimine">
+            <.link navigate={Routes.page_path(@socket, :index)} class="button button-large button-main" aria-label="Tagasi avalehele">Tagasi</.link>
+        </nav>
+    </div>
+</main>

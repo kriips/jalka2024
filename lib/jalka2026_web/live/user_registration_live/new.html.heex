@@ -1,0 +1,34 @@
+<main role="main" class="container" aria-label="Registreerimine">
+    <div class="prediction-page-header">
+        <h1 id="page-title">Registreeri</h1>
+        <p class="page-subtitle">Loo oma konto</p>
+    </div>
+    <div class="container" id="main-content">
+        <div class="form-card">
+            <.form :let={f} for={@changeset} action="#" phx-change="validate" phx-submit="save" phx-trigger-action={@trigger_submit}>
+                <div class="form-group">
+                    <%= label f, :nimi %>
+                    <input type="text" name="user[name]" value={@query} list="results" autocomplete="on" aria-label="Nimi" />
+                    <datalist id="results">
+                        <%= for {_id, name} <- @results do %>
+                            <option value={name}><%= name %></option>
+                        <% end %>
+                    </datalist>
+                    <%= error_tag f, :name %>
+                </div>
+
+                <div class="form-group">
+                    <%= label f, :parool %>
+                    <%= password_input f, :password, value: input_value(f, :password), required: true, aria_label: "Parool", type: "password", phx_debounce: "blur" %>
+                    <%= error_tag f, :password %>
+                </div>
+
+                <%= submit "Registreeri", phx_disable_with: "Registreerin...", class: "submit-button" %>
+            </.form>
+
+            <div class="form-links">
+                <%= link "Sisene olemasoleva kontoga", to: Routes.user_session_path(@socket, :new) %>
+            </div>
+        </div>
+    </div>
+</main>

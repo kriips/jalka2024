@@ -1,0 +1,95 @@
+<main role="main" class="container" aria-label={"Kasutaja #{@user.name} ennustused"}>
+    <div class="prediction-page-header">
+        <h1 id="page-title"><%= @user.name %></h1>
+        <p class="page-subtitle">Kasutaja ennustused ja tulemused</p>
+    </div>
+    <div class="container" id="main-content">
+        <div class="section-card">
+            <h2 class="section-card-title">Alagrupid</h2>
+            <div class="data-table-card" style="box-shadow: none; margin-bottom: 0;">
+                <table role="table" aria-label="Alagrupimängude ennustused">
+                    <thead>
+                        <tr>
+                            <th scope="col">Võistkonnad</th>
+                            <th scope="col">Ennustus</th>
+                            <th scope="col">Õige tulemus</th>
+                            <th scope="col">Õige skoor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%= for {%{away_score: away_score, home_score: home_score, match: match}, correct_result, correct_score} <- @predictions do %>
+                        <tr>
+                            <td class="match-teams"><%= match.home_team.name %> - <%= match.away_team.name %></td>
+                            <td><span class="prediction-score"><%= home_score %> - <%= away_score %></span></td>
+                            <td>
+                                <%= if correct_result do %>
+                                <svg class="result-indicator correct" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-label="Õige">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                <% end %>
+                            </td>
+                            <td>
+                                <%= if correct_score do %>
+                                <svg class="result-indicator correct" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-label="Õige">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                <% end %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-card-title">Playoffid</h2>
+
+            <div class="phase-section">
+                <h3 class="phase-title">32 parimat</h3>
+                <div class="teams-grid">
+                    <%= raw(Enum.join(@playoff_predictions[32], ", ")) %>
+                </div>
+            </div>
+
+            <div class="phase-section">
+                <h3 class="phase-title">Kaheksandikfinalistid</h3>
+                <div class="teams-grid">
+                    <%= raw(Enum.join(@playoff_predictions[16], ", ")) %>
+                </div>
+            </div>
+
+            <div class="phase-section">
+                <h3 class="phase-title">Veerandfinalistid</h3>
+                <div class="teams-grid">
+                    <%= raw(Enum.join(@playoff_predictions[8], ", ")) %>
+                </div>
+            </div>
+
+            <div class="phase-section">
+                <h3 class="phase-title">Poolfinalistid</h3>
+                <div class="teams-grid">
+                    <%= raw(Enum.join(@playoff_predictions[4], ", ")) %>
+                </div>
+            </div>
+
+            <div class="phase-section">
+                <h3 class="phase-title">Finalistid</h3>
+                <div class="teams-grid">
+                    <%= raw(Enum.join(@playoff_predictions[2], ", ")) %>
+                </div>
+            </div>
+
+            <div class="phase-section">
+                <h3 class="phase-title">Võitja</h3>
+                <div class="teams-grid winner">
+                    <%= raw(Enum.join(@playoff_predictions[1], ", ")) %>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-button-container">
+            <.link navigate={Routes.leaderboard_leaderboard_path(@socket, :view)} class="button button-large button-main" aria-label="Tagasi edetabelisse">Tagasi</.link>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,43 @@
+<main role="main" class="container" aria-label="Playoff ennustuste ülevaade">
+    <div class="prediction-page-header">
+        <h1 id="page-title">Playoffid</h1>
+        <p class="page-subtitle">Kõigi ennustajate playoff valikud</p>
+    </div>
+    <div class="container" id="main-content">
+        <%= for {phase, teams_predictions} <- @predictions do %>
+        <div class="section-card">
+            <h2 class="section-card-title">
+                <%= case phase do
+                    1 -> "Võitja"
+                    2 -> "Finalistid"
+                    4 -> "Poolfinalistid"
+                    8 -> "Veerandfinalistid"
+                    16 -> "Kaheksandikfinalistid"
+                    32 -> "32 parimat"
+                end %>
+            </h2>
+            <div class="playoff-teams-list">
+                <%= for {team_name, reached_phase, users} <- teams_predictions do %>
+                <div class={"team-prediction-card #{if reached_phase, do: "correct", else: ""}"}>
+                    <div class="team-prediction-header">
+                        <span class={"team-name-badge #{if reached_phase, do: "correct", else: ""}"}>
+                            <%= team_name %>
+                        </span>
+                        <span class="prediction-count">
+                            <%= Enum.count(users) %> <%= if Enum.count(users) == 1, do: "ennustaja", else: "ennustajat" %>
+                        </span>
+                    </div>
+                    <div class="team-predictors">
+                        <%= Enum.join(users, ", ") %>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+
+        <div class="back-button-container">
+            <.link navigate={Routes.page_path(@socket, :index)} class="button button-large button-main" aria-label="Tagasi avalehele">Tagasi</.link>
+        </div>
+    </div>
+</main>

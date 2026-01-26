@@ -1,0 +1,134 @@
+<main role="main" class="container" aria-label={"Alagrupp #{@group} ennustused"}>
+    <div class="prediction-page-header">
+        <h1 id="page-title">Alagrupp <%= @group%></h1>
+        <p class="sr-only" aria-live="polite" id="predictions-status">
+            <%= Enum.count(@predictions, fn {_m, {h, a}} -> h != "-" and a != "-" end) %> / <%= length(@predictions) %> ennustust täidetud
+        </p>
+    </div>
+    <div class="container" id="main-content">
+        <div role="list" aria-label="Mängude nimekiri">
+        <%= for {match, {home_score, away_score}} <- @predictions do %>
+        <% prediction_complete = home_score != "-" and away_score != "-" %>
+        <% match_label = "#{match.home_team.name} vs #{match.away_team.name}" %>
+        <div class="match-card" role="listitem" aria-label={match_label}>
+            <fieldset class="match-card-inner" aria-describedby={"match-status-#{match.id}"}>
+                <legend class="sr-only"><%= match_label %> - ennusta tulemus</legend>
+                <div class="team-section home">
+                    <div class="team-flag-container">
+                        <img class="team-flag" src={match.home_team.flag} alt={"#{match.home_team.name} lipp"} />
+                    </div>
+                    <h4 class="team-name" id={"home-team-#{match.id}"}><%= match.home_team.name %></h4>
+                </div>
+
+                <div class="score-section" role="group" aria-label="Skoori sisestamine">
+                    <div class="score-control" role="group" aria-labelledby={"home-team-#{match.id}"}>
+                        <button
+                            class="score-btn"
+                            phx-click="inc-score"
+                            phx-keydown="keydown"
+                            phx-key="ArrowUp"
+                            phx-value-match-id={match.id}
+                            phx-value-match={match.id}
+                            phx-value-side="home"
+                            phx-value-home-score={home_score}
+                            phx-value-away-score={away_score}
+                            aria-label={"Suurenda #{match.home_team.name} skoori, praegu #{home_score}. Kasuta nooleklahve skoori muutmiseks."}
+                            aria-keyshortcuts="ArrowUp ArrowDown"
+                            tabindex="0"
+                        >+</button>
+                        <button
+                            class="score-btn decrement"
+                            phx-click="dec-score"
+                            phx-keydown="keydown"
+                            phx-key="ArrowDown"
+                            phx-value-match-id={match.id}
+                            phx-value-match={match.id}
+                            phx-value-side="home"
+                            phx-value-home-score={home_score}
+                            phx-value-away-score={away_score}
+                            aria-label={"Vähenda #{match.home_team.name} skoori, praegu #{home_score}. Kasuta nooleklahve skoori muutmiseks."}
+                            aria-keyshortcuts="ArrowUp ArrowDown"
+                            tabindex="0"
+                        >−</button>
+                    </div>
+
+                    <div class="score-display" role="status" aria-live="polite" aria-atomic="true" aria-label={"Praegune skoor: #{match.home_team.name} #{home_score}, #{match.away_team.name} #{away_score}"}>
+                        <span class={"score-value #{if home_score == "-", do: "empty", else: ""}"} aria-hidden="true"><%= home_score %></span>
+                        <span class="score-separator" aria-hidden="true">:</span>
+                        <span class={"score-value #{if away_score == "-", do: "empty", else: ""}"} aria-hidden="true"><%= away_score %></span>
+                        <span class="sr-only"><%= home_score %> - <%= away_score %></span>
+                    </div>
+
+                    <div class="score-control" role="group" aria-labelledby={"away-team-#{match.id}"}>
+                        <button
+                            class="score-btn"
+                            phx-click="inc-score"
+                            phx-keydown="keydown"
+                            phx-key="ArrowUp"
+                            phx-value-match-id={match.id}
+                            phx-value-match={match.id}
+                            phx-value-side="away"
+                            phx-value-home-score={home_score}
+                            phx-value-away-score={away_score}
+                            aria-label={"Suurenda #{match.away_team.name} skoori, praegu #{away_score}. Kasuta nooleklahve skoori muutmiseks."}
+                            aria-keyshortcuts="ArrowUp ArrowDown"
+                            tabindex="0"
+                        >+</button>
+                        <button
+                            class="score-btn decrement"
+                            phx-click="dec-score"
+                            phx-keydown="keydown"
+                            phx-key="ArrowDown"
+                            phx-value-match-id={match.id}
+                            phx-value-match={match.id}
+                            phx-value-side="away"
+                            phx-value-home-score={home_score}
+                            phx-value-away-score={away_score}
+                            aria-label={"Vähenda #{match.away_team.name} skoori, praegu #{away_score}. Kasuta nooleklahve skoori muutmiseks."}
+                            aria-keyshortcuts="ArrowUp ArrowDown"
+                            tabindex="0"
+                        >−</button>
+                    </div>
+                </div>
+
+                <div class="team-section away">
+                    <div class="team-flag-container">
+                        <img class="team-flag" src={match.away_team.flag} alt={"#{match.away_team.name} lipp"} />
+                    </div>
+                    <h4 class="team-name" id={"away-team-#{match.id}"}><%= match.away_team.name %></h4>
+                </div>
+            </fieldset>
+
+            <div class="prediction-status" id={"match-status-#{match.id}"} role="status">
+                <span class={"status-indicator #{if prediction_complete, do: "complete", else: ""}"} aria-hidden="true"></span>
+                <span class="status-text" aria-label={if prediction_complete, do: "Ennustus tehtud", else: "Ennustus ootel"}>
+                    <%= if prediction_complete, do: "Ennustatud", else: "Ootel" %>
+                </span>
+            </div>
+        </div>
+        <% end %>
+        </div>
+
+        <nav class="group-navigation" aria-label="Alagruppi vahel navigeerimine">
+            <div class="group-nav-buttons">
+                <%= if @prev_group do %>
+                    <.link navigate={Routes.user_prediction_groups_path(@socket, :edit, @prev_group)} class="button button-secondary group-nav-btn" aria-label={"Eelmine alagrupp #{@prev_group}"}>
+                        ← Alagrupp <%= @prev_group %>
+                    </.link>
+                <% else %>
+                    <span class="button button-secondary group-nav-btn disabled" aria-disabled="true">← Eelmine</span>
+                <% end %>
+
+                <.link navigate={Routes.user_prediction_navigate_path(@socket, :navigate)} class={"button button-large #{@predictions_done} button-main"} aria-label="Tagasi ennustuste navigeerimise juurde">Tagasi</.link>
+
+                <%= if @next_group do %>
+                    <.link navigate={Routes.user_prediction_groups_path(@socket, :edit, @next_group)} class="button button-secondary group-nav-btn" aria-label={"Järgmine alagrupp #{@next_group}"}>
+                        Alagrupp <%= @next_group %> →
+                    </.link>
+                <% else %>
+                    <span class="button button-secondary group-nav-btn disabled" aria-disabled="true">Järgmine →</span>
+                <% end %>
+            </div>
+        </nav>
+    </div>
+</main>

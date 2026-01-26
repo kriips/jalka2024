@@ -1,0 +1,139 @@
+<main role="main" class="container" aria-label={@page_title}>
+    <div class="prediction-page-header">
+        <h1 id="page-title"><%= @page_title %></h1>
+        <p class="page-subtitle">Kontrolli kasutajate ennustuste taielikkust</p>
+    </div>
+
+    <% stats = summary_stats(@validation_results) %>
+
+    <div class="container" id="main-content">
+        <!-- Summary Stats -->
+        <div class="info-card">
+            <h2 class="info-card-title">Kokkuvote</h2>
+            <div class="admin-stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Kokku kasutajaid</span>
+                    <span class="stat-value"><%= stats.total %></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Taielikud ennustused</span>
+                    <span class="stat-value status-open"><%= stats.valid %></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Puudulikud ennustused</span>
+                    <span class="stat-value status-closed"><%= stats.invalid %></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Taitmise protsent</span>
+                    <span class="stat-value"><%= stats.completion_rate %>%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="info-card">
+            <h2 class="info-card-title">Filtreeri</h2>
+            <div class="filter-buttons">
+                <button
+                    type="button"
+                    class={"filter-btn " <> if @filter == :all, do: "active", else: ""}
+                    phx-click="filter"
+                    phx-value-type="all"
+                >
+                    Koik (<%= stats.total %>)
+                </button>
+                <button
+                    type="button"
+                    class={"filter-btn valid " <> if @filter == :valid, do: "active", else: ""}
+                    phx-click="filter"
+                    phx-value-type="valid"
+                >
+                    Taielikud (<%= stats.valid %>)
+                </button>
+                <button
+                    type="button"
+                    class={"filter-btn invalid " <> if @filter == :invalid, do: "active", else: ""}
+                    phx-click="filter"
+                    phx-value-type="invalid"
+                >
+                    Puudulikud (<%= stats.invalid %>)
+                </button>
+                <button
+                    type="button"
+                    class={"filter-btn " <> if @filter == :incomplete_groups, do: "active", else: ""}
+                    phx-click="filter"
+                    phx-value-type="incomplete_groups"
+                >
+                    Puudulikud alagrupid (<%= stats.incomplete_groups %>)
+                </button>
+                <button
+                    type="button"
+                    class={"filter-btn " <> if @filter == :incomplete_playoffs, do: "active", else: ""}
+                    phx-click="filter"
+                    phx-value-type="incomplete_playoffs"
+                >
+                    Puudulikud playoffid (<%= stats.incomplete_playoffs %>)
+                </button>
+            </div>
+        </div>
+
+        <!-- Validation Results -->
+        <div class="info-card">
+            <h2 class="info-card-title">Ennustuste olek</h2>
+            <div class="validation-list">
+                <%= for result <- filtered_results(@validation_results, @filter) do %>
+                    <div class={"validation-row " <> if result.overall_valid, do: "valid", else: "invalid"}>
+                        <div class="validation-user">
+                            <span class="user-name"><%= result.user_name %></span>
+                            <span class={"status-badge " <> if result.overall_valid, do: "valid", else: "invalid"}>
+                                <%= if result.overall_valid, do: "Taielik", else: "Puudulik" %>
+                            </span>
+                        </div>
+
+                        <div class="validation-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Alagrupid:</span>
+                                <span class={"detail-value " <> if result.group_valid, do: "valid", else: "invalid"}>
+                                    <%= result.group_count %> / 72
+                                </span>
+                                <%= if !result.group_valid && length(result.incomplete_groups) > 0 do %>
+                                    <span class="detail-note">
+                                        (Puudu: <%= for {group, count} <- result.incomplete_groups do %><%= group %>:<%= 6 - count %> <% end %>)
+                                    </span>
+                                <% end %>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-label">Playoff:</span>
+                                <span class={"detail-value " <> if result.playoff_valid, do: "valid", else: "invalid"}>
+                                    <%= if result.playoff_valid, do: "OK", else: "Puudulik" %>
+                                </span>
+                                <%= if !result.playoff_valid && length(result.incomplete_phases) > 0 do %>
+                                    <span class="detail-note">
+                                        (Puudu: <%= for {phase, actual, expected} <- result.incomplete_phases do %>F<%= phase %>:<%= actual %>/<%= expected %> <% end %>)
+                                    </span>
+                                <% end %>
+                            </div>
+                        </div>
+
+                        <div class="validation-actions">
+                            <.link
+                                navigate={Routes.football_user_path(@socket, :view, result.user_id)}
+                                class="view-link"
+                            >
+                                Vaata ennustusi
+                            </.link>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="admin-footer">
+            <.link navigate={Routes.admin_dashboard_path(@socket, :index)} class="back-link">
+                Tagasi juhtpaneelile
+            </.link>
+        </div>
+    </div>
+</main>

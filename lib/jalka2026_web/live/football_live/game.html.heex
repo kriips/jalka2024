@@ -1,0 +1,60 @@
+<main role="main" class="container" aria-label={"Mäng: #{@match.home_team.name} vs #{@match.away_team.name}"}>
+    <div class="prediction-page-header">
+        <h1 id="page-title"><%= @match.home_team.name %> - <%= @match.away_team.name %></h1>
+        <%= if @match.finished do %>
+            <p class="page-subtitle match-final-score">Lõpptulemus: <%= @match.home_score %>:<%= @match.away_score %></p>
+        <% else %>
+            <p class="page-subtitle">Mäng pole veel toimunud</p>
+        <% end %>
+    </div>
+    <div class="container" id="main-content">
+        <div class="section-card">
+            <h2 class="section-card-title">Ennustused</h2>
+            <div class="predictions-group">
+                <div class="prediction-column">
+                    <h3 class="prediction-column-title"><%= @match.home_team.name %> võidab</h3>
+                    <%= if @predictions["home"] do %>
+                        <%= for prediction <- @predictions["home"] do %>
+                        <div class="prediction-item">
+                            <.link navigate={Routes.football_user_path(@socket, :view, prediction.user.id)} class="user-link"><%= prediction.user.name %></.link>
+                            <span class="prediction-score"><%= prediction.home_score %>:<%= prediction.away_score %></span>
+                        </div>
+                        <% end %>
+                    <% else %>
+                        <p class="no-predictions">Ennustusi pole</p>
+                    <% end %>
+                </div>
+                <div class="prediction-column">
+                    <h3 class="prediction-column-title">Viik</h3>
+                    <%= if @predictions["draw"] do %>
+                        <%= for prediction <- @predictions["draw"] do %>
+                        <div class="prediction-item">
+                            <.link navigate={Routes.football_user_path(@socket, :view, prediction.user.id)} class="user-link"><%= prediction.user.name %></.link>
+                            <span class="prediction-score"><%= prediction.home_score %>:<%= prediction.away_score %></span>
+                        </div>
+                        <% end %>
+                    <% else %>
+                        <p class="no-predictions">Ennustusi pole</p>
+                    <% end %>
+                </div>
+                <div class="prediction-column">
+                    <h3 class="prediction-column-title"><%= @match.away_team.name %> võidab</h3>
+                    <%= if @predictions["away"] do %>
+                        <%= for prediction <- @predictions["away"] do %>
+                        <div class="prediction-item">
+                            <.link navigate={Routes.football_user_path(@socket, :view, prediction.user.id)} class="user-link"><%= prediction.user.name %></.link>
+                            <span class="prediction-score"><%= prediction.home_score %>:<%= prediction.away_score %></span>
+                        </div>
+                        <% end %>
+                    <% else %>
+                        <p class="no-predictions">Ennustusi pole</p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-button-container">
+            <.link navigate={Routes.football_games_path(@socket, :view)} class="button button-large button-main" aria-label="Tagasi mängude nimekirja">Tagasi</.link>
+        </div>
+    </div>
+</main>

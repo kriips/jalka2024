@@ -1,0 +1,42 @@
+<main role="main" class="container" aria-label="Edetabel">
+    <div class="prediction-page-header">
+        <h1 id="page-title">Edetabel</h1>
+        <p class="page-subtitle">Ennustajate paremusjärjestus</p>
+    </div>
+    <div class="container" id="main-content">
+        <div class="data-table-card">
+            <table role="table" aria-label="Edetabeli tabel">
+                <thead>
+                    <tr>
+                        <th scope="col">Koht</th>
+                        <th scope="col">Nimi</th>
+                        <th scope="col">Grupi punktid</th>
+                        <th scope="col">Playoffi punktid</th>
+                        <th scope="col">Kokku</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%= for {id, rank, name, gpoints, ppoints, points} <- @leaderboard do %>
+                    <tr>
+                        <td>
+                            <span class={"rank-badge #{cond do rank == 1 -> "gold"; rank == 2 -> "silver"; rank == 3 -> "bronze"; true -> "default" end}"}>
+                                <%= rank %>
+                            </span>
+                        </td>
+                        <td>
+                            <.link navigate={Routes.football_user_path(@socket, :view, id)} class="user-link"><%= name %></.link>
+                        </td>
+                        <td class="points-secondary"><%= gpoints %></td>
+                        <td class="points-secondary"><%= ppoints %></td>
+                        <td class="points-total"><%= points %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="back-button-container">
+            <.link navigate={Routes.page_path(@socket, :index)} class="button button-large button-main" aria-label="Tagasi avalehele">Tagasi</.link>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,33 @@
+<main role="main" class="container" aria-label="Sisselogimine">
+    <div class="prediction-page-header">
+        <h1 id="page-title">Sisene</h1>
+        <p class="page-subtitle">Logi sisse oma kontoga</p>
+    </div>
+    <div class="container" id="main-content">
+        <div class="form-card">
+            <.form :let={f} for={@conn} action={Routes.user_session_path(@conn, :create)} as={:user}>
+                <%= if @error_message do %>
+                    <div class="alert alert-danger" role="alert">
+                        <p><%= @error_message %></p>
+                    </div>
+                <% end %>
+
+                <div class="form-group">
+                    <%= label f, :nimi %>
+                    <%= text_input f, :name, required: true, aria_label: "Nimi" %>
+                </div>
+
+                <div class="form-group">
+                    <%= label f, :parool %>
+                    <%= password_input f, :password, required: true, aria_label: "Parool" %>
+                </div>
+
+                <%= submit "Sisene", class: "submit-button" %>
+            </.form>
+
+            <div class="form-links">
+                <%= link "Registreeri uue kontoga", to: Routes.user_registration_new_path(@conn, :new) %>
+            </div>
+        </div>
+    </div>
+</main>

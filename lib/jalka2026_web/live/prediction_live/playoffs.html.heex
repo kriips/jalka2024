@@ -1,0 +1,162 @@
+<main role="main" class="container" aria-label="Play-off ennustused">
+    <h1 id="page-title">Play-offid</h1>
+    <p class="sr-only" aria-live="polite" id="playoffs-status">
+        Vali meeskonnad, kes sinu arvates edasi pääsevad igast faasist
+    </p>
+    <div class="container" id="main-content">
+        <section aria-labelledby="phase32-heading">
+            <h2 id="phase32-heading">32 parimat (<span aria-label={"#{@left32} valikut jäänud"}><%= @left32 %></span>)</h2>
+            <p class="sr-only" id="phase32-desc">Vali 32 meeskonda, kes pääsevad edasi alagrupifaasist</p>
+            <%= for row <- Enum.chunk_every(@teams32, 4) do %>
+                <div class="row" role="group">
+                    <%= for {_group, teams} <- row do %>
+                        <div class="column" role="group">
+                        <%= for {team_id, team_name, checked} <- teams do %>
+                            <% is_disabled = checked != "checked" && @disabled32 == "disabled" %>
+                            <div class="checkbox-item">
+                                <input
+                                        type="checkbox"
+                                        id={"team32-#{team_id}"}
+                                        phx-click="toggle-team"
+                                        phx-value-team={team_id}
+                                        phx-value-phase={32}
+                                        checked={checked == "checked"}
+                                        disabled={is_disabled}
+                                        aria-disabled={if is_disabled, do: "true", else: "false"}
+                                        aria-describedby="phase32-desc"
+                                        aria-label={"#{team_name} - #{if checked == "checked", do: "valitud", else: "pole valitud"}"}
+                                />
+                                <label class="label-inline" for={"team32-#{team_id}"}><%= team_name %></label>
+                            </div>
+                        <% end %>
+                        </div>
+                    <% end %>
+                </div>
+                <hr aria-hidden="true" />
+            <% end %>
+        </section>
+
+        <section aria-labelledby="phase16-heading">
+            <h2 id="phase16-heading">Kaheksandikfinalistid (<span aria-label={"#{@left16} valikut jäänud"}><%= @left16 %></span>)</h2>
+            <p class="sr-only" id="phase16-desc">Vali 16 meeskonda kaheksandikfinaali. Saad valida ainult meeskondi, kes on valitud eelmises faasis.</p>
+            <%= for {team_id, team_name, checked} <- @teams16 do %>
+            <% is_disabled = checked != "checked" && @disabled16 == "disabled" %>
+            <div class="checkbox-item">
+                <input
+                        type="checkbox"
+                        id={"team16-#{team_id}"}
+                        phx-click="toggle-team"
+                        phx-value-team={team_id}
+                        phx-value-phase={16}
+                        checked={checked == "checked"}
+                        disabled={is_disabled}
+                        aria-disabled={if is_disabled, do: "true", else: "false"}
+                        aria-describedby="phase16-desc"
+                        aria-label={"#{team_name} - #{if checked == "checked", do: "valitud", else: "pole valitud"}"}
+                />
+                <label class="label-inline" for={"team16-#{team_id}"}><%= team_name %></label>
+            </div>
+            <% end %>
+        </section>
+        <hr aria-hidden="true" />
+
+        <section aria-labelledby="phase8-heading">
+            <h2 id="phase8-heading">Veerandfinalistid (<span aria-label={"#{@left8} valikut jäänud"}><%= @left8 %></span>)</h2>
+            <p class="sr-only" id="phase8-desc">Vali 8 meeskonda veerandfinaali. Saad valida ainult meeskondi, kes on valitud eelmises faasis.</p>
+            <%= for {team_id, team_name, checked} <- @teams8 do %>
+            <% is_disabled = checked != "checked" && @disabled8 == "disabled" %>
+            <div class="checkbox-item">
+                <input
+                        type="checkbox"
+                        id={"team8-#{team_id}"}
+                        phx-click="toggle-team"
+                        phx-value-team={team_id}
+                        phx-value-phase={8}
+                        checked={checked == "checked"}
+                        disabled={is_disabled}
+                        aria-disabled={if is_disabled, do: "true", else: "false"}
+                        aria-describedby="phase8-desc"
+                        aria-label={"#{team_name} - #{if checked == "checked", do: "valitud", else: "pole valitud"}"}
+                />
+                <label class="label-inline" for={"team8-#{team_id}"}><%= team_name %></label>
+            </div>
+            <% end %>
+        </section>
+        <hr aria-hidden="true" />
+
+        <section aria-labelledby="phase4-heading">
+            <h2 id="phase4-heading">Poolfinalistid (<span aria-label={"#{@left4} valikut jäänud"}><%= @left4 %></span>)</h2>
+            <p class="sr-only" id="phase4-desc">Vali 4 meeskonda poolfinaali. Saad valida ainult meeskondi, kes on valitud eelmises faasis.</p>
+            <%= for {team_id, team_name, checked} <- @teams4 do %>
+            <% is_disabled = checked != "checked" && @disabled4 == "disabled" %>
+            <div class="checkbox-item">
+                <input
+                        type="checkbox"
+                        id={"team4-#{team_id}"}
+                        phx-click="toggle-team"
+                        phx-value-team={team_id}
+                        phx-value-phase={4}
+                        checked={checked == "checked"}
+                        disabled={is_disabled}
+                        aria-disabled={if is_disabled, do: "true", else: "false"}
+                        aria-describedby="phase4-desc"
+                        aria-label={"#{team_name} - #{if checked == "checked", do: "valitud", else: "pole valitud"}"}
+                />
+                <label class="label-inline" for={"team4-#{team_id}"}><%= team_name %></label>
+            </div>
+            <% end %>
+        </section>
+        <hr aria-hidden="true" />
+
+        <section aria-labelledby="phase2-heading">
+            <h2 id="phase2-heading">Finalistid (<span aria-label={"#{@left2} valikut jäänud"}><%= @left2 %></span>)</h2>
+            <p class="sr-only" id="phase2-desc">Vali 2 meeskonda finaali. Saad valida ainult meeskondi, kes on valitud eelmises faasis.</p>
+            <%= for {team_id, team_name, checked} <- @teams2 do %>
+            <% is_disabled = checked != "checked" && @disabled2 == "disabled" %>
+            <div class="checkbox-item">
+                <input
+                        type="checkbox"
+                        id={"team2-#{team_id}"}
+                        phx-click="toggle-team"
+                        phx-value-team={team_id}
+                        phx-value-phase={2}
+                        checked={checked == "checked"}
+                        disabled={is_disabled}
+                        aria-disabled={if is_disabled, do: "true", else: "false"}
+                        aria-describedby="phase2-desc"
+                        aria-label={"#{team_name} - #{if checked == "checked", do: "valitud", else: "pole valitud"}"}
+                />
+                <label class="label-inline" for={"team2-#{team_id}"}><%= team_name %></label>
+            </div>
+            <% end %>
+        </section>
+        <hr aria-hidden="true" />
+
+        <section aria-labelledby="phase1-heading">
+            <h2 id="phase1-heading">Võitja (<span aria-label={"#{@left1} valikut jäänud"}><%= @left1 %></span>)</h2>
+            <p class="sr-only" id="phase1-desc">Vali turniiri võitja. Saad valida ainult meeskondi, kes on valitud finalistidena.</p>
+            <%= for {team_id, team_name, checked} <- @teams1 do %>
+            <% is_disabled = checked != "checked" && @disabled1 == "disabled" %>
+            <div class="checkbox-item">
+                <input
+                        type="checkbox"
+                        id={"team1-#{team_id}"}
+                        phx-click="toggle-team"
+                        phx-value-team={team_id}
+                        phx-value-phase={1}
+                        checked={checked == "checked"}
+                        disabled={is_disabled}
+                        aria-disabled={if is_disabled, do: "true", else: "false"}
+                        aria-describedby="phase1-desc"
+                        aria-label={"#{team_name} - #{if checked == "checked", do: "valitud", else: "pole valitud"}"}
+                />
+                <label class="label-inline" for={"team1-#{team_id}"}><%= team_name %></label>
+            </div>
+            <% end %>
+        </section>
+
+        <nav class="back-button-container" aria-label="Navigeerimine">
+            <.link navigate={Routes.user_prediction_navigate_path(@socket, :navigate)} class={"button button-large #{@predictions_done} button-main"} aria-label="Tagasi ennustuste navigeerimise juurde">Tagasi</.link>
+        </nav>
+    </div>
+</main>

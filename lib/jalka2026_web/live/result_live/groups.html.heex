@@ -1,0 +1,16 @@
+<main role="main" class="container">
+    <h1>Lisa tulemus</h1>
+    <div class="container">
+        <.form :let={f} for={%{}} as={:result} action="#" phx-submit="save">
+            <fieldset>
+                <%= label f, :game_id %>
+                <%= text_input f, :game_id %>
+                <%= label f, :home_score %>
+                <%= text_input f, :home_score %>
+                <%= label f, :away_score %>
+                <%= text_input f, :away_score %>
+            </fieldset>
+            <button type="submit" phx-disable-with="Saving...">Save</button>
+        </.form>
+    </div>
+</main>

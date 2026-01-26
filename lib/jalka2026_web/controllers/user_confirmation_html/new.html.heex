@@ -1,0 +1,15 @@
+<h1>Meili juhised uuesti</h1>
+
+<.form :let={f} for={%{}} as={:user} action={Routes.user_confirmation_path(@conn, :create)}>
+  <%= label f, :email %>
+  <%= email_input f, :email, required: true %>
+
+  <div>
+    <%= submit "Meili juhised uuesti" %>
+  </div>
+</.form>
+
+<p>
+  <%= link "Registreeri", to: Routes.user_registration_new_path(@conn, :new) %> |
+  <%= link "Sisene", to: Routes.user_session_path(@conn, :new) %>
+</p>
