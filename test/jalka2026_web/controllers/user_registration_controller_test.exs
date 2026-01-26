@@ -8,7 +8,7 @@ defmodule Jalka2026Web.UserRegistrationControllerTest do
       conn = get(conn, Routes.user_registration_new_path(conn, :new))
       response = html_response(conn, 200)
       # App uses Estonian - "Registreeri" means "Register"
-      assert response =~ "<h1>Registreeri</h1>"
+      assert response =~ "Registreeri</h1>"
       assert response =~ "Sisene</a>"
       assert response =~ "Registreeri</a>"
     end

@@ -3,6 +3,7 @@ defmodule Jalka2026Web.UserAuth do
   import Phoenix.Controller
 
   alias Jalka2026.Accounts
+  alias Jalka2026.Accounts.User
   alias Jalka2026Web.Router.Helpers, as: Routes
 
   # Make the remember me cookie valid for 60 days.
@@ -169,5 +170,21 @@ defmodule Jalka2026Web.UserAuth do
 
   defp predictions_open?(deadline) do
     DateTime.compare(DateTime.utc_now(), deadline) == :lt
+  end
+
+  @doc """
+  Used for routes that require the user to be an admin.
+  """
+  def require_admin(conn, _opts) do
+    user = conn.assigns[:current_user]
+
+    if User.admin?(user) do
+      conn
+    else
+      conn
+      |> put_flash(:error, "Sellele lehele ligipääs on keelatud")
+      |> redirect(to: "/")
+      |> halt()
+    end
   end
 end

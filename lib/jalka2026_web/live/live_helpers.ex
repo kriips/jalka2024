@@ -23,6 +23,38 @@ defmodule Jalka2026Web.LiveHelpers do
   end
 
   @doc """
+  Assigns defaults and requires admin role.
+  Redirects non-admin users to the home page.
+  """
+  def assign_admin_defaults(session, socket) do
+    socket = assign_defaults(session, socket)
+
+    case socket.assigns.current_user do
+      %User{} = user ->
+        if User.admin?(user) do
+          socket
+        else
+          socket
+          |> put_flash(:error, "Sellele lehele ligipääs on keelatud")
+          |> redirect(to: "/")
+        end
+
+      _other ->
+        socket
+    end
+  end
+
+  @doc """
+  Checks if the current user is an admin.
+  """
+  def admin?(socket) do
+    case socket.assigns[:current_user] do
+      %User{} = user -> User.admin?(user)
+      _ -> false
+    end
+  end
+
+  @doc """
   Checks if predictions are still open (before the tournament deadline).
   Returns true if predictions can still be made, false if the deadline has passed.
   """

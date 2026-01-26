@@ -10,9 +10,16 @@ defmodule Jalka2026.Accounts.User do
     field(:password, :string, virtual: true)
     field(:hashed_password, :string)
     field(:confirmed_at, :naive_datetime)
+    field(:is_admin, :boolean, default: false)
 
     timestamps()
   end
+
+  @doc """
+  Checks if a user is an admin.
+  """
+  def admin?(%__MODULE__{is_admin: is_admin}), do: is_admin == true
+  def admin?(_), do: false
 
   @doc """
   A user changeset for registration.

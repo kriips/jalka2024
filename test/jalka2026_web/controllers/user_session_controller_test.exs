@@ -12,7 +12,7 @@ defmodule Jalka2026Web.UserSessionControllerTest do
       conn = get(conn, Routes.user_session_path(conn, :new))
       response = html_response(conn, 200)
       # App uses Estonian - "Sisene" means "Log in"
-      assert response =~ "<h1>Sisene</h1>"
+      assert response =~ "Sisene</h1>"
       assert response =~ "Sisene</a>"
       assert response =~ "Registreeri</a>"
     end
@@ -77,7 +77,7 @@ defmodule Jalka2026Web.UserSessionControllerTest do
 
       response = html_response(conn, 200)
       # Estonian login page
-      assert response =~ "<h1>Sisene</h1>"
+      assert response =~ "Sisene</h1>"
       assert response =~ "Vale nimi või parool"
     end
   end

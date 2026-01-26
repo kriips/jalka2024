@@ -66,11 +66,23 @@ defmodule Jalka2026Web.Router do
   scope "/", Jalka2026Web do
     pipe_through([:browser, :require_authenticated_user])
 
-    live("/football/result/group", ResultLive.Groups, :create)
-    live("/football/result/playoff", ResultLive.Playoff, :create)
     get("/users/settings", UserSettingsController, :edit)
     put("/users/settings", UserSettingsController, :update)
     get("/users/settings/confirm_email/:token", UserSettingsController, :confirm_email)
+  end
+
+  # Admin routes - require authentication AND admin role
+  scope "/admin", Jalka2026Web do
+    pipe_through([:browser, :require_authenticated_user, :require_admin])
+
+    live("/", AdminLive.Dashboard, :index)
+    live("/results/:type", AdminLive.Results, :index)
+    live("/users", AdminLive.Users, :index)
+    live("/predictions", AdminLive.Predictions, :index)
+
+    # Keep old result routes protected by admin now
+    live("/result/group", ResultLive.Groups, :create)
+    live("/result/playoff", ResultLive.Playoff, :create)
   end
 
   # Prediction routes - require authentication AND predictions to be open

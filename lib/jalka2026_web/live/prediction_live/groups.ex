@@ -4,6 +4,8 @@ defmodule Jalka2026Web.UserPredictionLive.Groups do
   alias Jalka2026Web.Resolvers.FootballResolver
   alias Jalka2026.Football.{Match}
 
+  @groups ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
+
   @impl true
   def mount(params, session, socket) do
     group = Map.get(params, "group")
@@ -17,8 +19,57 @@ defmodule Jalka2026Web.UserPredictionLive.Groups do
      assign(socket,
        group: group,
        predictions: predictions,
-       predictions_done: predictions_done_count(predictions)
+       predictions_done: predictions_done_count(predictions),
+       focused_match_index: 0,
+       focused_side: "home",
+       prev_group: get_prev_group(group),
+       next_group: get_next_group(group)
      )}
+  end
+
+  defp get_prev_group(group) do
+    case Enum.find_index(@groups, &(&1 == group)) do
+      nil -> nil
+      0 -> nil
+      index -> Enum.at(@groups, index - 1)
+    end
+  end
+
+  defp get_next_group(group) do
+    case Enum.find_index(@groups, &(&1 == group)) do
+      nil -> nil
+      index when index == length(@groups) - 1 -> nil
+      index -> Enum.at(@groups, index + 1)
+    end
+  end
+
+  @impl true
+  def handle_event("keydown", %{"key" => key} = params, socket) do
+    match_id = params["match-id"]
+    side = params["side"]
+    home_score = params["home-score"]
+    away_score = params["away-score"]
+
+    case key do
+      "ArrowUp" ->
+        handle_event("inc-score", %{
+          "match" => match_id,
+          "side" => side,
+          "home-score" => home_score,
+          "away-score" => away_score
+        }, socket)
+
+      "ArrowDown" ->
+        handle_event("dec-score", %{
+          "match" => match_id,
+          "side" => side,
+          "home-score" => home_score,
+          "away-score" => away_score
+        }, socket)
+
+      _ ->
+        {:noreply, socket}
+    end
   end
 
   @impl true

