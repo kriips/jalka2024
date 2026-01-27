@@ -5,7 +5,7 @@ defmodule Jalka2026.Football do
 
   import Ecto.Query, warn: false
   alias Jalka2026.Repo
-  alias Jalka2026.Football.{Match, GroupPrediction, PlayoffPrediction, Team, PlayoffResult}
+  alias Jalka2026.Football.{Match, GroupPrediction, PlayoffPrediction, Team, PlayoffResult, HistoricalMatch}
   alias Jalka2026Web.Resolvers.FootballResolver
 
   ## Database getters
@@ -189,5 +189,180 @@ defmodule Jalka2026.Football do
 
   def remove_playoff_prediction(%{user_id: user_id, team_id: team_id, phase: phase}) do
     delete_playoff_predictions_by_user_team(user_id, team_id, phase)
+  end
+
+  ## Historical Matchup Data
+
+  @doc """
+  Get all historical matches between two teams (by team code).
+  Returns matches where either team was home or away.
+  """
+  def get_historical_matchup(team1_code, team2_code) do
+    query =
+      from(hm in HistoricalMatch,
+        where:
+          (hm.home_team_code == ^team1_code and hm.away_team_code == ^team2_code) or
+            (hm.home_team_code == ^team2_code and hm.away_team_code == ^team1_code),
+        order_by: [desc: hm.date]
+      )
+
+    Repo.all(query)
+  end
+
+  @doc """
+  Get all World Cup matches between two teams.
+  """
+  def get_world_cup_matchup(team1_code, team2_code) do
+    query =
+      from(hm in HistoricalMatch,
+        where:
+          hm.is_world_cup == true and
+            ((hm.home_team_code == ^team1_code and hm.away_team_code == ^team2_code) or
+               (hm.home_team_code == ^team2_code and hm.away_team_code == ^team1_code)),
+        order_by: [desc: hm.date]
+      )
+
+    Repo.all(query)
+  end
+
+  @doc """
+  Get historical statistics between two teams.
+  Returns a map with wins, draws, losses, goals for/against for team1.
+  """
+  def get_historical_stats(team1_code, team2_code) do
+    matches = get_historical_matchup(team1_code, team2_code)
+
+    initial = %{
+      total_matches: 0,
+      team1_wins: 0,
+      team2_wins: 0,
+      draws: 0,
+      team1_goals: 0,
+      team2_goals: 0
+    }
+
+    Enum.reduce(matches, initial, fn match, acc ->
+      {team1_goals, team2_goals} =
+        if match.home_team_code == team1_code do
+          {match.home_score, match.away_score}
+        else
+          {match.away_score, match.home_score}
+        end
+
+      win_status =
+        cond do
+          team1_goals > team2_goals -> :team1_win
+          team2_goals > team1_goals -> :team2_win
+          true -> :draw
+        end
+
+      %{
+        acc
+        | total_matches: acc.total_matches + 1,
+          team1_wins: acc.team1_wins + if(win_status == :team1_win, do: 1, else: 0),
+          team2_wins: acc.team2_wins + if(win_status == :team2_win, do: 1, else: 0),
+          draws: acc.draws + if(win_status == :draw, do: 1, else: 0),
+          team1_goals: acc.team1_goals + team1_goals,
+          team2_goals: acc.team2_goals + team2_goals
+      }
+    end)
+  end
+
+  @doc """
+  Get recent form - last N matches for a team.
+  """
+  def get_team_recent_form(team_code, limit \\ 5) do
+    query =
+      from(hm in HistoricalMatch,
+        where: hm.home_team_code == ^team_code or hm.away_team_code == ^team_code,
+        order_by: [desc: hm.date],
+        limit: ^limit
+      )
+
+    matches = Repo.all(query)
+
+    Enum.map(matches, fn match ->
+      {goals_for, goals_against, opponent_code, opponent_name, is_home} =
+        if match.home_team_code == team_code do
+          {match.home_score, match.away_score, match.away_team_code, match.away_team_name, true}
+        else
+          {match.away_score, match.home_score, match.home_team_code, match.home_team_name, false}
+        end
+
+      result =
+        cond do
+          goals_for > goals_against -> "W"
+          goals_against > goals_for -> "L"
+          true -> "D"
+        end
+
+      %{
+        date: match.date,
+        opponent_code: opponent_code,
+        opponent_name: opponent_name,
+        goals_for: goals_for,
+        goals_against: goals_against,
+        result: result,
+        is_home: is_home,
+        competition: match.competition
+      }
+    end)
+  end
+
+  @doc """
+  Get all World Cup matches for a team (historical World Cup record).
+  """
+  def get_team_world_cup_history(team_code) do
+    query =
+      from(hm in HistoricalMatch,
+        where:
+          hm.is_world_cup == true and
+            (hm.home_team_code == ^team_code or hm.away_team_code == ^team_code),
+        order_by: [desc: hm.date]
+      )
+
+    Repo.all(query)
+  end
+
+  @doc """
+  Get World Cup statistics for a team.
+  """
+  def get_team_world_cup_stats(team_code) do
+    matches = get_team_world_cup_history(team_code)
+
+    initial = %{
+      matches_played: 0,
+      wins: 0,
+      draws: 0,
+      losses: 0,
+      goals_for: 0,
+      goals_against: 0
+    }
+
+    Enum.reduce(matches, initial, fn match, acc ->
+      {goals_for, goals_against} =
+        if match.home_team_code == team_code do
+          {match.home_score, match.away_score}
+        else
+          {match.away_score, match.home_score}
+        end
+
+      result =
+        cond do
+          goals_for > goals_against -> :win
+          goals_against > goals_for -> :loss
+          true -> :draw
+        end
+
+      %{
+        acc
+        | matches_played: acc.matches_played + 1,
+          wins: acc.wins + if(result == :win, do: 1, else: 0),
+          draws: acc.draws + if(result == :draw, do: 1, else: 0),
+          losses: acc.losses + if(result == :loss, do: 1, else: 0),
+          goals_for: acc.goals_for + goals_for,
+          goals_against: acc.goals_against + goals_against
+      }
+    end)
   end
 end

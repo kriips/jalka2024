@@ -1,0 +1,296 @@
+<main role="main" class="container" aria-label="Mängu simulatsioon">
+    <div class="prediction-page-header">
+        <h1 id="page-title">Mängu simulatsioon</h1>
+        <p class="page-subtitle">Monte Carlo simulatsioon tulemuse ennustamiseks</p>
+    </div>
+
+    <div class="container" id="main-content">
+        <!-- Team Selection -->
+        <div class="section-card">
+            <div class="section-card-header">
+                <h2 class="section-card-title">Vali meeskonnad</h2>
+            </div>
+
+            <div class="team-selection-grid">
+                <div class="team-select-column">
+                    <label class="select-label">Koduvõistkond</label>
+                    <div class="team-select-buttons">
+                        <%= for team <- @teams do %>
+                            <button
+                                type="button"
+                                class={"team-select-btn #{if @team1 && @team1.code == team.code, do: "active", else: ""}"}
+                                phx-click="select_team1"
+                                phx-value-team={team.code}
+                                disabled={@team2 && @team2.code == team.code}
+                            >
+                                <span class="team-flag"><%= team.flag %></span>
+                                <span class="team-code"><%= team.code %></span>
+                            </button>
+                        <% end %>
+                    </div>
+                    <%= if @team1 do %>
+                        <div class="selected-team-display">
+                            <span class="team-flag-large"><%= @team1.flag %></span>
+                            <span class="team-name-large"><%= @team1.name %></span>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div class="vs-divider">VS</div>
+
+                <div class="team-select-column">
+                    <label class="select-label">Külalisvõistkond</label>
+                    <div class="team-select-buttons">
+                        <%= for team <- @teams do %>
+                            <button
+                                type="button"
+                                class={"team-select-btn #{if @team2 && @team2.code == team.code, do: "active", else: ""}"}
+                                phx-click="select_team2"
+                                phx-value-team={team.code}
+                                disabled={@team1 && @team1.code == team.code}
+                            >
+                                <span class="team-flag"><%= team.flag %></span>
+                                <span class="team-code"><%= team.code %></span>
+                            </button>
+                        <% end %>
+                    </div>
+                    <%= if @team2 do %>
+                        <div class="selected-team-display">
+                            <span class="team-flag-large"><%= @team2.flag %></span>
+                            <span class="team-name-large"><%= @team2.name %></span>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="selection-actions">
+                <button
+                    type="button"
+                    class="button button-main"
+                    phx-click="simulate"
+                    disabled={!@team1 || !@team2 || @team1.code == @team2.code || @simulating}
+                >
+                    <%= if @simulating do %>
+                        Simuleerib...
+                    <% else %>
+                        Käivita simulatsioon
+                    <% end %>
+                </button>
+                <button type="button" class="button button-outline" phx-click="clear">
+                    Tühjenda
+                </button>
+            </div>
+        </div>
+
+        <%= if @simulating do %>
+            <div class="section-card">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Käivitatakse <%= @num_simulations %> simulatsiooni...</p>
+                </div>
+            </div>
+        <% end %>
+
+        <%= if @simulation_results && @team1 && @team2 do %>
+            <!-- Main Results -->
+            <div class="section-card">
+                <div class="section-card-header">
+                    <h2 class="section-card-title">Simulatsiooni tulemused</h2>
+                    <span class="section-card-subtitle"><%= @simulation_results.simulations %> simulatsiooni</span>
+                </div>
+
+                <div class="simulation-outcome-grid">
+                    <div class="outcome-card team1-win">
+                        <span class="outcome-team"><%= @team1.name %> võidab</span>
+                        <span class="outcome-percentage"><%= format_percentage(@simulation_results.home_win_pct) %>%</span>
+                        <div class="outcome-bar">
+                            <div class="outcome-bar-fill team1" style={"width: #{@simulation_results.home_win_pct}%"}></div>
+                        </div>
+                    </div>
+                    <div class="outcome-card draw">
+                        <span class="outcome-team">Viik</span>
+                        <span class="outcome-percentage"><%= format_percentage(@simulation_results.draw_pct) %>%</span>
+                        <div class="outcome-bar">
+                            <div class="outcome-bar-fill draw" style={"width: #{@simulation_results.draw_pct}%"}></div>
+                        </div>
+                    </div>
+                    <div class="outcome-card team2-win">
+                        <span class="outcome-team"><%= @team2.name %> võidab</span>
+                        <span class="outcome-percentage"><%= format_percentage(@simulation_results.away_win_pct) %>%</span>
+                        <div class="outcome-bar">
+                            <div class="outcome-bar-fill team2" style={"width: #{@simulation_results.away_win_pct}%"}></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="avg-goals-display">
+                    <span class="avg-goals-item">
+                        <span class="avg-goals-label"><%= @team1.name %> keskmine:</span>
+                        <span class="avg-goals-value"><%= @simulation_results.avg_home_goals %> väravat</span>
+                    </span>
+                    <span class="avg-goals-divider">|</span>
+                    <span class="avg-goals-item">
+                        <span class="avg-goals-label"><%= @team2.name %> keskmine:</span>
+                        <span class="avg-goals-value"><%= @simulation_results.avg_away_goals %> väravat</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Most Likely Scores -->
+            <div class="section-card">
+                <div class="section-card-header">
+                    <h2 class="section-card-title">Tõenäolisemad tulemused</h2>
+                </div>
+
+                <div class="likely-scores-grid">
+                    <%= for {score, idx} <- Enum.with_index(@simulation_results.most_likely_scores) do %>
+                        <div class={"likely-score-card #{if idx == 0, do: "most-likely", else: ""}"}>
+                            <span class="likely-score-rank">#<%= idx + 1 %></span>
+                            <span class="likely-score-value"><%= score.home_score %> - <%= score.away_score %></span>
+                            <span class="likely-score-percentage"><%= format_percentage(score.percentage) %>%</span>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <!-- Score Probability Matrix -->
+            <div class="section-card">
+                <div class="section-card-header">
+                    <h2 class="section-card-title">Tulemuste tõenäosuste maatriks</h2>
+                    <span class="section-card-subtitle"><%= @team1.name %> väravad (horisontaalselt) vs <%= @team2.name %> väravad (vertikaalselt)</span>
+                </div>
+
+                <div class="score-matrix-container">
+                    <table class="score-matrix" role="table" aria-label="Tulemuste tõenäosuste maatriks">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="matrix-corner"><%= @team1.code %> \ <%= @team2.code %></th>
+                                <%= for i <- 0..5 do %>
+                                    <th scope="col" class="matrix-header"><%= i %></th>
+                                <% end %>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%= for {row, away_goals} <- Enum.with_index(@simulation_results.score_matrix) do %>
+                                <tr>
+                                    <th scope="row" class="matrix-row-header"><%= away_goals %></th>
+                                    <%= for cell <- row do %>
+                                        <td class={"matrix-cell #{probability_color(cell.percentage)}"} title={"#{cell.home_goals}-#{cell.away_goals}: #{cell.percentage}%"}>
+                                            <%= if cell.percentage > 0 do %>
+                                                <%= format_percentage(cell.percentage) %>%
+                                            <% else %>
+                                                -
+                                            <% end %>
+                                        </td>
+                                    <% end %>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="matrix-legend">
+                    <span class="legend-item"><span class="legend-color probability-high"></span> &ge;10%</span>
+                    <span class="legend-item"><span class="legend-color probability-medium"></span> 5-10%</span>
+                    <span class="legend-item"><span class="legend-color probability-low"></span> 2-5%</span>
+                    <span class="legend-item"><span class="legend-color probability-minimal"></span> &lt;2%</span>
+                </div>
+            </div>
+
+            <!-- Team Strength Breakdown -->
+            <div class="section-card">
+                <div class="section-card-header">
+                    <h2 class="section-card-title">Meeskondade tugevuse analüüs</h2>
+                </div>
+
+                <div class="strength-breakdown-grid">
+                    <!-- Team 1 Breakdown -->
+                    <div class="strength-card">
+                        <h3 class="strength-team-name"><%= @team1.flag %> <%= @team1.name %></h3>
+                        <div class="overall-strength">
+                            <span class="overall-label">Üldine tugevus:</span>
+                            <span class={"overall-value #{strength_color(@team1_breakdown.overall)}"}><%= @team1_breakdown.overall %></span>
+                        </div>
+                        <div class="strength-factors">
+                            <div class="strength-factor">
+                                <span class="factor-label">Hiljutine vorm</span>
+                                <span class="factor-weight">(<%= @team1_breakdown.form.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team1_breakdown.form.value)}"}><%= @team1_breakdown.form.value %></span>
+                            </div>
+                            <div class="strength-factor">
+                                <span class="factor-label">Omavaheline ajalugu</span>
+                                <span class="factor-weight">(<%= @team1_breakdown.h2h.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team1_breakdown.h2h.value)}"}><%= @team1_breakdown.h2h.value %></span>
+                            </div>
+                            <div class="strength-factor">
+                                <span class="factor-label">MM-ajalugu</span>
+                                <span class="factor-weight">(<%= @team1_breakdown.world_cup.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team1_breakdown.world_cup.value)}"}><%= @team1_breakdown.world_cup.value %></span>
+                            </div>
+                            <div class="strength-factor">
+                                <span class="factor-label">Baastugevus</span>
+                                <span class="factor-weight">(<%= @team1_breakdown.base.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team1_breakdown.base.value)}"}><%= @team1_breakdown.base.value %></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team 2 Breakdown -->
+                    <div class="strength-card">
+                        <h3 class="strength-team-name"><%= @team2.flag %> <%= @team2.name %></h3>
+                        <div class="overall-strength">
+                            <span class="overall-label">Üldine tugevus:</span>
+                            <span class={"overall-value #{strength_color(@team2_breakdown.overall)}"}><%= @team2_breakdown.overall %></span>
+                        </div>
+                        <div class="strength-factors">
+                            <div class="strength-factor">
+                                <span class="factor-label">Hiljutine vorm</span>
+                                <span class="factor-weight">(<%= @team2_breakdown.form.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team2_breakdown.form.value)}"}><%= @team2_breakdown.form.value %></span>
+                            </div>
+                            <div class="strength-factor">
+                                <span class="factor-label">Omavaheline ajalugu</span>
+                                <span class="factor-weight">(<%= @team2_breakdown.h2h.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team2_breakdown.h2h.value)}"}><%= @team2_breakdown.h2h.value %></span>
+                            </div>
+                            <div class="strength-factor">
+                                <span class="factor-label">MM-ajalugu</span>
+                                <span class="factor-weight">(<%= @team2_breakdown.world_cup.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team2_breakdown.world_cup.value)}"}><%= @team2_breakdown.world_cup.value %></span>
+                            </div>
+                            <div class="strength-factor">
+                                <span class="factor-label">Baastugevus</span>
+                                <span class="factor-weight">(<%= @team2_breakdown.base.weight * 100 %>%)</span>
+                                <span class={"factor-value #{strength_color(@team2_breakdown.base.value)}"}><%= @team2_breakdown.base.value %></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simulation-methodology">
+                    <details>
+                        <summary>Kuidas simulatsioon töötab?</summary>
+                        <div class="methodology-content">
+                            <p>Simulatsioon kasutab <strong>Monte Carlo meetodit</strong> ja <strong>Poissoni jaotust</strong> väravate ennustamiseks:</p>
+                            <ul>
+                                <li><strong>Meeskonna tugevus</strong> arvutatakse hiljutise vormi (30%), MM-ajaloo (30%), omavahelise ajaloo (20%) ja baastugevuse (20%) põhjal</li>
+                                <li><strong>Oodatavad väravad</strong> arvutatakse meeskondade suhtelise tugevuse ja koduväljaku eelise põhjal</li>
+                                <li><strong><%= @num_simulations %> simulatsiooni</strong> käivitatakse, genereerides juhuslikud tulemused Poissoni jaotuse alusel</li>
+                                <li>Tulemused agregeeritakse, et saada võidu, viigi ja kaotuse tõenäosused</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        <% end %>
+
+        <!-- Navigation -->
+        <div class="group-navigation">
+            <div class="group-nav-buttons">
+                <.link navigate={Routes.page_path(@socket, :index)} class="button button-large button-main" aria-label="Tagasi avalehele">
+                    Tagasi
+                </.link>
+            </div>
+        </div>
+    </div>
+</main>

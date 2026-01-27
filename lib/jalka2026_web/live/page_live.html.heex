@@ -72,6 +72,14 @@
                 </div>
                 <span class="nav-card-label">Playoff-mängud</span>
             </.link>
+            <.link navigate={Routes.football_group_scenarios_path(@socket, :view)} class="nav-card" aria-label="Vaata edasipääsustsenaariume">
+                <div class="nav-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 2.1h-15V5h15v14.1zm0-16.1h-15c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                </div>
+                <span class="nav-card-label">Stsenaariumid</span>
+            </.link>
             <.link navigate={Routes.user_prediction_navigate_path(@socket, :navigate)} class="nav-card" aria-label="Ennusta tulemusi">
                 <div class="nav-card-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

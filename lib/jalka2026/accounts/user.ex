@@ -40,9 +40,10 @@ defmodule Jalka2026.Accounts.User do
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:name, :password])
+    |> cast(attrs, [:name, :password, :email])
     |> validate_name()
     |> validate_password(opts)
+    |> validate_optional_email()
   end
 
   @doc false
@@ -68,6 +69,19 @@ defmodule Jalka2026.Accounts.User do
     |> validate_length(:email, max: 160)
     |> unsafe_validate_unique(:email, Jalka2026.Repo)
     |> unique_constraint(:email)
+  end
+
+  defp validate_optional_email(changeset) do
+    case get_change(changeset, :email) do
+      nil -> changeset
+      "" -> changeset
+      _email ->
+        changeset
+        |> validate_format(:email, ~r/^[^\s]+@[^\s]+$/, message: "peab sisaldama @ märki ja mitte tühikuid")
+        |> validate_length(:email, max: 160)
+        |> unsafe_validate_unique(:email, Jalka2026.Repo)
+        |> unique_constraint(:email)
+    end
   end
 
   defp validate_password(changeset, opts) do

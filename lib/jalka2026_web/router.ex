@@ -23,6 +23,9 @@ defmodule Jalka2026Web.Router do
     live("/football/games/:id", FootballLive.Game, :view)
     live("/football/games", FootballLive.Games, :view)
     live("/football/playoffs", FootballLive.Playoffs, :view)
+    live("/football/scenarios", FootballLive.GroupScenarios, :view)
+    live("/football/scenarios/:group", FootballLive.GroupScenarios, :view)
+    live("/football/simulate", FootballLive.MatchSimulation, :view)
     live("/football/user/:id", FootballLive.User, :view)
     live("/", PageLive, :index)
   end
